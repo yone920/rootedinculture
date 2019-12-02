@@ -1,6 +1,8 @@
 import React from 'react'
-import Layout from '../components/layout'
+import { Link } from "gatsby"
 import { StaticQuery, graphql } from 'gatsby'
+import Layout from "../components/layout"
+
 
 
 const POST_ARCHIVE_QUERY = graphql`
@@ -22,24 +24,26 @@ const POST_ARCHIVE_QUERY = graphql`
 `
 
 
-export default function archive() {
-    <StaticQuery 
-        query = {POST_ARCHIVE_QUERY}
-        render={({allMarkdownRemark}) => (
-            <>
-                <aside>
-                    <h3>Archive</h3>
-                    <ul>
-                        {allMarkdownRemark.edge.map(edge => (
-                            <li key={edge.node.frontmatter.slug}>
-                                {edge.node.frontmatter.title}
-                            </li>
-                        ))}
-                    </ul>
-                </aside>
-            </>
-        )}
-        />
-
-        }
-
+const Archive = () => (
+    <StaticQuery
+      query={POST_ARCHIVE_QUERY}
+      render={({allMarkdownRemark}) => (
+        <Layout>
+          <aside>
+            <h3>Archive</h3>
+            <ul>
+              {allMarkdownRemark.edges.map(edge => (
+                <li key={edge.node.frontmatter.slug}>
+                  <Link to={`./posts${edge.node.frontmatter.slug}`}>
+                    {edge.node.frontmatter.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </aside>
+        </Layout>
+      )}
+    />
+  )
+  
+  export default Archive

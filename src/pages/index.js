@@ -1,32 +1,41 @@
 import React from "react"
 import { Link } from "gatsby"
+import PropTypes from "prop-types"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
+import "../stylesheet/main.scss"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <br/>
-    <Link to="/about">Go back to About Us</Link>
-    <br/>
-    <Link to="/catering">Go back to the Catering page</Link>
-    <br/>
-    <Link to="/flower">Go back to the Flower page</Link>
-    <br/>
-    <Link to="/blog">Go back to the Blog page</Link>
-    <br/>
-    <Link to="/blog">Go back to the contact page</Link>
+const IndexPage = (props) => {
 
+useStaticQuery(graphql`
+  query PageDataQuery {
+    allMarkdownRemark {
+      edges {
+        node {
+          excerpt
+          frontmatter {
+            slug
+            title
+            date
+          }
+        }
+      }
+    }
+  }
+`)
 
-  </Layout>
-)
+  return (
+      <Layout>
+        <SEO title="Home" />
+        <h1>Hi people</h1>
+        <p>Welcome to your new Gatsby site.</p>
+        <p>Now go build something great.</p>
+        <Link to="/archive">Go to the Archive Page</Link>
+        {/* {console.log(props.data.allMarkdownRemark)} */}
+      </Layout>
+    )
+  }
 
 export default IndexPage

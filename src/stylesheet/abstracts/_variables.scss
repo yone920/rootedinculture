@@ -1,12 +1,19 @@
 $primary-color: #404C07;
 $secondary-color: #D34C01;
 
+$black: #000;
+$white: #fff;
 
 //AccentColor
 $vivid-range-eel: #EAA001;
 $crimson-glory: #BF002B;
 $dark-scarlet: #580C1F;
 
-
 // $primary-color-light: darken( $primary-color, 20% );
 // $secondary-color-light: lighten( $secondary-color, 15% );
+
+//typography
+$font-black: #000;
+$default-font-size: 1.6rem;
+
+$light-grey: lighten($black, 20%)

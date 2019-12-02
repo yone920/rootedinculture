@@ -17,12 +17,9 @@ html {
     @include respond(tab-port) {
         font-size: 50%; // 1 rem = 8px, 8/16 = 50%;
     }
-
-
-
 }
 
 body {
         box-sizing: border-box;
-        font-size: $default-font-size;    
+        font-size: $default-font-size;   
 }

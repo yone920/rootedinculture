@@ -12,3 +12,20 @@
             @media (min-width: 112.5em ) { @content }; // 1800px
     }
 }
+
+@mixin menuLink {
+        margin-right: 3rem;
+        text-transform: uppercase;
+        text-decoration: none;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+        font-size: $default-font-size;
+        border: none;
+        cursor: pointer;
+        color: $white;
+        // margin-right: 5rem;
+        justify-content: space-between;
+        letter-spacing: .2rem;
+}

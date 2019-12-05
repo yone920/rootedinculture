@@ -1,10 +1,10 @@
 ---
-slug: "/second-post"
-date: "2019-12-01"
-title: "Second Post"
+slug: "/fourth-post"
+date: "2019-12-02"
+title: "Fourth Post"
 ---
 
-#Second Post
+#Fourth Post
 
 Lorem ipsum dolor amet blog narwhal messenger bag, bitters godard 8-bit succulents direct trade lo-fi shaman. Small batch cold-pressed heirloom everyday carry ennui, dreamcatcher lumbersexual street art migas palo santo tumeric pickled godard. Put a bird on it yuccie blue bottle food truck. Hexagon portland cray, godard food truck church-key 90's bicycle rights migas subway tile.
 

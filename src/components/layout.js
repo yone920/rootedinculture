@@ -1,13 +1,11 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
 
 import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from 'styled-components'
+import { ThemeProvider } from 'styled-components'
+
+import * as theme from '../config/theme'
 
 import Header from "./header"
 // import "./layout.scss"
@@ -24,22 +22,38 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const Wrapper = styled.div`
+    min-height: calc(100vh - 50px);
+    display: grid;
+    grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
+    grid-template-rows: min-content  min-content;
+  `
+
+  const Footer = styled.div`
+    text-align: center;
+    background-color: #000;
+  `
+  
+  const Main = styled.main`
+    grid-column: full-start / full-end;
+  `
+  
   return (
     <Fragment>
-      <div id="wrapper">
-        
+        <Wrapper>
           <Header siteTitle={data.site.siteMetadata.nab} />
-       
-        <main id="main">
-          {children}
-        </main>
-      </div>
-      <footer id="footer">
-        © {new Date().getFullYear()},
-        {` `}
-        <a href="http://www.yonedesign.com">YoneDesign</a>
-      </footer>
-    </Fragment>
+          <Main>
+            <ThemeProvider theme={theme}>
+              {children}
+            </ThemeProvider>
+          </Main>
+        </Wrapper>
+        <Footer>
+          © {new Date().getFullYear()},
+          {` `}
+          <a href="http://www.yonedesign.com">YoneDesign</a>
+        </Footer>
+      </Fragment>
   )
 }
 

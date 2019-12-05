@@ -1,49 +1,33 @@
 import React from 'react'
-import { Link } from "gatsby"
-import { StaticQuery, graphql } from 'gatsby'
+import TitleMenu from '../components/TitleMenu'
 import Layout from "../components/layout"
+import Listing from "../components/Listing"
+import styled from 'styled-components'
 
-
-
-const POST_ARCHIVE_QUERY = graphql`
-  query BlogPostArchive {
-    allMarkdownRemark(limit: 5, sort: {
-    order: DESC,
-    fields: [frontmatter___date]
-  }) {
-      edges {
-        node {
-          frontmatter {
-            title
-            slug
-          }
-        }
-      }
-    }
+const ArchiveWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-gap: 2rem;
+  margin-top: 3.5rem;
+`
+const ListingWrapper = styled.div`
+  grid-column: 1 /  2;
+  display: grid;
+  grid-gap: 3rem;
+  a {
+    text-decoration: none;
   }
 `
 
-
 const Archive = () => (
-    <StaticQuery
-      query={POST_ARCHIVE_QUERY}
-      render={({allMarkdownRemark}) => (
-        <Layout>
-          <aside>
-            <h3>Archive</h3>
-            <ul>
-              {allMarkdownRemark.edges.map(edge => (
-                <li key={edge.node.frontmatter.slug}>
-                  <Link to={`./posts${edge.node.frontmatter.slug}`}>
-                    {edge.node.frontmatter.title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </aside>
-        </Layout>
-      )}
-    />
+    <Layout>
+      <ArchiveWrapper>
+        <ListingWrapper>
+          <Listing />
+        </ListingWrapper>
+        <TitleMenu />
+      </ArchiveWrapper>
+    </Layout>
   )
   
   export default Archive

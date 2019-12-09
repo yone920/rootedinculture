@@ -12,7 +12,7 @@ export const color = {
     accent2: "#BF002B",
     accent3: "#580C1F",
     white: "#fff",
-    black: "#ccc"
+    black: "#000"
 }
 
 export const font = {

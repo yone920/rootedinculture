@@ -69,6 +69,18 @@ const data = useStaticQuery(graphql`
         }
       }
     }
+    dinnerContent: wordpressPage(title: {eq: "Dinner"}) {
+      title
+      content
+    }
+    cateringContent: wordpressPage(title: {eq: "Catering"}) {
+      title
+      content
+    }
+    flowerContent: wordpressPage(title: {eq: "Flower"}) {
+      title
+      content
+    }
 
      images: allFile (filter : { relativeDirectory: { eq: "homepage"} }) {
       nodes {
@@ -170,6 +182,11 @@ const buttonSpan = css`
   font-size: 1.5rem;
 `
 
+const serviceTitle = css`
+  font-size: ${props => props.theme.font.h4FontSize};
+  color: ${props => props.theme.color.white};
+`
+
 /// ======= Featured Services CSS ======== ///
 
 /// =============== Services Section Style ================= ///
@@ -178,6 +195,8 @@ const buttonSpan = css`
   const Services = styled.div`
     grid-column: center-start / center-end;
     
+
+
     .catering-wrapper {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -203,7 +222,7 @@ const buttonSpan = css`
             top: 1rem;
           }
           h4 {
-            font-size: ${props => props.theme.font.h4FontSize};
+            ${serviceTitle}
           }
           p {
             color: ${props => props.theme.color.white};
@@ -238,7 +257,7 @@ const buttonSpan = css`
             top: 1rem;
           }
           h4 {
-            font-size: ${props => props.theme.font.h4FontSize};
+            ${serviceTitle}
           }
           p {
             color: ${props => props.theme.color.white};
@@ -291,7 +310,7 @@ const buttonSpan = css`
             top: 1rem;
           }
           h4 {
-            font-size: ${props => props.theme.font.h4FontSize};
+            ${serviceTitle}
           }
           p {
             color: ${props => props.theme.color.white};
@@ -349,9 +368,8 @@ const buttonSpan = css`
                 <div className="cat-box-1">
                   <div className="cat-box-1-inner">
                     <h6>Rooted In Culture</h6>
-                    <h4>Catering</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis, lectus hendrerit neque leo aliquet sagittis, nec, tristique tortor. Diam eu arcu nunc, potenti. Tellus cursus non ipsum pretium habitasse orci turpis. Quam convallis sit sed lacus. Ullamcorper iaculis sed eu proin erat.
-                    </p>
+                    <h4>{data.cateringContent.title}</h4>
+                    <p>{data.cateringContent.content}</p>
                     <Link to="/catering">
                     <button ><span>Catering</span></button>
                     </Link>
@@ -363,9 +381,8 @@ const buttonSpan = css`
                 <div className="flower-box">
                   <div className="flower-box-inner">
                     <h6>Rooted In Culture</h6>
-                    <h4>Catering</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis, lectus hendrerit neque leo aliquet sagittis, nec, tristique tortor. Diam eu arcu nunc, potenti. Tellus cursus non ipsum pretium habitasse orci turpis. Quam convallis sit sed lacus. Ullamcorper iaculis sed eu proin erat.
-                    </p>
+                    <h4>{data.flowerContent.title}</h4>
+                    <p>{data.flowerContent.content}</p>
                     <Link to="/flower">
                     <button ><span>Flowers</span></button>
                     </Link>
@@ -383,9 +400,8 @@ const buttonSpan = css`
                 <div className="dinner-box">
                   <div className="dinner-box-inner">
                     <h6>Rooted In Culture</h6>
-                    <h4>Catering</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis, lectus hendrerit neque leo aliquet sagittis, nec, tristique tortor. Diam eu arcu nunc, potenti. Tellus cursus non ipsum pretium habitasse orci turpis. Quam convallis sit sed lacus. Ullamcorper iaculis sed eu proin erat.
-                    </p>
+                    <h4>{data.dinnerContent.title}</h4>
+                    <p>{data.dinnerContent.content}</p>
                     <Link to="/dinner">
                     <button ><span>Dinner</span></button>
                     </Link>

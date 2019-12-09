@@ -25,9 +25,9 @@ export const query = graphql`
                 eq: $slug
               }
             }) {
-                  html
+                html
               frontmatter {
-                      title
+                title
                 date
                 slug
               }

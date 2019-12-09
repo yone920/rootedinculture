@@ -224,7 +224,7 @@ const serviceTitle = css`
           h4 {
             ${serviceTitle}
           }
-          p {
+          .catering-content {
             color: ${props => props.theme.color.white};
           }
           button {
@@ -259,7 +259,7 @@ const serviceTitle = css`
           h4 {
             ${serviceTitle}
           }
-          p {
+          flower-content {
             color: ${props => props.theme.color.white};
           }
           button {
@@ -312,7 +312,7 @@ const serviceTitle = css`
           h4 {
             ${serviceTitle}
           }
-          p {
+          .dinner-content {
             color: ${props => props.theme.color.white};
           }
           button {
@@ -369,7 +369,11 @@ const serviceTitle = css`
                   <div className="cat-box-1-inner">
                     <h6>Rooted In Culture</h6>
                     <h4>{data.cateringContent.title}</h4>
-                    <p>{data.cateringContent.content}</p>
+                    <div className="catering-content"
+                      dangerouslySetInnerHTML={{
+                        __html: data.cateringContent.content,
+                      }}
+                    />
                     <Link to="/catering">
                     <button ><span>Catering</span></button>
                     </Link>
@@ -382,7 +386,11 @@ const serviceTitle = css`
                   <div className="flower-box-inner">
                     <h6>Rooted In Culture</h6>
                     <h4>{data.flowerContent.title}</h4>
-                    <p>{data.flowerContent.content}</p>
+                    <div className="flower-content"
+                      dangerouslySetInnerHTML={{
+                        __html: data.cateringContent.content,
+                      }}
+                    />
                     <Link to="/flower">
                     <button ><span>Flowers</span></button>
                     </Link>
@@ -401,7 +409,11 @@ const serviceTitle = css`
                   <div className="dinner-box-inner">
                     <h6>Rooted In Culture</h6>
                     <h4>{data.dinnerContent.title}</h4>
-                    <p>{data.dinnerContent.content}</p>
+                    <div className="dinner-content"
+                      dangerouslySetInnerHTML={{
+                        __html: data.cateringContent.content,
+                      }}
+                    />
                     <Link to="/dinner">
                     <button ><span>Dinner</span></button>
                     </Link>

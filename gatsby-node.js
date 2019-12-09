@@ -6,27 +6,25 @@ exports.createPages = ({ graphql, actions }) => {
     return new Promise ((resolve, reject) => {
         graphql(`
             {
-                allMarkdownRemark {
-                edges {
-                    node {
-                    frontmatter {
+                allWordpressPost {
+                    edges {
+                      node {
                         slug
+                      }
                     }
-                    }
-                }
-                }
+                  }
             }
         `).then(results => {
             if (results.errors)  {
                 console.log(result.errors);
                 reject(result.errors)
             }
-            results.data.allMarkdownRemark.edges.forEach(({node}) => {
+            results.data.allWordpressPost.edges.forEach(({node}) => {
                 createPage ({
-                    path: `/posts${node.frontmatter.slug}`,
+                    path: `/posts${node.slug}`,
                     component: path.resolve('./src/components/postLayout.js'),
                     context: {
-                        slug: node.frontmatter.slug,
+                        slug: node.slug,
                     }
                 })
             })

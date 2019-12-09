@@ -5,18 +5,16 @@ import styled from 'styled-components'
 
 const LISTING_QUERY = graphql`
     query BlogPostListing {
-        allMarkdownRemark(limit: 10, sort: {
+        allWordpressPost(limit: 10, sort: {
         order: DESC,
-        fields: [frontmatter___date]
+        fields: [date]
     }) {
         edges {
             node {
             excerpt
-            frontmatter {
-                date(formatString: "MMMM DD, YYYY")
-                title
-                slug
-            }
+            date(formatString: "MMMM DD, YYYY")
+            title
+            slug 
             }
         }
         }
@@ -38,15 +36,15 @@ const Date = styled.p`
 const Listing = (props) => (
         <StaticQuery 
             query={LISTING_QUERY}
-            render = {({allMarkdownRemark}) => (
-                allMarkdownRemark.edges.map(({node}) => (
-                    <ListWrapper key={node.frontmatter.slug}>
-                        <Link to={`/posts${node.frontmatter.slug}`}>
-                            <Title>{node.frontmatter.title}</Title>
+            render = {({allWordpressPost}) => (
+                allWordpressPost.edges.map(({node}) => (
+                    <ListWrapper key={node.slug}>
+                        <Link to={`/posts${node.slug}`}>
+                            <Title>{node.title}</Title>
                         </Link>
-                        <Date>{node.frontmatter.date}</Date>
+                        <Date>{node.date}</Date>
                         <p>{node.excerpt}</p>
-                        <Link to={`/posts${node.frontmatter.slug}`}>Read More</Link>
+                        <Link to={`/posts${node.slug}`}>Read More</Link>
                     </ListWrapper>
                 ))
             )}

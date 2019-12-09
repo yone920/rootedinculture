@@ -106,10 +106,35 @@ const backgroundFluidImageStack = [
       grid-template-columns: 1fr;
       grid-template-rows: 75vh 10vh;
      .hero-text {
-
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      h1 {
+        color: ${props => props.theme.color.white};
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        left: 17rem;
+        font-size: 6rem;
+        padding-top: 22rem;
+        .hero-rooted {
+          position: relative;
+          top: 6rem;
+        }
+        .hero-in {
+          color: ${props => props.theme.color.black};
+          z-index: 1;
+        }
+        .hero-culture {
+          position: relative;
+          bottom: 12rem;
+          font-size: 12rem;
+        }
+      }
      }
      .hero-down-arrow {
        justify-self: center;
+       cursor: pointer;
      }
     }
   `

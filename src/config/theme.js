@@ -29,3 +29,7 @@ export const padding = {
     h1Padding: "8rem"
 }
 
+export const margin = {
+    pMargin: "3rem"
+}
+

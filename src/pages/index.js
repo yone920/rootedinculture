@@ -17,18 +17,6 @@ const IndexPage = (props) => {
 // =============== Query ================= ///
 const data = useStaticQuery(graphql`
   query PageDataQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          excerpt
-          frontmatter {
-            slug
-            title
-            date
-          }
-        }
-      }
-    }
 
     heroImage: file(relativePath: {
       regex: "/rooted-in-culture-hero/"
@@ -73,9 +61,18 @@ const data = useStaticQuery(graphql`
       title
       content
     }
-    cateringContent: wordpressPage(title: {eq: "Catering"}) {
+    cateringContent: wordpressPage(slug: {eq: "catering-home"}) {
       title
       content
+      featured_media {
+        localFile {
+          childImageSharp {
+            fluid(maxWidth: 1000) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
     }
     flowerContent: wordpressPage(title: {eq: "Flower"}) {
       title
@@ -330,7 +327,8 @@ const serviceTitle = css`
   }
   `
 
-
+ console.log(data)
+ 
 
 
 // =============== Render ================= ///
@@ -353,17 +351,17 @@ const serviceTitle = css`
             </div>
             <div className="hero-down-arrow">
               <Link to="#check">
-                <SvgArrowDown />
-              
+                <SvgArrowDown />  
               </Link>
             </div>
           </BackgroundImage>
+
           <ServicesWrapper id="check">
             <Services>
 
               <div className="catering-wrapper">
                 <div className="cat-image-1">
-                  <Img fluid={data.catering1.childImageSharp.fluid} alt="" />
+                  <Img fluid={data.cateringContent.featured_media.localFile.childImageSharp.fluid} alt="" />
                 </div>
                 <div className="cat-box-1">
                   <div className="cat-box-1-inner">

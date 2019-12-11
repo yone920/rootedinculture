@@ -34,7 +34,7 @@ const About = (props) => {
                 source_url
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1000) {
+                    fluid(maxWidth: 1500) {
                       ...GatsbyImageSharpFluid
                     } 
                   }
@@ -51,7 +51,7 @@ const About = (props) => {
         featured_media {
           localFile {
             childImageSharp {
-              fluid(maxWidth: 1000) {
+              fluid(maxWidth: 1700) {
                 ...GatsbyImageSharpFluid
               }
             }
@@ -145,14 +145,26 @@ const About = (props) => {
         p {
           margin-bottom: ${props => props.theme.margin.pMargin};
         }
-      `
+        `
 
+    const OurTeam = styled.div`
+        grid-column: center-start / center-end;
+        h2 {
+            text-align: center;
+            margin: 8rem 8rem;
+            font-size: ${props => props.theme.font.h2FontSize};
+        }
+    `
 
     const MembersWrapper = styled.div`
-      grid-column: center-start / center-end;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-gap: 2rem;
+      h2 {
+            text-align: center;
+            margin: 8rem 8rem;
+            font-size: ${props => props.theme.font.h2FontSize};
+        }
     `
     const MembersDiv = styled.div`
     
@@ -180,9 +192,12 @@ const About = (props) => {
               }}
             />
           </AboutContent>
-          <MembersWrapper>
-            {mapOverMembers()}
-          </MembersWrapper>
+          <OurTeam>
+            <h2>Our Team</h2>
+            <MembersWrapper>
+              {mapOverMembers()}
+            </MembersWrapper>
+          </OurTeam>
       </AboutContainer>
     </HomeAboutLayout>
     </div>

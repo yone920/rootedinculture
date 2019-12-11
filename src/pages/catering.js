@@ -5,20 +5,13 @@ import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
-
+import Reservation from '../components/reservation'
 
 import HomeAboutLayout from "../components/HomeAboutLayout"
 import SEO from "../components/seo"
 
-
-
-
-
-
 const Catering = (props) => {
   
-
-
   const data = useStaticQuery(graphql`
   query PageCateringData {
     
@@ -48,27 +41,12 @@ const Catering = (props) => {
     }`)
 
 
-    /// ============= Map over Members =============== ////
-
-    // const mapOverMembers = () => (
-    //   data.allWordpressWpMembers.edges.map(node => (
-    //     <MembersDiv key={node.node.id}>
-    //       <Member  member={node} />
-    //     </MembersDiv>
-
-    //   ))
-    // )
-
-
   // =============== Background Image ================= ///
     const backgroundFluidImageStack = [
       // data.cateringContent.featured_media.localFile.childImageSharp.fluid
       data.catering1.childImageSharp.fluid,
       `linear-gradient(180deg, rgba(64,76,7,1) 0%, rgba(64,76,7,0.3603816526610645) 45%, rgba(64,76,7,0.09147408963585435) 100%)`
     ].reverse()
-
-
-    /// ============== Hero Image ================ ///
     
     // =============== Styled Components  ================= ///
     const AboutContainer = styled.main`
@@ -129,11 +107,7 @@ const Catering = (props) => {
         grid-column: center-start / center-end;
       }
       `
-    
 
-    
-
-    
     return (
     <HomeAboutLayout>
       <SEO title="About Us" />
@@ -149,7 +123,7 @@ const Catering = (props) => {
               <h1>Catering</h1>
             </div>
           </BackgroundImage>
-
+            <Reservation />
           </AboutContainer>
     </HomeAboutLayout> 
   )

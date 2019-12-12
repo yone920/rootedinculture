@@ -5,7 +5,8 @@ import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
-import Reservation from '../components/reservation'
+// import Reservation from '../components/reservation'
+import CatMenuListing from '../components/catMenuListing'
 
 import HomeAboutLayout from "../components/HomeAboutLayout"
 import SEO from "../components/seo"
@@ -49,21 +50,18 @@ const Catering = (props) => {
     ].reverse()
     
     // =============== Styled Components  ================= ///
-    const AboutContainer = styled.main`
+    const CateringContainer = styled.main`
       display: grid;
       grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
       grid-template-rows: 70vh min-content;
 
       .hero {
         grid-column: full-start / full-end;
-        /* display: grid;
-        grid-template-columns: 1fr; */
         position: cover !important;
         background-position: bottom center;
         background-size: cover;
         img {
         }
-        /* object-fit: cover; object-position: top top; */
         header {
           background-color: transparent;
           .menu-1 {
@@ -89,8 +87,8 @@ const Catering = (props) => {
         a:active {
           color: ${props => props.theme.color.white};
         }
+      }
     }
-        }
 
       .hero-text {
         position: relative;
@@ -101,17 +99,24 @@ const Catering = (props) => {
           font-size: 12rem;
         }
       }
-      }
+    }
 
-      .flower-content {
-        grid-column: center-start / center-end;
-      }
-      `
+    .flower-content {
+      grid-column: center-start / center-end;
+    }
+    `
+
+    const MenuContainer = styled.div`
+       grid-column: center-start / center-end;
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+       margin: 8rem 8rem;
+    `
 
     return (
     <HomeAboutLayout>
       <SEO title="About Us" />
-      <AboutContainer>
+      <CateringContainer>
         <BackgroundImage
                 Tag="div"
                 className="hero"
@@ -123,8 +128,10 @@ const Catering = (props) => {
               <h1>Catering</h1>
             </div>
           </BackgroundImage>
-            <Reservation />
-          </AboutContainer>
+          <MenuContainer>
+            <CatMenuListing />
+          </MenuContainer>
+          </CateringContainer>
     </HomeAboutLayout> 
   )
 }

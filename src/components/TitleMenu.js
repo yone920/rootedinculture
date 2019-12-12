@@ -29,7 +29,7 @@ const TitleMenu = () => (
           <ul>
             {allWordpressPost.edges.map(edge => (
               <li key={edge.node.slug}>
-                <Link to={`./posts${edge.node.slug}`}>
+                <Link to={`./posts/${edge.node.slug}`}>
                   {edge.node.title}
                 </Link>
               </li>

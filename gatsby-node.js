@@ -13,6 +13,13 @@ exports.createPages = ({ graphql, actions }) => {
                       }
                     }
                   }
+                allWordpressWpMenu {
+                edges {
+                    node {
+                    slug
+                    }
+                    }
+                }
             }
         `).then(results => {
             if (results.errors)  {
@@ -21,13 +28,24 @@ exports.createPages = ({ graphql, actions }) => {
             }
             results.data.allWordpressPost.edges.forEach(({node}) => {
                 createPage ({
-                    path: `/posts${node.slug}`,
+                    path: `/posts/${node.slug}`,
                     component: path.resolve('./src/components/postLayout.js'),
                     context: {
                         slug: node.slug,
                     }
                 })
             })
+
+            results.data.allWordpressWpMenu.edges.forEach(({node}) => {
+                createPage ({
+                    path: `/catering/${node.slug}`,
+                    component: path.resolve('./src/components/menuLayout.js'),
+                    context: {
+                        slug: node.slug,
+                    }
+                })
+            })
+
             resolve();
         })
     } )

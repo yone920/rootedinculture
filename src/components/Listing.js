@@ -39,12 +39,12 @@ const Listing = (props) => (
             render = {({allWordpressPost}) => (
                 allWordpressPost.edges.map(({node}) => (
                     <ListWrapper key={node.slug}>
-                        <Link to={`/posts${node.slug}`}>
+                        <Link to={`/posts/${node.slug}`}>
                             <Title>{node.title}</Title>
                         </Link>
                         <Date>{node.date}</Date>
                         <p>{node.excerpt}</p>
-                        <Link to={`/posts${node.slug}`}>Read More</Link>
+                        <Link to={`/posts/${node.slug}`}>Read More</Link>
                     </ListWrapper>
                 ))
             )}

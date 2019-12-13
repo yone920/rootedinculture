@@ -77,6 +77,15 @@ module.exports = {
         useACF: true,
       },
     },
+    {
+      resolve: `gatsby-source-shopify`,
+      options: {
+        shopName: `rooted-in-culture-test`,
+        accessToken: `56092a7ec1c498c4830dfb5b558badc9`,
+        verbose: true,
+        paginationSize: 250,
+      }
+    },
     `gatsby-plugin-netlify`,
     
     // this (optional) plugin enables Progressive Web App + Offline functionality

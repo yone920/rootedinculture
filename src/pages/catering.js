@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 // import Reservation from '../components/reservation'
-import CatMenuListing from '../components/catMenuListing'
+import CateringMenu from '../components/cateringMenu'
 
 import HomeAboutLayout from "../components/HomeAboutLayout"
 import SEO from "../components/seo"
@@ -26,6 +26,33 @@ const Catering = (props) => {
       }
     }
    
+
+       catMenus: allWordpressWpMenu(limit: 10, sort: {
+          order: DESC,
+          fields: [date]
+      }) {
+          edges {
+              node {
+                  title
+                  slug
+                  featured_media {
+            localFile {
+                          childImageSharp {
+                              fluid(maxWidth: 1500, maxHeight: 1500, 
+                                  duotone: {
+                                  highlight: "#f00e2e",
+                                  shadow: "#192550",
+                                  opacity: 50
+                                }) {
+                                  ...GatsbyImageSharpFluid
+                              } 
+                          }
+                      }
+                  }
+              }
+          }
+      }
+
       cateringContent:  wordpressPage(slug: {eq: "catering-home"}) {
         title
         content
@@ -49,6 +76,19 @@ const Catering = (props) => {
       `linear-gradient(180deg, rgba(64,76,7,1) 0%, rgba(64,76,7,0.3603816526610645) 45%, rgba(64,76,7,0.09147408963585435) 100%)`
     ].reverse()
     
+    console.log(data)
+  // ===============  Map Over Catering Menus ================= ///
+
+    const mapOverCatMenus = () => (
+      data.catMenus.edges.map(menu => (
+        <div key={menu.node.slug}>
+          <CateringMenu menu={menu} />
+        </div>
+        
+      ))
+    )
+
+
     // =============== Styled Components  ================= ///
     const CateringContainer = styled.main`
       display: grid;
@@ -106,12 +146,27 @@ const Catering = (props) => {
     }
     `
 
-    const MenuContainer = styled.div`
-       grid-column: center-start / center-end;
-       display: grid;
-       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-       margin: 8rem 8rem;
+    const AboutAndMenuContainer = styled.main `
+    grid-column: center-start / center-end;
+    justify-items: center;
     `
+
+    const MenuContainer = styled.div`
+       display: grid;
+       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+       justify-content: center;
+       grid-gap: .5rem;
+       margin: 8rem 8rem;  
+    `
+
+    const AboutCatering = styled.div`
+     
+     margin: 8rem auto;
+      width: 60%;
+      text-align: center;
+    `
+
+    // --------------------- Final Render ---------------------- //
 
     return (
     <HomeAboutLayout>
@@ -128,9 +183,17 @@ const Catering = (props) => {
               <h1>Catering</h1>
             </div>
           </BackgroundImage>
-          <MenuContainer>
-            <CatMenuListing />
-          </MenuContainer>
+          
+          <AboutAndMenuContainer>
+            <AboutCatering 
+              dangerouslySetInnerHTML={{
+                __html: data.cateringContent.content,
+              }} 
+            />
+            <MenuContainer>
+              {mapOverCatMenus()}
+            </MenuContainer>
+          </AboutAndMenuContainer>
           </CateringContainer>
     </HomeAboutLayout> 
   )

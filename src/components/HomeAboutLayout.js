@@ -7,8 +7,6 @@ import { ThemeProvider } from 'styled-components'
 
 import * as theme from '../config/theme'
 
-import Header from "./header"
-// import "./layout.scss"
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
@@ -46,7 +44,6 @@ const HomeAboutLayout = ({ children }) => {
   return (
     <Fragment>
         <Wrapper>
-          {/* <Header siteTitle={data.site.siteMetadata.nab} /> */}
           <Main>
             <ThemeProvider theme={theme}>
               {children}

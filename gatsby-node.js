@@ -20,6 +20,14 @@ exports.createPages = ({ graphql, actions }) => {
                     }
                     }
                 }
+                allShopifyProduct {
+                    edges {
+                      node {
+                          handle
+                          id
+                      }
+                      }
+                    }
             }
         `).then(results => {
             if (results.errors)  {
@@ -46,6 +54,16 @@ exports.createPages = ({ graphql, actions }) => {
                 })
             })
 
+            results.data.allShopifyProduct.edges.forEach(({node}) => {
+                createPage ({
+                    path: `/flower/${node.handle}`,
+                    component: path.resolve('./src/template/productTemplate.js'),
+                    context: {
+                        id: node.id,
+                        handle: node.handle
+                    }
+                })
+            })
             resolve();
         })
     } )

@@ -3,7 +3,6 @@ import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import ProductListing from '../components/productsListing'
 import ProductsListing from "../components/productsListing"
 
 const Flower = () => (

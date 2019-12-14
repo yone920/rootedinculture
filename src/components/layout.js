@@ -4,6 +4,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
+import { StoreContext, client } from '../context/StoreContext'
 
 import * as theme from '../config/theme'
 
@@ -44,7 +45,7 @@ const Layout = ({ children }) => {
   `
   
   return (
-    <Fragment>
+    <StoreContext.Provider value={{ client }}>
         <Wrapper>
           <Header siteTitle={data.site.siteMetadata.nab} />
           <Main>
@@ -58,7 +59,7 @@ const Layout = ({ children }) => {
           {` `}
           <a href="http://www.yonedesign.com">YoneDesign</a>
         </Footer>
-      </Fragment>
+      </StoreContext.Provider>
   )
 }
 

@@ -1,11 +1,30 @@
-import React, { useState  } from 'react'
+import React, { useState, useContext  } from 'react'
 import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { withTheme } from 'styled-components'
+import { StoreContext } from '../context/StoreContext'
+
 
 const ProductDetail = ( {product} ) => {
     
     const [selectedVariant, setSelectedvariant] = useState(product.variants[0])
+    const { client } = useContext(StoreContext)
+    console.log(client);
+    
+    const addToCart = async variantId => {
+        const newCheckout = await client.checkout.create()
+        const lineItems = [
+           {
+                variantId: variantId.replace("Shopify__ProductVariant__", ""),
+                quantity:  1,
+            },
+        ]
+        const addItems = await client.checkout.addLineItems(
+            newCheckout.id,
+            lineItems
+        )
+        window.open(addItems.webUrl, "_blank")
+    }
     // const mapOverImages = () => (
     //     product.images.map(image => (
     //         <div key={indexOf(image)}>
@@ -15,6 +34,9 @@ const ProductDetail = ( {product} ) => {
     //         </div>
     //     ))
     // )
+
+    // console.log(ShopifyBuy.UI);
+    
 
     const ProductContainer = styled.main`
         display: grid;
@@ -43,7 +65,6 @@ const ProductDetail = ( {product} ) => {
     const ProductVariant = styled.div`
     
     `
-    console.log(selectedVariant)
     
     return (
         <ProductContainer>
@@ -59,7 +80,7 @@ const ProductDetail = ( {product} ) => {
                         <select 
                             onChange={e => {
                                 const selected = product.variants.filter(variant => variant.sku ===  e.target.value)
-                                setSelectedvariant(selected)
+                                setSelectedvariant(selected[0])
                             }} 
                             value={selectedVariant.sku}
                             
@@ -69,7 +90,7 @@ const ProductDetail = ( {product} ) => {
                             <option key={variant.id} value={variant.sku}>{variant.title}</option>
                             ))}
                         </select>
-                    
+                        <button onClick={() => addToCart(selectedVariant.id)}>Buy Now</button>
                 </ProductVariant>
                 <DescWrapper
                     // dangerouslySetInnerHTML={{

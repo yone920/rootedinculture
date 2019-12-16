@@ -1,6 +1,6 @@
 import React from 'react'
 import TitleMenu from '../components/TitleMenu'
-import Layout from "../components/layout"
+import Layout from "../components/Layout/layout"
 import Listing from "../components/Listing"
 import styled from 'styled-components'
 

@@ -4,18 +4,21 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
+// import { StoreContext, client } from '../../context/StoreContext'
 
-import * as theme from '../config/theme'
+import * as theme from '../../config/theme'
 
+import Header from "../header"
+// import "./layout.scss"
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]')
 }
 
-const HomeAboutLayout = ({ children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
-    query SiteTitleQueryHome {
+    query SiteTitleQuery {
       site {
         siteMetadata {
           title
@@ -42,8 +45,10 @@ const HomeAboutLayout = ({ children }) => {
   `
   
   return (
+    // <StoreContext.Provider value={{ client }}>
     <Fragment>
         <Wrapper>
+          <Header siteTitle={data.site.siteMetadata.nab} />
           <Main>
             <ThemeProvider theme={theme}>
               {children}
@@ -55,12 +60,13 @@ const HomeAboutLayout = ({ children }) => {
           {` `}
           <a href="http://www.yonedesign.com">YoneDesign</a>
         </Footer>
-      </Fragment>
+        </Fragment>
+      // </StoreContext.Provider>
   )
 }
 
-HomeAboutLayout.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default HomeAboutLayout
+export default Layout

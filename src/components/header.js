@@ -1,9 +1,12 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import React, { useContext } from "react"
 import Logo from "../images/white_logo_transparent.png"
 import styled, { css } from 'styled-components'
-
+import { StoreContext } from '../context/StoreContext'
+import Cart from '../components/Cart/cart'
+import { useTransition } from 'react-spring'
+import CartIcon from './SVGs/cartIcon'
 
 /// ============== CSS Style for the menu link ================ ///
 export const menuLink = css`
@@ -59,25 +62,57 @@ const HeaderWrapper = styled.header`
           ${menuLink}
         }
     }
+
+    .cart-icon {
+      position: relative;
+      right: 2rem;
+      top: 0.5rem;
+      cursor: pointer;
+      svg {
+        fill: white;
+      }
+    }
 `
 
-const Header = ({ siteTitle }) => (
-  <HeaderWrapper>
-    <div className="menu-1">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/catering">Catering</Link>
-    </div>
-    <div className="logo">
-        <img src={Logo} alt="Rooted In Culture Logo"/>
-    </div>
-    <div className="menu-2">
-        <Link to="/flower">Flower</Link>
-        <Link to="/archive">Blog</Link>
-        <Link to="/contact">Contact Us</Link>
-    </div>
-  </HeaderWrapper>
-)
+
+const Header = ({ siteTitle }) => {
+
+  const {  isCartOpen, toggleCartOpen } = useContext(StoreContext)
+  const  transitions = useTransition(isCartOpen, null, {
+    from: { transform: 'translate3d(100%, 0, 0)' },
+    enter: { transform: 'translate3d(0, 0, 0)' },
+    leave: { transform: 'translate3d(100%, 0, 0)' }
+
+
+  })
+  return (
+    
+    <HeaderWrapper>
+      <div className="menu-1">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/catering">Catering</Link>
+      </div>
+      <div className="logo">
+          <img src={Logo} alt="Rooted In Culture Logo"/>
+      </div>
+      <div className="menu-2">
+          <Link to="/flower">Flower</Link>
+          <Link to="/archive">Blog</Link>
+          <Link to="/contact">Contact Us</Link>
+      </div>
+      <div className="cart-icon" onClick={toggleCartOpen}>
+        <CartIcon />
+      </div>
+      {transitions.map(({ item, key, props }) => {
+        return item && <Cart key={key} style={props} />
+      })}
+      </HeaderWrapper>
+
+
+     
+  )
+}
 
 Header.propTypes = {
   siteTitle: PropTypes.string,

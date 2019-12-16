@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/Layout/layout'
 // import TitleMenu from '../components/TitleMenu'
 
 export default class menuLayout extends Component {

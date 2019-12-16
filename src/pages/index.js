@@ -7,7 +7,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { withTheme } from 'styled-components'
 import SvgArrowDown from '../components/svgArrowDown'
 
-import Layout from "../components/layout"
+import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 import "../stylesheet/main.scss"
 

@@ -1,32 +1,29 @@
 
 import React, { Fragment } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+// import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-import { StoreContext, client } from '../context/StoreContext'
 
-import * as theme from '../config/theme'
+import * as theme from '../../config/theme'
 
-import Header from "./header"
-// import "./layout.scss"
 
 if (typeof window !== "undefined") {
   // eslint-disable-next-line global-require
   require("smooth-scroll")('a[href*="#"]')
 }
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          nab
-        }
-      }
-    }
-  `)
+const HomeAboutLayout = ({ children }) => {
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQueryHome {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //         nab
+  //       }
+  //     }
+  //   }
+  // `)
 
   const Wrapper = styled.div`
     min-height: calc(100vh - 50px);
@@ -45,9 +42,8 @@ const Layout = ({ children }) => {
   `
   
   return (
-    <StoreContext.Provider value={{ client }}>
+    <Fragment>
         <Wrapper>
-          <Header siteTitle={data.site.siteMetadata.nab} />
           <Main>
             <ThemeProvider theme={theme}>
               {children}
@@ -59,12 +55,12 @@ const Layout = ({ children }) => {
           {` `}
           <a href="http://www.yonedesign.com">YoneDesign</a>
         </Footer>
-      </StoreContext.Provider>
+      </Fragment>
   )
 }
 
-Layout.propTypes = {
+HomeAboutLayout.propTypes = {
   children: PropTypes.node.isRequired,
 }
 
-export default Layout
+export default HomeAboutLayout

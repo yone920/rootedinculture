@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
             results.data.allWordpressPost.edges.forEach(({node}) => {
                 createPage ({
                     path: `/posts/${node.slug}`,
-                    component: path.resolve('./src/components/postLayout.js'),
+                    component: path.resolve('./src/template/postTemplate.js'),
                     context: {
                         slug: node.slug,
                     }
@@ -47,7 +47,7 @@ exports.createPages = ({ graphql, actions }) => {
             results.data.allWordpressWpMenu.edges.forEach(({node}) => {
                 createPage ({
                     path: `/catering/${node.slug}`,
-                    component: path.resolve('./src/components/menuLayout.js'),
+                    component: path.resolve('./src/template/cateringMenuTemplate.js'),
                     context: {
                         slug: node.slug,
                     }

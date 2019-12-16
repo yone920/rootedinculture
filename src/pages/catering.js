@@ -8,7 +8,7 @@ import BackgroundImage from 'gatsby-background-image'
 // import Reservation from '../components/reservation'
 import CateringMenu from '../components/cateringMenu'
 
-import HomeAboutLayout from "../components/HomeAboutLayout"
+import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
 import SEO from "../components/seo"
 
 const Catering = (props) => {

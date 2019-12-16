@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductDetail from '../components/productDetail'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
+import Layout from '../components/Layout/layout'
 
 
 const ProductTemplate = ( { data } ) => {

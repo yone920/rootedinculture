@@ -7,7 +7,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 
 
-import HomeAboutLayout from "../components/HomeAboutLayout"
+import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
 import SEO from "../components/seo"
 
 

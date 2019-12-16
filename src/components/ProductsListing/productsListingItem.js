@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Image from "gatsby-image"
-import AddToCart from "../Cart/AddToCart"
+import AddToCart from "../Cart/addToCart"
 
 const ProductsListingItem = ({ product }) => {
   const {

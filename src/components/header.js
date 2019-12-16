@@ -68,9 +68,7 @@ const HeaderWrapper = styled.header`
       right: 2rem;
       top: 0.5rem;
       cursor: pointer;
-      svg {
-        fill: white;
-      }
+     
     }
 `
 

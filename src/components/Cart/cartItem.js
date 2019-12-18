@@ -1,11 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+import { StoreContext } from "../../context/StoreContext"
 
  const CartItem = ({ item }) => {
+    const { removeProductFromCart } = useContext(StoreContext)
 
-    const CartItemsContainer = styled.div`
-        /* display: flex;
-        flex-direction: column; */
+    return (
+            <CartItemsContainer key={item.id}>
+                <h4>{item.title}</h4>
+                <div className="quantiry-price-div">
+                    <p>Quantity:</p>
+                    <p>{item.quantity}</p>
+                </div>
+                <div className="quantiry-price-div">
+                    <p>Price:</p>
+                    <p>${item.variant.price}</p>
+                </div>
+                <button onClick={() => removeProductFromCart(item.id)} className="remove-item">Remove</button>
+            </CartItemsContainer>
+    )
+}
+
+const CartItemsContainer = styled.div`
         h4, p {
             color: white;
         }
@@ -18,7 +34,7 @@ import styled from 'styled-components'
             text-decoration: none;
             padding: .5rem 2rem;
             display: inline-block;
-            border-radius: 1rem;
+            border-radius: .5rem;
             transition: all .2s;
             position: relative;
             font-size: 1rem;
@@ -34,21 +50,5 @@ import styled from 'styled-components'
             color: white;
         }
     `
-
-    return (
-            <CartItemsContainer key={item.id}>
-                <h4>{item.title}</h4>
-                <div className="quantiry-price-div">
-                    <p>Quantity:</p>
-                    <p>{item.quantity}</p>
-                </div>
-                <div className="quantiry-price-div">
-                    <p>Price:</p>
-                    <p>${item.variant.price}</p>
-                </div>
-                <button className="remove-item">Remove</button>
-            </CartItemsContainer>
-    )
-}
 
 export default CartItem;

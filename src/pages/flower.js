@@ -2,12 +2,12 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 
+
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 import ProductsListing from "../components/ProductsListing/productsListing"
 
 const Flower = () => {
-
   const FlowerContainer = styled.main`
 
     display: grid;

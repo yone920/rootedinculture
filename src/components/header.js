@@ -7,6 +7,59 @@ import { StoreContext } from '../context/StoreContext'
 import Cart from '../components/Cart/cart'
 import { useTransition } from 'react-spring'
 import CartIcon from './SVGs/cartIcon'
+import Qty from '../components/Cart/cartQty'
+
+
+
+const Header = ({ siteTitle }) => {
+
+  const {  isCartOpen, toggleCartOpen, checkout } = useContext(StoreContext)
+
+  const  transitions = useTransition(isCartOpen, null, {
+    from: { transform: 'translate3d(100%, 0, 0)' },
+    enter: { transform: 'translate3d(0, 0, 0)' },
+    leave: { transform: 'translate3d(100%, 0, 0)' }
+  })
+
+
+  return (
+    <HeaderWrapper>
+      <div className="menu-1">
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/catering">Catering</Link>
+      </div>
+      <div className="logo">
+          <img src={Logo} alt="Rooted In Culture Logo"/>
+      </div>
+      <div className="menu-2">
+          <Link to="/flower">Flower</Link>
+          <Link to="/archive">Blog</Link>
+          <Link to="/contact">Contact Us</Link>
+      </div>
+      <div className="cart-qty-icon" onClick={toggleCartOpen}>
+        <div className="cart-qty">
+          <Qty items={checkout.lineItems}/>
+        </div>
+        <div className="cart-icon" >
+          <CartIcon />
+        </div>
+      </div>
+      {transitions.map(({ item, key, props }) => {
+        return item && <Cart key={key} style={props} />
+      })}
+      </HeaderWrapper>  
+  )
+}
+
+Header.propTypes = {
+  siteTitle: PropTypes.string,
+}
+
+Header.defaultProps = {
+  siteTitle: ``,
+}
+
 
 /// ============== CSS Style for the menu link ================ ///
 export const menuLink = css`
@@ -63,61 +116,20 @@ const HeaderWrapper = styled.header`
         }
     }
 
-    .cart-icon {
+    .cart-qty-icon {
+      display: flex;
+      /* flex-direction: column; */
       position: relative;
-      right: 2rem;
+      right: 4rem;
       top: 0.5rem;
       cursor: pointer;
+
+    }
+     .cart-icon {
      
     }
+  
 `
 
-
-const Header = ({ siteTitle }) => {
-
-  const {  isCartOpen, toggleCartOpen } = useContext(StoreContext)
-  const  transitions = useTransition(isCartOpen, null, {
-    from: { transform: 'translate3d(100%, 0, 0)' },
-    enter: { transform: 'translate3d(0, 0, 0)' },
-    leave: { transform: 'translate3d(100%, 0, 0)' }
-
-
-  })
-  return (
-    
-    <HeaderWrapper>
-      <div className="menu-1">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/catering">Catering</Link>
-      </div>
-      <div className="logo">
-          <img src={Logo} alt="Rooted In Culture Logo"/>
-      </div>
-      <div className="menu-2">
-          <Link to="/flower">Flower</Link>
-          <Link to="/archive">Blog</Link>
-          <Link to="/contact">Contact Us</Link>
-      </div>
-      <div className="cart-icon" onClick={toggleCartOpen}>
-        <CartIcon />
-      </div>
-      {transitions.map(({ item, key, props }) => {
-        return item && <Cart key={key} style={props} />
-      })}
-      </HeaderWrapper>
-
-
-     
-  )
-}
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
 
 export default Header

@@ -3,12 +3,13 @@ import { Link } from "gatsby"
 import Image from "gatsby-image"
 import AddToCart from "../Cart/addToCart"
 
+
 const ProductsListingItem = ({ product }) => {
+
   const {
     images: [firstImage],
     variants: [firstVariant],
   } = product
-console.log(product.title)
 
   return (
     <article>

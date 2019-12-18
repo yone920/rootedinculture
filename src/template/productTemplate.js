@@ -34,6 +34,7 @@ export const query = graphql`
                 variants {
                   sku
                   id
+                  shopifyId
                   title
                   price
                 }

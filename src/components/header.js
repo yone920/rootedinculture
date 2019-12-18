@@ -8,6 +8,7 @@ import Cart from '../components/Cart/cart'
 import { useTransition } from 'react-spring'
 import CartIcon from './SVGs/cartIcon'
 import Qty from '../components/Cart/cartQty'
+import Loader from "./Loader"
 
 
 
@@ -23,6 +24,7 @@ const Header = ({ siteTitle }) => {
 
 
   return (
+    <>
     <HeaderWrapper>
       <div className="menu-1">
           <Link to="/">Home</Link>
@@ -49,6 +51,8 @@ const Header = ({ siteTitle }) => {
         return item && <Cart key={key} style={props} />
       })}
       </HeaderWrapper>  
+      <Loader />
+      </>
   )
 }
 

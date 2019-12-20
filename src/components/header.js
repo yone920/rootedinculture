@@ -8,7 +8,7 @@ import Cart from '../components/Cart/cart'
 import { useTransition } from 'react-spring'
 import CartIcon from './SVGs/cartIcon'
 import Qty from '../components/Cart/cartQty'
-import Loader from "./Loader"
+import Loader from "./loader"
 
 
 

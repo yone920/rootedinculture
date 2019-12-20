@@ -20,7 +20,7 @@ const CartList = () => {
             </div>
             <Coupon />
             <div>
-                <a className="check-out-button-div" href={checkout.webUrl}>Check Out Now</a>
+                <a className="check-out-button" href={checkout.webUrl}>Check Out Now</a>
             </div>
         </CartContainer>
     )
@@ -44,7 +44,7 @@ const CartContainer = styled.div`
             color: white;
         }
     }
-    .check-out-button-div {
+    .check-out-button{
             display: inline-block;
             width: 100%;
             background-color: #5db544;

@@ -17,7 +17,7 @@ const ProductsListing = (props) => {
                     images {
                         localFile {
                             childImageSharp {
-                              fluid(maxWidth: 1500) {
+                              fluid(maxWidth: 1500, maxHeight: 1500) {
                                 ...GatsbyImageSharpFluid
                               } 
                             }
@@ -38,8 +38,8 @@ const ProductsListing = (props) => {
 
     const ProductContainer = styled.div`
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        grid-gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1rem;
     `
 
     return (

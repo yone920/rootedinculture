@@ -1,5 +1,5 @@
 import React from 'react'
-import ProductDetail from '../components/productDetail'
+import ProductDetail from '../components/ProductPage/productDetail'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
 
@@ -22,7 +22,7 @@ export const query = graphql`
                 images {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 1500) {
+                      fluid(maxWidth: 1000, maxHeight: 1000) {
                         ...GatsbyImageSharpFluid
                       } 
                     }

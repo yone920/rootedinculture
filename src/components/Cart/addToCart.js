@@ -30,8 +30,9 @@ const Button = styled.button`
   color: white;
   text-transform: uppercase;
   border-radius: .5rem;
+  cursor: pointer;
   :hover {
-      background-color: rgba(64, 76, 7, 0.822);
+      background-color: rgba(64, 76, 7, 0.622);
       /* color: #5db544; */
   }
 `

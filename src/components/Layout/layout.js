@@ -4,7 +4,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
-// import { StoreContext, client } from '../../context/StoreContext'
+import Footer from './footer'
 
 import * as theme from '../../config/theme'
 
@@ -40,11 +40,7 @@ const Layout = ({ children }) => {
             </ThemeProvider>
           </Main>
         </Wrapper>
-        <Footer>
-          © {new Date().getFullYear()},
-          {` `}
-          <a href="http://www.yonedesign.com">YoneDesign</a>
-        </Footer>
+         <Footer />
         </Fragment>
       // </StoreContext.Provider>
   )
@@ -60,11 +56,6 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
     grid-template-rows: min-content  min-content;
-  `
-
-  const Footer = styled.div`
-    text-align: center;
-    background-color: #000;
   `
   
   const Main = styled.main`

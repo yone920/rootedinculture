@@ -191,14 +191,12 @@ const backgroundFluidImageStack = [
               </div>
 
             </Services>
-
+          </ServicesWrapper>
           <ProductListContainer>
             <ProductListingDiv>
               <ProductListing />
             </ProductListingDiv>
           </ProductListContainer>
-            
-          </ServicesWrapper>
       </HomeWrapper>
     </Layout>
     )
@@ -425,7 +423,7 @@ const ProductListContainer = styled.div`
   background-color: #D34C01;
   padding: 11rem 11rem;
   grid-column: full-start / full-end;
-  margin: 6rem 0 6rem 0;
+  margin: 6rem 0 0 0;
   display: grid;
   grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
 `

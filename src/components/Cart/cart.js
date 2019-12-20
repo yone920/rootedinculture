@@ -20,7 +20,7 @@ const Cart = ({ style }) => {
             position: "fixed",
             top: 0,
             right: 0,
-            width:  "30%",
+            width:  "50%",
             height: "100%",
             background: "#404C07",
             zIndex: 102,
@@ -28,8 +28,10 @@ const Cart = ({ style }) => {
             ...style 
             }}>
             <CardWrapper>
-                <div className="close-cart" onClick={toggleCartOpen}><Close /></div>
-                <h3>Cart</h3>
+                <CloseCartDiv onClick={toggleCartOpen}>
+                    <Close />
+                    <h3>Cart</h3>
+                </CloseCartDiv>
                 {qty > 0 ?
                 <CartList />
                 :
@@ -45,13 +47,16 @@ const CardWrapper = styled.div`
         h3 {
             color: white;
         }
-        .close-cart {
-            display: inline;
-            position: relative;
-            width: 5rem;
-            cursor: pointer;
-        }
-            
-    `
+        
+        `
+
+const CloseCartDiv = styled.div`
+    display: inline;
+    position: relative;
+    left: 5rem;
+    top: 3rem;
+    /* width: 5rem; */
+    cursor: pointer;
+`
 
 export default Cart 

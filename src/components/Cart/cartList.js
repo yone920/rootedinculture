@@ -57,7 +57,7 @@ const CartContainer = styled.div`
             :hover {
                 background-color: white;
                 color: #5db544;
-            }
+        }
     }
 
     ` 

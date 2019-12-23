@@ -9,7 +9,9 @@ export const client = Client.buildClient({
 
 const defaultValues = {
     isCartOpen: false,
+    isMobileMenuOpen: false,
     toggleCartOpen: () => {},
+    toggleMobileMenu: () => {},
     removeProductFromCart: () => {},
     cart: [],
     addProductToCart: () => {},
@@ -32,11 +34,15 @@ export const StoreProvider = ({ children }) => {
     const [checkout, setCheckout] = useState(defaultValues.checkout)
     const [isCartOpen, setCartOpen] = useState(false)
     const [isLoading, setLoading] = useState(false)
-
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
     
     
     const toggleCartOpen = () => {
         setCartOpen(!isCartOpen)
+    }
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen)
     }
     
 
@@ -166,6 +172,8 @@ export const StoreProvider = ({ children }) => {
             addCoupon,
             removeCoupon,
             isLoading,
+            toggleMobileMenu,
+            isMobileMenuOpen,
             }}>
             {children}
         </StoreContext.Provider>

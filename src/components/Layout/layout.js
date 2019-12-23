@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
     // <StoreContext.Provider value={{ client }}>
     <Fragment>
         <Wrapper> 
-          {isTabletOrMobile ? <MobileHeader /> : <Header siteTitle={data.site.siteMetadata.nab} />}
+          {isTabletOrMobile ? <MobileHeader siteTitle={data.site.siteMetadata.title}/> : <Header siteTitle={data.site.siteMetadata.title} />}
           <Main>
             <ThemeProvider theme={theme}>
               {children}

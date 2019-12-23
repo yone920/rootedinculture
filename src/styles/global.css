@@ -1,0 +1,62 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    /* This defines what 1 rem is. */
+    font-size: 62.5%; /* 1 rem = 10px; 10px/16px = 62.5%; */
+
+}
+
+body {
+    box-sizing: border-box;
+    font-size: 1.6rem;   
+
+    font-family: "Poppins";
+    font-weight: 400;
+    line-height: 1.7;
+    color: black;
+}
+
+/* mobileS */
+@media only screen and (max-width: 320px) {
+   
+}
+
+/* mobileM: */
+@media only screen and (max-width: 375px) {
+
+}
+
+/* mobileL */
+@media only screen and (max-width: 425px) {
+
+}
+
+/* tablet */
+@media  (max-width: 768px) {
+    
+    /* 1 rem = 89px, 8/16 = 56.25%; */
+}
+
+/* laptop */
+@media (max-width: 1024px) {
+    html {
+        font-size: 53.25%;  
+    }
+}
+
+/* laptopL */
+@media (max-width: 1440px) {
+
+}
+
+/* desktop */
+@media (max-width: 2560px) {
+
+}
+

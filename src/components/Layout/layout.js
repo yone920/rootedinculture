@@ -5,10 +5,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { ThemeProvider } from 'styled-components'
 import Footer from './footer'
+import '../../styles/global.css'
+import { useMediaQuery } from 'react-responsive'
+
 
 import * as theme from '../../config/theme'
 
 import Header from "../header"
+import MobileHeader from '../mobileHeader'
 // import "./layout.scss"
 
 if (typeof window !== "undefined") {
@@ -28,12 +32,13 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
   
   return (
     // <StoreContext.Provider value={{ client }}>
     <Fragment>
-        <Wrapper>
-          <Header siteTitle={data.site.siteMetadata.nab} />
+        <Wrapper> 
+          {isTabletOrMobile ? <MobileHeader /> : <Header siteTitle={data.site.siteMetadata.nab} />}
           <Main>
             <ThemeProvider theme={theme}>
               {children}

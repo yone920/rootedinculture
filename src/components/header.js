@@ -85,7 +85,7 @@ export const menuLink = css`
 
 /// ============== Header Element ================ ///
 const HeaderWrapper = styled.header`
-  grid-column: full-start / full-end;
+    grid-column: full-start / full-end;
     background-color: #D34C01;
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];

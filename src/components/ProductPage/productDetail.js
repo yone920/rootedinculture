@@ -83,7 +83,7 @@ const ContentWrapper = styled.div`
 `
 const ProductName = styled.div`
     h1 {
-        color: ${props => props.theme.color.secondary};
+        color: #000;
         font-size: ${props => props.theme.font.h1FontSize};
         text-transform: uppercase;
     }

@@ -3,13 +3,13 @@ import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
-// import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 import Footer from './footer'
 import '../../styles/global.css'
 import { useMediaQuery } from 'react-responsive'
 
 
-// import * as theme from '../../config/theme'
+import * as theme from '../../config/theme'
 
 import Header from "../header"
 import MobileHeader from '../mobileHeader'
@@ -38,11 +38,9 @@ const Layout = ({ children }) => {
     // <StoreContext.Provider value={{ client }}>
     <Fragment>
         <Wrapper> 
-          {isTabletOrMobile ? <MobileHeader siteTitle={data.site.siteMetadata.title}/> : <Header siteTitle={data.site.siteMetadata.title} />}
+          {isTabletOrMobile ? <ThemeProvider theme={theme}><MobileHeader siteTitle={data.site.siteMetadata.title}/></ThemeProvider> : <ThemeProvider theme={theme}><Header siteTitle={data.site.siteMetadata.title} /></ThemeProvider>}
           <Main>
-            {/* <ThemeProvider theme={theme}> */}
-              {children}
-            {/* </ThemeProvider> */}
+            <ThemeProvider theme={theme}>{children}</ThemeProvider>
           </Main>
         </Wrapper>
          <Footer />

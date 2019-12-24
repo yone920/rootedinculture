@@ -3,13 +3,13 @@ import React, { Fragment } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
-import { ThemeProvider } from 'styled-components'
+// import { ThemeProvider } from 'styled-components'
 import Footer from './footer'
 import '../../styles/global.css'
 import { useMediaQuery } from 'react-responsive'
 
 
-import * as theme from '../../config/theme'
+// import * as theme from '../../config/theme'
 
 import Header from "../header"
 import MobileHeader from '../mobileHeader'
@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
     }
   `)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
   
   return (
     // <StoreContext.Provider value={{ client }}>
@@ -40,9 +40,9 @@ const Layout = ({ children }) => {
         <Wrapper> 
           {isTabletOrMobile ? <MobileHeader siteTitle={data.site.siteMetadata.title}/> : <Header siteTitle={data.site.siteMetadata.title} />}
           <Main>
-            <ThemeProvider theme={theme}>
+            {/* <ThemeProvider theme={theme}> */}
               {children}
-            </ThemeProvider>
+            {/* </ThemeProvider> */}
           </Main>
         </Wrapper>
          <Footer />

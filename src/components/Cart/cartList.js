@@ -27,7 +27,7 @@ const CartList = () => {
 }
 
 const CartContainer = styled.div`
-    padding: 7rem;
+    padding: 7rem 3rem;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 4rem;

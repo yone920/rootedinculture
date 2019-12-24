@@ -20,6 +20,7 @@ body {
     font-weight: 400;
     line-height: 1.7;
     color: black;
+    /* background-color: #191919; */
 }
 
 /* mobileS */
@@ -34,6 +35,9 @@ body {
 
 /* mobileL */
 @media only screen and (max-width: 425px) {
+    html {
+        font-size: 53.25%;  
+    }
 
 }
 

@@ -1,9 +1,12 @@
 import React, { useContext, Fragment } from 'react'
 import { animated } from 'react-spring'
 import { StoreContext } from '../../context/StoreContext'
+import styled from 'styled-components'
+import Close from '../SVGs/close'
+import { Link } from "gatsby"
 
 
- const MobileMenu = ({ style }) => {
+const MobileMenu = ({ style }) => {
 
     const { toggleMobileMenu } = useContext(StoreContext)
 
@@ -21,11 +24,43 @@ import { StoreContext } from '../../context/StoreContext'
                 overflow: "scroll",
                 ...style 
                 }}>
-            <button onClick={toggleMobileMenu}>Close</button>
-            <p>Hi from Header</p>
+                    <MobileMenuContainer>
+                        <div onClick={toggleMobileMenu}>
+                            <Close />
+                        </div>
+                        <MobileMenuWrapper>
+                            <Link onClick={toggleMobileMenu} to="/"><h4>Home</h4></Link>
+                            <Link  onClick={toggleMobileMenu} to="/about"><h4>About</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/flower"><h4>Flower</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/archive"><h4>Blog</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/contact"><h4>Contact Us</h4></Link>
+                        </MobileMenuWrapper>
+                    </MobileMenuContainer>
             </animated.div>
         </Fragment>
     )
 }
+
+const MobileMenuContainer =  styled.div`
+    margin: 3rem;
+`
+const MobileMenuWrapper = styled.div`
+    margin-top: 3rem;
+    a {
+        text-decoration: none;
+        color: ${props => props.theme.color.fontColor};
+        
+        :hover {
+            color: ${props => props.theme.color.secondary};
+            text-decoration: underline;
+            text-decoration-color: ${props => props.theme.color.fontColor};
+        }
+    }
+    
+    h4 {
+        font-size: 6rem;
+    }
+`
 
 export default MobileMenu;

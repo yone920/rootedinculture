@@ -85,16 +85,16 @@ const ServiceWrapper = styled.div`
 
         h6 {
           font-size: ${props => props.theme.font.microHeadingH6};
-          color: ${props => props.theme.color.white};
+          color: ${props => props.theme.color.fontColor};
           position: relative;
           top: 1rem;
         }
         h4 {
           font-size: ${props => props.theme.font.h4FontSize};
-          color: ${props => props.theme.color.white};
+          color: ${props => props.theme.color.fontColor};
         }
         .catering-content {
-          color: ${props => props.theme.color.white};
+          color: ${props => props.theme.color.fontColor};
         }
         button {
           ${buttonStyle}

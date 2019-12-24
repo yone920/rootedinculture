@@ -92,7 +92,7 @@ const CardWrapper = styled.div`
 const CloseCartDiv = styled.div`
     display: inline-block;
     position: relative;
-    left: 5rem;
+    left: 3rem;
     top: 3rem;
     cursor: pointer;
 `

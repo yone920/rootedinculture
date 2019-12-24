@@ -41,9 +41,9 @@ const MobileHeader = ({ siteTitle }) => {
             </LogoWrapper>
             <CartIconWrapper onClick={toggleCartOpen}>
                 <div className="cart-qty">
-                    <Qty items={checkout.lineItems}/>
                 </div>
                 <div className="cart-icon" >
+                    <Qty items={checkout.lineItems}/>
                     <CartIcon />
                 </div>
             </CartIconWrapper>
@@ -84,7 +84,7 @@ const LogoWrapper = styled.div`
     }
 `
 const CartIconWrapper = styled.div`
-    grid-column: 6 / -1;
+    grid-column: 7 / -1;
 `
 const MenuIconWrapper = styled.div`
     grid-column: 1 / 2;

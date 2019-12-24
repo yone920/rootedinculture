@@ -1,4 +1,4 @@
-import React from "react"
+import React, {Fragment} from "react"
 import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
@@ -64,7 +64,10 @@ console.log(data.services);
 
 const MapOverServices = () => (
   data.services.edges.map(node => (
-    <Service service={node} />
+    <Fragment key={node.node.id} >
+    {console.log(node)}
+      <Service service={node} />
+    </Fragment>
   ))
 )
 
@@ -121,7 +124,7 @@ grid-template-rows: min-content min-content;
   justify-content: left;
   align-items: center;
   h1 {
-    color: ${props => props.theme.color.white};
+    color: ${props => props.theme.color.fontColor};
     display: flex;
     flex-direction: column;
     position: relative;

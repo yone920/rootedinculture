@@ -1,10 +1,12 @@
 import React from "react"
 import Header from '../components/header'
+import MobileHeader from '../components/mobileHeader'
 import Member from '../components/member'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
+import { useMediaQuery } from 'react-responsive'
 
 
 import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
@@ -69,6 +71,8 @@ const About = (props) => {
       data.aboutContent.featured_media.localFile.childImageSharp.fluid
     ].reverse()
 
+    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
+
 
     return (
     <div>
@@ -81,8 +85,7 @@ const About = (props) => {
                 fluid={backgroundFluidImageStack}
                 backgroundColor={`#040e18`}
                 >
-          <Header />
-          </BackgroundImage>
+              { isTabletOrMobile ? <MobileHeader /> : <Header  /> }           </BackgroundImage>
           <AboutContent>
             <h2>{data.aboutContent.title}</h2>
             <div className="flower-content"

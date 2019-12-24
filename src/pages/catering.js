@@ -1,6 +1,8 @@
 
 import React from "react"
+import MobileHeader from '../components/mobileHeader'
 import Header from '../components/header'
+import { useMediaQuery } from 'react-responsive'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
@@ -89,82 +91,8 @@ const Catering = (props) => {
     )
 
 
-    // =============== Styled Components  ================= ///
-    const CateringContainer = styled.main`
-      display: grid;
-      grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-      grid-template-rows: 70vh min-content;
+const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
-      .hero {
-        grid-column: full-start / full-end;
-        position: cover !important;
-        background-position: bottom center;
-        background-size: cover;
-        img {
-        }
-        header {
-          background-color: transparent;
-          .menu-1 {
-        grid-column: col-start 1 / col-end 3;
-        a,
-        a:link,
-        a:active {
-           color: ${props => props.theme.color.white};
-        }
-    }
-
-    .logo {
-        grid-column: col-start 4 / col-end 5;
-        img {
-            width: 100%;
-        }
-    }
-
-    .menu-2 {
-        grid-column: col-start 6 / col-end 8;
-        a,
-        a:link,
-        a:active {
-          color: ${props => props.theme.color.white};
-        }
-      }
-    }
-
-      .hero-text {
-        position: relative;
-        top: 23rem;
-        left: 15rem;
-        h1 {
-          color: ${props => props.theme.color.white};
-          font-size: 12rem;
-        }
-      }
-    }
-
-    .flower-content {
-      grid-column: center-start / center-end;
-    }
-    `
-
-    const AboutAndMenuContainer = styled.main `
-    grid-column: center-start / center-end;
-    justify-items: center;
-    `
-
-    const MenuContainer = styled.div`
-       display: grid;
-       grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-       justify-content: center;
-       grid-gap: .5rem;
-       margin: 8rem 8rem;  
-    `
-
-    const AboutCatering = styled.div`
-     
-     margin: 8rem auto;
-      width: 60%;
-      text-align: center;
-    `
 
     // --------------------- Final Render ---------------------- //
 
@@ -178,8 +106,8 @@ const Catering = (props) => {
                 fluid={backgroundFluidImageStack}
                 backgroundColor={`#040e18`}
                 >
-          <Header />
-          <div className="hero-text">
+                { isTabletOrMobile ? <MobileHeader /> : <Header  /> }         
+            <div className="hero-text">
               <h1>Catering</h1>
             </div>
           </BackgroundImage>
@@ -199,6 +127,83 @@ const Catering = (props) => {
   )
 }
 
+
+// =============== Styled Components  ================= ///
+const CateringContainer = styled.main`
+display: grid;
+grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
+grid-template-rows: 70vh min-content;
+
+.hero {
+  grid-column: full-start / full-end;
+  position: cover !important;
+  background-position: bottom center;
+  background-size: cover;
+  img {
+  }
+  header {
+    background-color: transparent;
+    .menu-1 {
+  grid-column: col-start 1 / col-end 3;
+  a,
+  a:link,
+  a:active {
+     color: ${props => props.theme.color.white};
+  }
+}
+
+.logo {
+  grid-column: col-start 4 / col-end 5;
+  img {
+      width: 100%;
+  }
+}
+
+.menu-2 {
+  grid-column: col-start 6 / col-end 8;
+  a,
+  a:link,
+  a:active {
+    color: ${props => props.theme.color.white};
+  }
+}
+}
+
+.hero-text {
+  position: relative;
+  top: 23rem;
+  left: 15rem;
+  h1 {
+    color: ${props => props.theme.color.white};
+    font-size: 12rem;
+  }
+}
+}
+
+.flower-content {
+grid-column: center-start / center-end;
+}
+`
+
+const AboutAndMenuContainer = styled.main `
+grid-column: center-start / center-end;
+justify-items: center;
+`
+
+const MenuContainer = styled.div`
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+ justify-content: center;
+ grid-gap: .5rem;
+ margin: 8rem 8rem;  
+`
+
+const AboutCatering = styled.div`
+
+margin: 8rem auto;
+width: 60%;
+text-align: center;
+`
 
 export default withTheme(Catering)
 

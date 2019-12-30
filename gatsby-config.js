@@ -88,13 +88,6 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `backgrounds`,
-        path: `${__dirname}/src/images/background-images`, // wherever background images are stored
-      },
-    },
-    {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         custom: {

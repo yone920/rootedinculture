@@ -13,24 +13,6 @@ import { withTheme } from 'styled-components'
         menu.node.featured_media.localFile.childImageSharp.fluid,
       ].reverse()
 
-          // --------------------- Style ---------------------- //
-      const  MenuContainer = styled.div`
-
-            a {
-                text-decoration: none;
-            }
-            .menu {
-                /* padding: 3rem; */
-
-                h1 {
-                    padding: 15rem 0 15rem 0;
-                    text-align: center;
-                    text-decoration: none;
-                    color: ${props => props.theme.color.white};
-                }
-            }
-      `
-
 
      return (
              <MenuContainer>
@@ -48,5 +30,24 @@ import { withTheme } from 'styled-components'
              </MenuContainer>
     )
 }
+
+
+          // --------------------- Style ---------------------- //
+const  MenuContainer = styled.div`
+            a {
+                text-decoration: none;
+            }
+            .menu {
+                /* padding: 3rem; */
+
+                h1 {
+                    padding: 15rem 0 15rem 0;
+                    text-align: center;
+                    text-decoration: none;
+                    color: ${props => props.theme.color.fontColor};
+                }
+            }
+      `
+
 
 export default withTheme(CateringMenu);

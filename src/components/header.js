@@ -27,8 +27,8 @@ const Header = ({ siteTitle }) => {
     <>
     <HeaderWrapper>
       <div className="menu-1">
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link to="/home">Home</Link>
+          <Link to="/about">About Us</Link>
           <Link to="/catering">Catering</Link>
       </div>
       <div className="logo">
@@ -74,7 +74,7 @@ export const menuLink = css`
         border-radius: 10rem;
         transition: all .2s;
         position: relative;
-        font-size: $default-font-size;
+        /* font-size: $default-font-size; */
         border: none;
         cursor: pointer;
         color: #fff;
@@ -86,7 +86,7 @@ export const menuLink = css`
 /// ============== Header Element ================ ///
 const HeaderWrapper = styled.header`
     grid-column: full-start / full-end;
-    background-color: #D34C01;
+    background-color: #cf4a00;
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
     grid-template-rows: 10vh min-content;

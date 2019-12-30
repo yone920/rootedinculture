@@ -43,7 +43,9 @@ const Listing = (props) => (
                             <Title>{node.title}</Title>
                         </Link>
                         <Date>{node.date}</Date>
-                        <p>{node.excerpt}</p>
+                        <div dangerouslySetInnerHTML={{
+                                __html: node.excerpt,
+                        }} />
                         <Link to={`/posts/${node.slug}`}>Read More</Link>
                     </ListWrapper>
                 ))

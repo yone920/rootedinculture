@@ -12,7 +12,9 @@ const Archive = () => (
         <ListingWrapper>
           <Listing />
         </ListingWrapper>
-        <TitleMenu />
+        <TitleMenuWrapper>
+          <TitleMenu />
+        </TitleMenuWrapper>
       </ArchiveWrapper>
     </Layout>
   )
@@ -21,17 +23,20 @@ const Archive = () => (
 
 const ArchiveWrapper = styled.div`
     display: grid;
-    grid-template-columns: 4fr 1fr;
+    grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
     grid-gap: 2rem;
     margin-top: 3.5rem;
 `
 const ListingWrapper = styled.div`
-  grid-column: 1 /  2;
+  grid-column: center-start /  col-start 7;
   display: grid;
   grid-gap: 3rem;
   a {
     text-decoration: none;
   }
+`
+const TitleMenuWrapper = styled.div`
+  grid-column: col-end 6 / center-end;
 `
 
   export default Archive;

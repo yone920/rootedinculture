@@ -148,7 +148,7 @@ grid-template-rows: 70vh min-content;
   a,
   a:link,
   a:active {
-     color: ${props => props.theme.color.white};
+     color: ${props => props.theme.color.fontColor};
   }
 }
 
@@ -164,17 +164,18 @@ grid-template-rows: 70vh min-content;
   a,
   a:link,
   a:active {
-    color: ${props => props.theme.color.white};
+    color: ${props => props.theme.color.fontColor};
   }
 }
 }
 
 .hero-text {
+  display: inline-block;
   position: relative;
   top: 23rem;
   left: 15rem;
   h1 {
-    color: ${props => props.theme.color.white};
+    color: ${props => props.theme.color.fontColor};
     font-size: 12rem;
   }
 }

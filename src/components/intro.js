@@ -62,11 +62,11 @@ const sources = [
                     </div>
                     <div className="hero-phrase">
                         <p>
-                            “Everything Nostalgic” <br />
-                            Creating authentic spaces,<br />
-                            with authentic people,<br />
-                            through unforgettable experiences,<br />
-                            rooted in culture!
+                            <span>“Everything Nostalgic”</span><br />
+                            <span>Creating authentic spaces,</span><br />
+                            <span>with authentic people,</span><br />
+                            <span>through unforgettable experiences,</span><br />
+                            <span>rooted in culture!</span><br />
                         </p>   
                     </div>
                     <div className="hero-button">
@@ -111,10 +111,28 @@ const HeroContentWrapper = styled.div`
     .hero-phrase {
         grid-column: 1 / 3;
         align-self: start;
+        justify-self: center;
+        p {
+            text-align: center;
+            font-size: 2rem;
+            line-height: 5rem;
+            font-weight: italic;
+
+            span {
+                background-color: #fff;
+                display: inline-block;
+                color: black;
+                margin: 0.1rem;
+                padding: 0 4rem;
+            }
+        }
     }
 
     .hero-button {
+        grid-column: 1 / 3;
+        width: 50%;
         align-self: start;
+        justify-self: center;
         a {
             display: inline-block;
             width: 100%;

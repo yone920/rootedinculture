@@ -88,13 +88,11 @@ module.exports = {
     },
     `gatsby-plugin-netlify`,
     {
-      resolve: "gatsby-plugin-web-font-loader",
+      resolve: "gatsby-source-filesystem",
       options: {
-        custom: {
-          families: ["Roadstar"],
-          urls: ["/fonts/MyFontsWebfontsKit.css"],
-        },
-      },
+        name: "MyFontsWebfontsKit",
+        path: `${__dirname}/src/fonts/`
+      }
     },
     
     // this (optional) plugin enables Progressive Web App + Offline functionality

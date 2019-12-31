@@ -28,6 +28,9 @@ const data = useStaticQuery(graphql`
     homeContent: wordpressPage(slug: {eq: "fun-innovative-badass"}) {
       title
       content
+      acf {
+        phrase
+      }
     }
 
     services: allWordpressWpServices {
@@ -86,8 +89,12 @@ const MapOverServices = () => (
               backgroundColor={`#040e18`}
             >
             <div className="hero-text">
-              <h1>{data.homeContent.title}</h1>
-              <p></p>
+              <h1>
+                <span>Rooted</span>
+                <span>In</span>
+                <span>Culture</span>
+              </h1>
+              
             </div>
             <div className="hero-down-arrow">
               <Link to="home/#check">
@@ -95,15 +102,15 @@ const MapOverServices = () => (
               </Link>
             </div>
           </BackgroundImage>
-          <HomePageContentWrapper>
-            <h1>{data.homeContent.title}</h1>
+          <HomePageContentWrapper id="check">
+            <h1>{data.homeContent.acf.phrase}</h1>
             <HomeContent 
               dangerouslySetInnerHTML={{
                 __html: data.homeContent.content,
               }} 
             />
           </HomePageContentWrapper>
-          <ServicesWrapper id="check">
+          <ServicesWrapper>
             <Services>
                 {MapOverServices()}
             </Services>
@@ -131,17 +138,47 @@ grid-template-rows: min-content min-content;
   align-items: center;
   h1 {
     color: ${props => props.theme.color.fontColor};
-    display: flex;
-    flex-direction: column;
     position: relative;
     left: 17rem;
-    font-size: 6rem;
+    font-size: 9rem;
     padding-top: 22rem;
 
     @media ${props => props.theme.device.mobileL} {
+      font-size: 6rem;
       left: 3rem;
-      font-size: 5rem;
+      }
+
+    span {
+      display: block;
+      :nth-child(1) {
+        position: relative;
+        top: 6rem;
+
+        @media ${props => props.theme.device.mobileL} {
+          top: 4rem;
+         }
+      } 
+
+      :nth-child(2) {
+        font-size: 5rem;
+        color: #000;
+        @media ${props => props.theme.device.mobileL} {
+          /* top: 6rem; */
+          font-size: 3rem;
+         }
+      }
+
+      :nth-child(3) {
+        position: relative;
+        bottom: 6rem;
+
+        @media ${props => props.theme.device.mobileL} {
+          bottom: 4rem;
+         }
+      }
     }
+    
+
     .hero-rooted {
       position: relative;
       top: 6rem;
@@ -181,14 +218,17 @@ const HomePageContentWrapper = styled.div`
   grid-column: center-start / center-end;
   display: grid;
   justify-items: center;
-  margin-top: 4rem;
+  padding: 8rem 0 8rem 0;
   h1 {
-
+    margin-bottom: 4rem;
   }
 `
 
 const HomeContent = styled.div`
   justify-self: center;
+   p {
+     text-align: center;
+   }
 `
 
 
@@ -198,23 +238,19 @@ grid-column: full-start / full-end;
   display: grid;
   grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
   justify-content: center;
-  padding: 15rem 0;
+  padding: 5rem 0;
 
-  @media ${props => props.theme.device.mobileL} {
-    grid-template-columns: 1fr 1fr;
-
-    padding: 0;
-  }
 `
 
 /// =============== Services Section Style ================= ///
 const Services = styled.div`
 grid-column: center-start / center-end;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+grid-column-gap: 1rem;
 
 @media ${props => props.theme.device.mobileL} {
-    grid-column: 1 / span 2;
-
-    padding: 0;
+    grid-row-gap: 0.5rem;
   }
 `
 

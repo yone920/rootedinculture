@@ -25,6 +25,11 @@ const data = useStaticQuery(graphql`
       }
     }
 
+    homeContent: wordpressPage(slug: {eq: "fun-innovative-badass"}) {
+      title
+      content
+    }
+
     services: allWordpressWpServices {
       edges {
         node {
@@ -81,11 +86,8 @@ const MapOverServices = () => (
               backgroundColor={`#040e18`}
             >
             <div className="hero-text">
-              <h1>
-                <span className="hero-rooted">Rooted</span>
-                <span className="hero-in">In</span>
-                <span className="hero-culture">Culture</span>
-              </h1>
+              <h1>{data.homeContent.title}</h1>
+              <p></p>
             </div>
             <div className="hero-down-arrow">
               <Link to="home/#check">
@@ -93,7 +95,14 @@ const MapOverServices = () => (
               </Link>
             </div>
           </BackgroundImage>
-
+          <HomePageContentWrapper>
+            <h1>{data.homeContent.title}</h1>
+            <HomeContent 
+              dangerouslySetInnerHTML={{
+                __html: data.homeContent.content,
+              }} 
+            />
+          </HomePageContentWrapper>
           <ServicesWrapper id="check">
             <Services>
                 {MapOverServices()}
@@ -167,6 +176,22 @@ grid-template-rows: min-content min-content;
  }
 }
 `
+
+const HomePageContentWrapper = styled.div`
+  grid-column: center-start / center-end;
+  display: grid;
+  justify-items: center;
+  margin-top: 4rem;
+  h1 {
+
+  }
+`
+
+const HomeContent = styled.div`
+  justify-self: center;
+`
+
+
 /// =============== Services Section Wrapper Style ================= ///
 const ServicesWrapper = styled.div`
 grid-column: full-start / full-end;

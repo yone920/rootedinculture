@@ -31,6 +31,16 @@ const Intro = () => {
                     }
                 }
             }
+
+            flowerHeroMobile: file(relativePath: {
+                regex: "/rooted-in-culture-hero-flower-mobile/"
+                }) {
+                childImageSharp {
+                    fluid(maxWidth: 1700) {
+                    ...GatsbyImageSharpFluid
+                        }
+                    }
+                }
     }
 `)
 
@@ -43,7 +53,7 @@ const Intro = () => {
 const sources = [
     data.cateringHero.childImageSharp.fluid,
     {
-      ...data.flowerHero.childImageSharp.fluid,
+      ...data.flowerHeroMobile.childImageSharp.fluid,
       media: `(max-width: 491px)`,
     },
   ]
@@ -79,10 +89,6 @@ const sources = [
 }
 
 const IntroContainer = styled.div`
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 100vh; */
-
     .hero {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -97,14 +103,25 @@ const HeroContentWrapper = styled.div`
     align-items: center;
     padding-left: 8rem;
 
-    p {
-        color: #fff;
+    @media only screen and (max-width: 425px) {
+        grid-column: 1 / 3;
+        padding: 0 3rem;
     }
+
 
     .logo-wrapper {
         grid-column: 1 / 3;
         img {
             width: 100%;
+
+            @media only screen and (max-width: 425px) {
+                width: 70%;
+            }
+        }
+
+        @media only screen and (max-width: 425px) {
+            align-self: start;
+            padding-top: 3rem;
         }
     }
 
@@ -112,11 +129,20 @@ const HeroContentWrapper = styled.div`
         grid-column: 1 / 3;
         align-self: start;
         justify-self: center;
+
+        @media only screen and (max-width: 425px) {
+            align-self: end;
+        }
         p {
             text-align: center;
             font-size: 2rem;
-            line-height: 5rem;
+            line-height: 3rem;
             font-weight: italic;
+
+            @media only screen and (max-width: 425px) {
+                font-size: 1.7rem;
+                line-height: 2rem;
+            }
 
             span {
                 background-color: #fff;
@@ -124,6 +150,12 @@ const HeroContentWrapper = styled.div`
                 color: black;
                 margin: 0.1rem;
                 padding: 0 4rem;
+
+                @media only screen and (max-width: 425px) {
+                    background-color: transparent;
+                    padding: 0 2rem;
+                    color: #fff;
+                }
             }
         }
     }
@@ -133,6 +165,10 @@ const HeroContentWrapper = styled.div`
         width: 50%;
         align-self: start;
         justify-self: center;
+
+        @media only screen and (max-width: 425px) {
+            align-self: center;
+        }
         a {
             display: inline-block;
             width: 100%;
@@ -150,6 +186,5 @@ const HeroContentWrapper = styled.div`
         }
     }
 `
-
 
 export default Intro;

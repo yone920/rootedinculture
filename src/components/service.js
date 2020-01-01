@@ -8,7 +8,7 @@ const Service = (props) => {
 
   const backgroundFluidImageStack = [
     props.service.node.acf.photo.localFile.childImageSharp.fluid,
-    `linear-gradient(180deg, rgba(64,76,7,0.5480567226890756) 0%, rgba(64,76,7,0.5508578431372548) 50%)`
+    `linear-gradient(180deg, rgba(64,76,7,0.25674019607843135) 0%, rgba(64,76,7,0.34637605042016806) 100%)`
   ].reverse()
 
   

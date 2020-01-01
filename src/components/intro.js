@@ -12,7 +12,7 @@ const Intro = () => {
     const data = useStaticQuery(graphql`
     query HeroImageQuery {
 
-        flowerHero: file(relativePath: {
+        cateringHero: file(relativePath: {
         regex: "/rooted-in-culture-hero-catering/"
         }) {
         childImageSharp {
@@ -22,25 +22,25 @@ const Intro = () => {
             }
         }
 
-        cateringHero: file(relativePath: {
-            regex: "/rooted-in-culture-hero-flower/"
-            }) {
-            childImageSharp {
-                fluid(maxWidth: 1700) {
-                ...GatsbyImageSharpFluid
-                    }
+    flowerHero: file(relativePath: {
+        regex: "/rooted-in-culture-hero-flower/"
+        }) {
+        childImageSharp {
+            fluid(maxWidth: 1700) {
+            ...GatsbyImageSharpFluid
                 }
             }
+        }
 
-            flowerHeroMobile: file(relativePath: {
-                regex: "/rooted-in-culture-hero-flower-mobile/"
-                }) {
-                childImageSharp {
-                    fluid(maxWidth: 1700) {
-                    ...GatsbyImageSharpFluid
-                        }
-                    }
+    flowerHeroMobile: file(relativePath: {
+        regex: "/rooted-in-culture-hero-flower-mobile/"
+        }) {
+        childImageSharp {
+            fluid(maxWidth: 1700) {
+            ...GatsbyImageSharpFluid
                 }
+            }
+        }
     }
 `)
 

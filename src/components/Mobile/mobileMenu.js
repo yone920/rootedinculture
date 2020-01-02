@@ -34,7 +34,7 @@ const MobileMenu = ({ style }) => {
                             <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/flower"><h4>Flower</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/archive"><h4>Blog</h4></Link>
-                            <Link onClick={toggleMobileMenu} to="/contact"><h4>Contact Us</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/contactPage"><h4>Contact Us</h4></Link>
                         </MobileMenuWrapper>
                     </MobileMenuContainer>
             </animated.div>

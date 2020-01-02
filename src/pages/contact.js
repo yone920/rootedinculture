@@ -16,7 +16,12 @@ const Contact = () => {
     <Layout>
       <SEO title="Contact Us" />
       <ContactPageContainer>
-      <form name="contact" method="POST" data-netlify="true">
+      <form 
+          name="contact" 
+          method="post" 
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          >
       <div className="contact">
         <label>Name</label>
         <input

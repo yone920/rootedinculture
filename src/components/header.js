@@ -37,7 +37,7 @@ const Header = ({ siteTitle }) => {
       <div className="menu-2">
           <Link to="/flower">Flower</Link>
           <Link to="/archive">Blog</Link>
-          <Link to="/contact">Contact Us</Link>
+          <Link to="/contactPage">Contact Us</Link>
       </div>
       <div className="cart-qty-icon" onClick={toggleCartOpen}>
         <div className="cart-qty">

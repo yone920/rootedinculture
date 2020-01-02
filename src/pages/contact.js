@@ -21,9 +21,8 @@ const Contact = () => {
       <SEO title="Contact Us" />
       <ContactPageContainer>
       <form
-        name="contact"
+        name="contact2"
         method="post"
-        action="/success"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
       >

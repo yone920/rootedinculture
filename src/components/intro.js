@@ -50,6 +50,8 @@ const Intro = () => {
 //   data.cateringHero.childImageSharp.fluid
 // ].reverse()
 
+
+
 const sources = [
     data.cateringHero.childImageSharp.fluid,
     {

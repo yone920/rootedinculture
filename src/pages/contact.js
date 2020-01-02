@@ -12,11 +12,16 @@ const Contact = () => {
   // console.log(errors);
   // onSubmit={handleSubmit(onSubmit)}
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
+
   return (
     <Layout>
       <SEO title="Contact Us" />
       <ContactPageContainer>
       <form 
+          onSubmit={handleSubmit}
           name="contact" 
           method="post" 
           data-netlify="true"

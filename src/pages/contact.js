@@ -12,56 +12,34 @@ const Contact = () => {
   // console.log(errors);
   // onSubmit={handleSubmit(onSubmit)}
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-  }
+  // const handleSubmit = (e) => {
+  //   e.preventDefault()
+  // }
 
   return (
     <Layout>
       <SEO title="Contact Us" />
       <ContactPageContainer>
-      <form 
-          onSubmit={handleSubmit}
-          name="contact" 
-          method="post" 
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          >
-      <div className="contact">
-        <label>Name</label>
-        <input
-          type="text"
-          name="First name"
-          ref={register({ required: true, maxLength: { value: 12, message: "error message" } })}
-        />
-      </div>
-      <div className="contact">
-        <label>Email</label>
-        <input
-          type="text"
-          name="Email"
-          ref={register({
-            required: true,
-            pattern: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-          })}
-        />
-      </div>
-      <div className="contact">
-        <label>Mobile number</label>
-        <input
-          type="tel"
-          name="Mobile number"
-          ref={register({ required: true, maxLength: 11, minLength: 8 })}
-        />
-      </div>
-      <div className="contact">
-      <label>Message</label>
-        <textarea name="message"></textarea>
-      </div>
-      <div className="contact">
-        <input type="submit" />
-      </div>
-    </form>
+      <form name="contact" method="POST" data-netlify="true">
+        <div className="contact">
+          <label>Your Name: <input type="text" name="name" /></label>   
+        </div>
+        <div className="contact">
+          <label>Your Email: <input type="email" name="email" /></label>
+        </div>
+        <div className="contact">
+          <label>Your Role: <select name="role[]" multiple>
+            <option value="leader">Leader</option>
+            <option value="follower">Follower</option>
+          </select></label>
+        </div>
+        <div className="contact">
+          <label>Message: <textarea name="message"></textarea></label>
+        </div>
+        <div className="contact">
+          <button type="submit">Send</button>
+        </div>
+      </form>
     </ContactPageContainer>
     </Layout>
   );

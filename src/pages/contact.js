@@ -2,10 +2,10 @@ import React from "react"
 import styled from 'styled-components'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
-import { useForm } from 'react-hook-form';
+// import { useForm } from 'react-hook-form';
 
 const Contact = () => {
-  const { register } = useForm();
+  // const { register } = useForm();
   // const onSubmit = data => {
   //   alert(JSON.stringify(data));
   // };
@@ -20,24 +20,29 @@ const Contact = () => {
     <Layout>
       <SEO title="Contact Us" />
       <ContactPageContainer>
-      <form name="contact" method="POST" data-netlify="true">
+      <form
+        name="contact"
+        method="post"
+        action="/success"
+        data-netlify="true"
+        data-netlify-honeypot="bot-field"
+      >
+        <input type="hidden" name="bot-field" />
         <div className="contact">
-          <label>Your Name: <input type="text" name="name" /></label>   
+          <label htmlFor="name">Name</label>
+          <input type="text" name="name" id="name" />
         </div>
         <div className="contact">
-          <label>Your Email: <input type="email" name="email" /></label>
+          <label htmlFor="email">Email</label>
+          <input type="text" name="email" id="email" />
         </div>
         <div className="contact">
-          <label>Your Role: <select name="role[]" multiple>
-            <option value="leader">Leader</option>
-            <option value="follower">Follower</option>
-          </select></label>
+          <label htmlFor="message">Message</label>
+          <textarea name="message" id="message" rows="6" required />
         </div>
         <div className="contact">
-          <label>Message: <textarea name="message"></textarea></label>
-        </div>
-        <div className="contact">
-          <button type="submit">Send</button>
+          <input type="submit" value="Drop a line" />
+          <input type="reset" value="Eraser" />
         </div>
       </form>
     </ContactPageContainer>

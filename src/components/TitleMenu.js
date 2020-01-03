@@ -10,10 +10,8 @@ const POST_ARCHIVE_QUERY = graphql`
   }) {
       edges {
         node {
-          
             title
             slug
-          
         }
       }
     }

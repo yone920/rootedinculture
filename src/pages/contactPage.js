@@ -21,7 +21,6 @@ const ContactPage = () => {
   }
 
   const handleSubmit = (e) => {
-        
     e.preventDefault()
     const form = e.target
     fetch('/', {
@@ -49,6 +48,8 @@ const ContactPage = () => {
   }
 `)
 
+  console.log(state);
+  
 
   return (
     <Layout>
@@ -173,7 +174,7 @@ const ContactPageContainer = styled.div`
     }
 
   form {
-  max-width: 500px;
+  max-width: 50rem;
   margin: 0 auto;
 }
 
@@ -183,32 +184,32 @@ const ContactPageContainer = styled.div`
       display: block;
       box-sizing: border-box;
       width: 100%;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      font-size: 14px;
+      border-radius: .4rem;
+      border: .1rem solid #ccc;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
     }
 
     textarea {
       display: block;
       box-sizing: border-box;
       width: 100%;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-      padding: 10px 15px;
-      margin-bottom: 10px;
-      font-size: 14px;
+      border-radius: .4rem;
+      border: .1rem solid #ccc;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
     }
 
     label {
       line-height: 2;
       text-align: left;
       display: block;
-      margin-bottom: 13px;
-      margin-top: 20px;
+      margin-bottom: 1.3rem;
+      margin-top: 2rem;
       color: black;
-      font-size: 14px;
+      font-size: 1.4rem;
       font-weight: 200;
     }
 
@@ -218,11 +219,11 @@ const ContactPageContainer = styled.div`
       color: white;
       text-transform: uppercase;
       border: none;
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 16px;
+      margin-top: 4rem;
+      padding: 2rem;
+      font-size: 1.6rem;
       font-weight: 100;
-      letter-spacing: 10px;
+      letter-spacing: 1rem;
       display: block;
       width: 100%;
     }
@@ -236,7 +237,7 @@ const ContactPageContainer = styled.div`
     input[type="button"]:active,
     input[type="submit"]:active {
       transition: 0.3s all;
-      transform: translateY(3px);
+      transform: translateY(.3rem);
       border: 1px solid transparent;
       opacity: 0.8;
     }
@@ -262,23 +263,23 @@ const ContactPageContainer = styled.div`
       color: white;
       border: none;
       text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 4px;
+      padding: 1rem 2rem;
+      border-radius: .4rem;
     }
 
     hr {
-      margin-top: 30px;
+      margin-top: 3rem;
     }
 
     button {
       display: block;
       appearance: none;
-      margin-top: 40px;
-      border: 1px solid #333;
-      margin-bottom: 20px;
+      margin-top: 4rem;
+      border: .1rem solid #333;
+      margin-bottom: 2rem;
       text-transform: uppercase;
-      padding: 10px 20px;
-      border-radius: 4px;
+      padding: 1rem 2rem;
+      border-radius: .4rem;
     }
 }
 `

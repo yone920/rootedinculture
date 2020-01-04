@@ -28,29 +28,26 @@ const Archive = () => (
 
 const ArchiveWrapper = styled.div`
     display: grid;
-    grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-    grid-gap: 2rem;
+    grid-template-columns: [ full-start ] minmax(1rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(1rem, 1fr) [ full-end ];
+    /* grid-gap: 2rem; */
     justify-items: center;
     padding: 8rem 0;
 
     @media only screen and (max-width: 425px) {
       grid-template-columns: [ full-start ] minmax(0rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(0rem, 1fr) [ full-end ];
     }
-
-  
-
 `
 const ListingWrapper = styled.div`
-  grid-column: center-start / center-end;
-  /* width: 70%; */
-  display: grid;
-  grid-gap: 3rem;
+  grid-column: full-start / full-end;
+  padding: 0 5rem;
+
+  @media only screen and (max-width: 425px) {
+    padding: 0 2rem;
+    }
+
   a {
     text-decoration: none;
   }
 `
-// const TitleMenuWrapper = styled.div`
-//   grid-column: col-end 6 / center-end;
-// `
 
   export default Archive;

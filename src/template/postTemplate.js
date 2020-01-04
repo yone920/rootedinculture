@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/layout'
-import TitleMenu from '../components/TitleMenu'
+import PostPage from '../components/Blog/postPage'
+import styled from 'styled-components'
+
 
 export default class postLayout extends Component {
     render() {
       const { data } = this.props;
         return (
             <Layout>
-              <h4>{data.wordpressPost.title}</h4>
-              <div dangerouslySetInnerHTML={{
-                __html: data.wordpressPost.content,
-              }} />
-              <TitleMenu />
+              <PostTemplateContainer>
+                <PostPage post={data.wordpressPost} />
+              </PostTemplateContainer>
             </Layout>
         )
     }
 }
+
+const PostTemplateContainer = styled.div`
+  /* grid-column: full-start / full-end; */
+`
 
 export const query = graphql`
   query PostQuery($slug: String!) {
@@ -24,6 +28,16 @@ export const query = graphql`
       title
       slug
       content
+      date(formatString: "MMMM DD, YYYY")
+      featured_media {
+        localFile {
+            childImageSharp {
+              fluid(maxWidth: 1500, maxHeight: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+      }
     }
   }
 `

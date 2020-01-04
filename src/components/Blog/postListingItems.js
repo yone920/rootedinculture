@@ -2,24 +2,31 @@ import React from 'react'
 import styled from 'styled-components'
 import Img from "gatsby-image"
 import { Link } from 'gatsby'
+import PlusSvg from '../../images/svg/plus.svg'
 
 
  const PostListingItems = ({ node }) => {
+
+
+
     return (
             <PostItemsContainer>
                 <Link to={`/posts/${node.slug}`}>
                     <div className="post-image">
                         <StyledImage fluid={node.featured_media.localFile.childImageSharp.fluid} />
+                        <div class="overlay">
+                            <div class="text"><img src={PlusSvg} alt="click to view post"></img></div>
+                        </div>
                     </div>
                 </Link>
                 <div className="title-content">
                     <Link to={`/posts/${node.slug}`}>
                         <div className="post-title">
-                            {node.title}
+                            <h2>{node.title}</h2>
                         </div>
                     </Link>
                     <hr />
-                    <div className="post-date">{node.date}</div>
+                    <div className="post-date"><p>{node.date}</p></div>
                     <div className="post-excerpt" dangerouslySetInnerHTML={{
                             __html: node.excerpt,
                     }} />
@@ -37,14 +44,32 @@ import { Link } from 'gatsby'
 
     .post-image {
         align-self: center;
-      
+        position: relative;
 
-        :hover {
 
-            img {
-                width: 50%;
-            }
+        :hover  .overlay {
+            opacity: 1;
         }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: rgba(64, 76, 7, 0.63);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .text {
+            }
+            }
+
     }
 
     .title-content {
@@ -58,15 +83,12 @@ import { Link } from 'gatsby'
         }
         
         .read-more {
-            background-color: #404C07;
-            width: 30%;
-            text-align: center;
-            border-radius: .4rem;
-            margin: 1rem 0;
+            margin-top: 2rem;
+
             a:active,
             a:visited,
             a {
-                color: #fff;
+                color: #404C07;
             }
         
             @media only screen and (max-width: 425px) {
@@ -91,6 +113,10 @@ import { Link } from 'gatsby'
         .post-date {
             font-style: italic;
             margin-bottom: 1rem;
+
+            p {
+                color: black;
+            }
         }
 
         .post-excerpt {
@@ -103,13 +129,7 @@ import { Link } from 'gatsby'
 `
 
 const StyledImage = styled(Img)`
-    :hover {
-        /* transform: scale(1) */
-        object-fit: contain;
-        transform: scale(1.01);
-        transition: transform ease-in 0.7s;
-        transition: transform ease-out 0.7s;
-    }
+   
 `
 
 export default PostListingItems;

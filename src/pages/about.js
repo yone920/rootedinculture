@@ -100,6 +100,7 @@ const About = (props) => {
               {mapOverMembers()}
             </MembersWrapper>
           </OurTeam>
+          
       </AboutContainer>
     </HomeAboutLayout>
     </div>
@@ -188,6 +189,7 @@ const MembersWrapper = styled.div`
         font-size: ${props => props.theme.font.h2FontSize};
     }
 `
+
 const MembersDiv = styled.div`
 
 `

@@ -1,13 +1,14 @@
 import React, {Fragment} from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
+// import BackgroundImage from 'gatsby-background-image'
 import { withTheme } from 'styled-components'
-import SvgArrowDown from '../components/svgArrowDown'
+// import SvgArrowDown from '../components/svgArrowDown'
 import Layout from "../components/Layout/layout"
 import Service from '../components/service'
 import SEO from "../components/seo"
+import HomeSlider from '../components/HomeSlider'
 import "../stylesheet/main.scss"
 
 const IndexPage = (props) => {
@@ -61,12 +62,11 @@ const data = useStaticQuery(graphql`
 
 
 // =============== Background Image ================= ///
-const backgroundFluidImageStack = [
-  data.heroImage.childImageSharp.fluid,
-  `linear-gradient(180deg, rgba(211,76,1,1) 0%, rgba(211,76,1,0.7693452380952381) 24%, rgba(64,76,7,0.4248074229691877) 100%)`
-].reverse()
+// const backgroundFluidImageStack = [
+//   data.heroImage.childImageSharp.fluid,
+//   `linear-gradient(180deg, rgba(211,76,1,1) 0%, rgba(211,76,1,0.7693452380952381) 24%, rgba(64,76,7,0.4248074229691877) 100%)`
+// ].reverse()
  
-console.log(data.services);
 
 const MapOverServices = () => (
   data.services.edges.map(node => (
@@ -77,12 +77,16 @@ const MapOverServices = () => (
   ))
 )
 
+
 // =============== Render ================= ///
   return (
     <Layout>
       <SEO title="Home" />
+        <SliderContainer>
+            <HomeSlider />
+          </SliderContainer>
         <HomeWrapper>
-          <BackgroundImage
+          {/* <BackgroundImage
               Tag="section"
               className="hero"
               fluid={backgroundFluidImageStack}
@@ -101,7 +105,8 @@ const MapOverServices = () => (
                 <SvgArrowDown />  
               </Link>
             </div>
-          </BackgroundImage>
+          </BackgroundImage> */}
+
           <HomePageContentWrapper id="check">
             <h1>{data.homeContent.acf.phrase}</h1>
             <HomeContent 
@@ -122,6 +127,8 @@ const MapOverServices = () => (
   }
 
 // =============== Style ================= ///
+
+
 const HomeWrapper = styled.div`
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
@@ -214,6 +221,11 @@ grid-template-rows: min-content min-content;
 }
 `
 
+const SliderContainer = styled.div`
+      grid-column: center-start / center-end;
+      margin-bottom: 4rem;
+`
+
 const HomePageContentWrapper = styled.div`
   grid-column: center-start / center-end;
   display: grid;
@@ -230,6 +242,8 @@ const HomeContent = styled.div`
      text-align: center;
    }
 `
+
+
 
 
 /// =============== Services Section Wrapper Style ================= ///

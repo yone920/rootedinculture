@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useContext } from "react"
-import Logo from "../images/white_logo_transparent.png"
+import Logo from "../images/dark_logo_transparent.png"
 import styled, { css } from 'styled-components'
 import { StoreContext } from '../context/StoreContext'
 import Cart from '../components/Cart/cart'
@@ -77,7 +77,7 @@ export const menuLink = css`
         /* font-size: $default-font-size; */
         border: none;
         cursor: pointer;
-        color: #fff;
+        color: black;
         // margin-right: 5rem;
         justify-content: space-between;
         letter-spacing: .2rem;
@@ -86,13 +86,13 @@ export const menuLink = css`
 /// ============== Header Element ================ ///
 const HeaderWrapper = styled.header`
     grid-column: full-start / full-end;
-    background-color: #cf4a00;
+    /* background-color: #cf4a00; */
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
     grid-template-rows: 10vh min-content;
     justify-items: center;
     align-items: center;
-    padding: 2rem 0;
+    padding: 5rem 0;
     column-gap: 1rem;
     /* color: #fff; */
     .menu-1 {

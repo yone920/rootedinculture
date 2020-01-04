@@ -46,3 +46,67 @@
 //         <input type="submit" />
 //       </div>
 //     </form>
+
+
+
+
+
+// const LISTING_QUERY = graphql`
+//     query BlogPostListing {
+//         allWordpressPost(limit: 10, sort: {
+//             order: DESC,
+//             fields: [date]
+//         }) {
+//             edges {
+//                 node {
+//                 excerpt
+//                 date(formatString: "MMMM DD, YYYY")
+//                 title
+//                 slug 
+//                 featured_media {
+//                     localFile {
+//                         childImageSharp {
+//                           fluid(maxWidth: 1500, maxHeight: 1500) {
+//                             ...GatsbyImageSharpFluid
+//                           }
+//                         }
+//                       }
+//                 }
+//                 }
+//             }
+//         }
+//     }
+// `
+
+
+// const Listing = (props) => (
+//         <StaticQuery 
+//             query={LISTING_QUERY}
+//             render = {({allWordpressPost}) => (
+//                 allWordpressPost.edges.map(({node}) => (
+//                     <ListWrapper key={node.slug}>
+//                         <BorderLineWrapper>
+//                             <PostImage>
+//                                 <Img fluid={node.featured_media.localFile.childImageSharp.fluid} />
+//                             </PostImage>
+//                             <TitleBlogWrapper>
+//                                 <Link to={`/posts/${node.slug}`}>
+//                                     <Title>
+//                                         {node.title}
+//                                     </Title>
+//                                 </Link>
+//                                 <hr />
+//                                 <Date>{node.date}</Date>
+//                                 <div dangerouslySetInnerHTML={{
+//                                         __html: node.excerpt,
+//                                 }} />
+//                                 <div className="read-more">
+//                                     <Link to={`/posts/${node.slug}`}>View Post</Link>
+//                                 </div>
+//                             </TitleBlogWrapper>
+//                         </BorderLineWrapper>
+//                     </ListWrapper>
+//                 ))
+//             )}
+//         />
+// )

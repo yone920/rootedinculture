@@ -13,7 +13,7 @@ return (
     <FlowerContainer>
         <SEO title="Flower Decoration" />
         <HeaderContainer>
-          <h1>Flower Decoration</h1>
+          <h2>Flower Decoration</h2>
         </HeaderContainer>
       <FlowerContentWrapper>
         <ProductsListing />

@@ -46,8 +46,8 @@ return(
 const ListWrapper = styled.article`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    grid-column-gap: 2.5rem;
-    grid-row-gap: 2.5rem;
+    grid-column-gap: 1rem;
+    grid-row-gap: 1rem;
 
     @media only screen and (max-width: 425px) {
         grid-row-gap: 2.5rem;

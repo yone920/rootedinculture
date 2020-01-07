@@ -10,6 +10,7 @@ import Service from '../components/service'
 import SEO from "../components/seo"
 import HomeSlider from '../components/HomeSlider'
 import "../stylesheet/main.scss"
+import InstagramList from '../components/Instagram/instagramList'
 
 const IndexPage = (props) => {
 // =============== Query ================= ///
@@ -120,7 +121,10 @@ const MapOverServices = () => (
                 {MapOverServices()}
             </Services>
           </ServicesWrapper>
-          
+          <InstaWrapper>
+            <div className="insta-header"><h2>Our Instagram</h2></div>
+            <InstagramList />
+          </InstaWrapper>
       </HomeWrapper>
     </Layout>
     )
@@ -265,6 +269,15 @@ grid-column-gap: 1rem;
 
 @media ${props => props.theme.device.mobileL} {
     grid-row-gap: 0.5rem;
+  }
+`
+
+const InstaWrapper = styled.div`
+  grid-column: full-start / full-end;
+  margin: 5rem 0;
+
+  .insta-header {
+    margin: 4rem 0rem 4rem 15rem;
   }
 `
 

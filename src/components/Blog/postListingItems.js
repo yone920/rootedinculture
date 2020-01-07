@@ -46,7 +46,6 @@ import PlusSvg from '../../images/svg/plus.svg'
         align-self: center;
         position: relative;
 
-
         :hover  .overlay {
             opacity: 1;
         }
@@ -61,7 +60,7 @@ import PlusSvg from '../../images/svg/plus.svg'
             width: 100%;
             opacity: 0;
             transition: .5s ease;
-            background-color: rgba(64, 76, 7, 0.63);
+            background-color: #cf4a2c9c;
             display: flex;
             justify-content: center;
             align-items: center;

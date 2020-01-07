@@ -32,7 +32,7 @@ const Button = styled.button`
   border-radius: .5rem;
   cursor: pointer;
   :hover {
-      background-color: rgba(64, 76, 7, 0.622);
+      background-color: rgba(64, 76, 7, 0.922);
       /* color: #5db544; */
   }
 `

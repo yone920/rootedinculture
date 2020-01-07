@@ -9,7 +9,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import BackgroundImage from 'gatsby-background-image'
 // import Reservation from '../components/reservation'
 import CateringMenu from '../components/cateringMenu'
-
 import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
 import SEO from "../components/seo"
 
@@ -40,12 +39,7 @@ const Catering = (props) => {
                   featured_media {
             localFile {
                           childImageSharp {
-                              fluid(maxWidth: 1500, maxHeight: 1500, 
-                                  duotone: {
-                                  highlight: "#f00e2e",
-                                  shadow: "#192550",
-                                  opacity: 50
-                                }) {
+                              fluid(maxWidth: 1500, maxHeight: 1500) {
                                   ...GatsbyImageSharpFluid
                               } 
                           }
@@ -111,6 +105,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
               <h1>Catering</h1>
             </div>
           </BackgroundImage>
+          
           
           <AboutAndMenuContainer>
             <AboutCatering 
@@ -183,6 +178,7 @@ grid-template-rows: 70vh min-content;
 
 .flower-content {
 grid-column: center-start / center-end;
+
 }
 `
 
@@ -193,10 +189,10 @@ justify-items: center;
 
 const MenuContainer = styled.div`
  display: grid;
- grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+ grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
  justify-content: center;
- grid-gap: .5rem;
- margin: 8rem 8rem;  
+ grid-column-gap: 1rem;
+ margin: 8rem 0;  
 `
 
 const AboutCatering = styled.div`

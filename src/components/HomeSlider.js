@@ -12,45 +12,49 @@ import { useMediaQuery } from 'react-responsive'
 const data = useStaticQuery(graphql`
   query HomeSliderQuery {
 
-    sliders: allWordpressWpHomeSlider {
-        edges {
-            node {
-                id
-                acf {
-                photo {
-                    localFile {
-                        childImageSharp {
-                        fluid(maxWidth: 1500, maxHeight: 600) {
-                            ...GatsbyImageSharpFluid
-                        }
-                        }
-                    }
+    slider: allWordpressWpHomeCarousel {
+      edges {
+        node {
+          acf {
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 600) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
-              alt
+              }
             }
           }
         }
       }
+    }
 
-      mobileSliders: allWordpressWpHomeSlider {
-        edges {
-            node {
-                id
-                acf {
-                photo {
-                    localFile {
-                        childImageSharp {
-                        fluid(maxWidth: 1000, maxHeight: 1000) {
-                            ...GatsbyImageSharpFluid
-                        }
-                        }
-                    }
+    services: allWordpressWpServices {
+      edges {
+        node {
+          id
+          acf {
+            body
+            button
+            link
+            sub_heading
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 500) {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
-              alt
+              }
             }
           }
+          title
         }
       }
+    }   
+
+    
     
   }
 `)
@@ -102,13 +106,13 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
     const mapOverPhotos = () => (
         isTabletOrMobile ? 
-        data.mobileSliders.edges.map(node => (
+        data.services.edges.map(node => (
             <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>
         ))
         :
-        data.sliders.edges.map(node => (
+        data.slider.edges.map(node => (
             <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>

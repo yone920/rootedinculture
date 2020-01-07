@@ -61,7 +61,7 @@ const ProductContainer = styled.main`
 grid-column: center-start / center-end;
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-margin: 10rem 10rem;
+margin: 5rem 10rem;
 `
 
 const ImageWrapper = styled.div`

@@ -1,31 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import BackgroundImage from 'gatsby-background-image'
 import { Link } from 'gatsby'
 import { withTheme } from 'styled-components'
+import Img from "gatsby-image"
+import PlusSvg from '../images/svg/plus.svg'
 
 
 
  const CateringMenu = ({ menu }) => {
 
-        // --------------------- Background Images---------------------- //
-    const backgroundFluidImageStack = [
-        menu.node.featured_media.localFile.childImageSharp.fluid,
-      ].reverse()
-
 
      return (
              <MenuContainer>
                 <Link to={`/catering/${menu.node.slug}`}>
-                    <BackgroundImage
-                        key={menu.node.id}
-                        Tag="div"
-                        className="menu"
-                        fluid={backgroundFluidImageStack}
-                        backgroundColor={`#040e18`}
-                    >
-                        <h1>{menu.node.title}</h1>
-                    </BackgroundImage>
+                    <div className="catering-image">
+                        <Img fluid={menu.node.featured_media.localFile.childImageSharp.fluid} />
+                        <div class="overlay">
+                            <div class="text"><img src={PlusSvg} alt="click to view post"></img>
+                        </div>
+                    </div>
+          </div>
                 </Link>
              </MenuContainer>
     )
@@ -47,6 +41,35 @@ const  MenuContainer = styled.div`
                     color: ${props => props.theme.color.fontColor};
                 }
             }
+
+            .catering-image {
+        align-self: center;
+        position: relative;
+
+        :hover  .overlay {
+            opacity: 1;
+        }
+        
+        .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .5s ease;
+            background-color: #cf4a2c9c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .text {
+            }
+            }
+
+    }
       `
 
 

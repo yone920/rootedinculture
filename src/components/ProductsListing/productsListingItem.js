@@ -35,6 +35,8 @@ const ProductsListingItem = ({ product }) => {
 }
 
 const ProductItemContainer = styled.main`
+    background-color: #F5F5F5;
+    
    .product-image {
         align-self: center;
         position: relative;

@@ -1,18 +1,22 @@
 import React from 'react'
 import Img from "gatsby-image"
 import styled from 'styled-components'
-
+import Heart from '../../images/svg/realheart.svg'
 
  const InstaItem = ( { post } ) => {
+     
+    const InstaLink = "https://www.instagram.com/rootedincultureflowers/"
+        
     return (
-        <a href={post.localFile.url}> 
         <InstaItemContainer>
                 <Img fluid={post.localFile.childImageSharp.fluid} />
-                <div class="overlay">
-                    <div class="text">{post.likes}</div>
-                </div>
-        </InstaItemContainer>
+        <a href={InstaLink}> 
+            <div class="overlay">
+                <img src={Heart} alt="Our Address Icon"></img>
+                <div class="text">{post.likes}</div>
+            </div>
         </a>
+        </InstaItemContainer>
     )
 }
 

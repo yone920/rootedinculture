@@ -2,28 +2,15 @@ import React from 'react'
 import { Link } from "gatsby"
 import styled, {css} from 'styled-components'
 import { withTheme } from 'styled-components'
-// import BackgroundImage from 'gatsby-background-image'
 import Img from "gatsby-image"
 
 const Service = (props) => {
 
-  // const backgroundFluidImageStack = [
-  //   props.service.node.acf.photo.localFile.childImageSharp.fluid,
-  //   `linear-gradient(180deg, rgba(64,76,7,0.25674019607843135) 0%, rgba(64,76,7,0.34637605042016806) 100%)`
-  // ].reverse()
 
   
     return (
         <ServiceWrapper>
               <Link to={props.service.node.acf.link}>
-                {/* <BackgroundImage
-                    Tag="section"
-                    className="service-images"
-                    fluid={backgroundFluidImageStack}
-                    backgroundColor={`#040e18`}
-                  >
-                      <button>{props.service.node.title}</button>
-                </BackgroundImage> */}
                 <div className="post-image">
                         <StyledImage fluid={props.service.node.acf.photo.localFile.childImageSharp.fluid} />
                         <div class="overlay">
@@ -91,7 +78,7 @@ const ServiceWrapper = styled.div`
 
         :hover  .overlay {
             opacity: 1;
-            background-color: rgba(64, 76, 7, 0.541);
+            background-color: rgba(207, 74, 44, 0.425);
         }
         
         .overlay {
@@ -104,7 +91,7 @@ const ServiceWrapper = styled.div`
             width: 100%;
             opacity: 1;
             transition: .5s ease;
-            background-color: #cf4a2c9c;
+            /* background-color: #cf4a2c9c; */
             display: flex;
             justify-content: center;
             align-items: center;

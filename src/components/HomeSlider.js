@@ -30,6 +30,24 @@ const data = useStaticQuery(graphql`
       }
     }
 
+    mobileSlider: allWordpressWpHomeCarousel {
+      edges {
+        node {
+          acf {
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 1000) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
     services: allWordpressWpServices {
       edges {
         node {
@@ -74,7 +92,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
             arrows: false,
             autoplay: true,
             autoplaySpeed: 6000,
-            // fade: true,
+            fade: true,
             beforeChange: function(currentSlide, nextSlide) {
               console.log("before change", currentSlide, nextSlide);
             },
@@ -94,7 +112,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
             autoplaySpeed: 6000,
             // speed: 2000,
             // cssEase: "linear",
-            // fade: true,
+            fade: true,
             beforeChange: function(currentSlide, nextSlide) {
               console.log("before change", currentSlide, nextSlide);
             },
@@ -106,7 +124,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
     const mapOverPhotos = () => (
         isTabletOrMobile ? 
-        data.services.edges.map(node => (
+        data.mobileSlider.edges.map(node => (
             <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>

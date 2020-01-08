@@ -54,9 +54,14 @@ const ContactPage = () => {
   return (
     <Layout>
         <ContactPageContainer>
-            <div className="contact-header">
-                <h1>Contact Us</h1>
-            </div>
+            <div className="contact-line-wrapper">
+              <div className="blog-heading">
+                  <h2>Contact Us</h2>
+              </div>
+              <div className="line">
+                <hr />
+              </div>
+          </div>
             <div className="contact-form-wrapper">
                 <form
                     name="contactPage"
@@ -132,12 +137,34 @@ const ContactPage = () => {
 const ContactPageContainer = styled.div`
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-    padding: 6rem 0;
+    padding: 4rem 0;
 
-    .contact-header {
+    .contact-line-wrapper {
         grid-column: center-start / center-end;
         text-align: center;
-        margin-bottom: 4rem;
+        margin-bottom: 2rem;
+        grid-column: center-start / center-end;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        padding: 0 0 2rem 0;
+
+        .blog-heading {
+          grid-column: full-start / full-end;
+          text-align: center;
+      }
+
+      .line {
+        width: 25rem;
+        margin: 1rem auto;
+
+          hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+          }
+      }
+    
     }
 
     .contact-form-wrapper {

@@ -2,7 +2,7 @@
 
 export const color = {
     primary: "#404C07",
-    secondary: "#cf4a2c",
+    secondary: "#CF4A2C",
     accent1: "#EAA001",
     accent2: "#BF002B",
     accent3: "#580C1F",

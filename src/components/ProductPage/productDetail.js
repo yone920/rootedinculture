@@ -62,6 +62,11 @@ grid-column: center-start / center-end;
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
 margin: 5rem 10rem;
+
+@media ${props => props.theme.device.mobileL} {
+    grid-template-columns: [ full-start ] minmax(2rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(2rem, 1fr) [ full-end ];
+    margin: 4rem 0 6rem 0;
+  }
 `
 
 const ImageWrapper = styled.div`
@@ -69,17 +74,25 @@ grid-column: center-start / col-end 4;
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-gap: .5rem;
+
+@media ${props => props.theme.device.laptop} {
+    grid-column: center-start / center-end;
+  }
 `
 const ItemWrapper = styled.div`
         :first-child {
             grid-column: 1 / 4;
         }
-
 `
 const ContentWrapper = styled.div`
     grid-column: col-start 5 / center-end;
     margin-left: 5rem;
-    /* margin-top: 10rem; */
+
+    @media ${props => props.theme.device.laptop} {
+        grid-column: center-start / center-end;
+        margin: 5rem 0 0 0;
+    }
+
 `
 const ProductName = styled.div`
     h1 {

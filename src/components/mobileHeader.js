@@ -1,7 +1,7 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useContext } from "react"
-import Logo from "../images/white_logo_transparent.png"
+import Logo from "../images/dark_logo_transparent.png"
 import styled from 'styled-components'
 import { StoreContext } from '../context/StoreContext'
 import Cart from '../components/Cart/cart'
@@ -74,7 +74,7 @@ const MobileMenuContainer = styled.div`
     justify-items: center;
     align-items: center;
 
-    background-color: #D34C01;
+    /* background-color: #D34C01; */
 `
 const LogoWrapper = styled.div`
     grid-column: 2 / 5;

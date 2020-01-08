@@ -45,12 +45,6 @@ const Intro = () => {
 `)
 
 
-// =============== Background Image ================= ///
-// const backgroundFluidImageStack = [
-//   data.cateringHero.childImageSharp.fluid
-// ].reverse()
-
-
 
 const sources = [
     data.cateringHero.childImageSharp.fluid,
@@ -86,6 +80,7 @@ const sources = [
                     </div>
                 </HeroContentWrapper>
             </BackgroundImage>
+            
         </IntroContainer>
     ) 
 }

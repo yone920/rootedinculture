@@ -18,8 +18,8 @@ const ProductsListingItem = ({ product }) => {
       <Link to={`/flower/${product.handle}`}>
         <div className="product-image">
           <Img fluid={firstImage.localFile.childImageSharp.fluid} />
-          <div class="overlay">
-              <div class="text"><img src={PlusSvg} alt="click to view post"></img></div>
+          <div className="overlay">
+              <div className="text"><img src={PlusSvg} alt="click to view post"></img></div>
           </div>
         </div>
       </Link>

@@ -15,6 +15,7 @@ const data = useStaticQuery(graphql`
     slider: allWordpressWpHomeCarousel {
       edges {
         node {
+          id
           acf {
             photo {
               localFile {
@@ -33,6 +34,7 @@ const data = useStaticQuery(graphql`
     mobileSlider: allWordpressWpHomeCarousel {
       edges {
         node {
+          id
           acf {
             photo {
               localFile {
@@ -70,10 +72,10 @@ const data = useStaticQuery(graphql`
           title
         }
       }
-    }   
+    }
 
-    
-    
+
+
   }
 `)
 
@@ -123,7 +125,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
     }
 
     const mapOverPhotos = () => (
-        isTabletOrMobile ? 
+        isTabletOrMobile ?
         data.mobileSlider.edges.map(node => (
             <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
@@ -131,7 +133,7 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
         ))
         :
         data.slider.edges.map(node => (
-            <div key={node.node.id}>
+          <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>
         ))

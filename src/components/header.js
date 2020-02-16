@@ -50,7 +50,7 @@ const Header = ({ siteTitle }) => {
       {transitions.map(({ item, key, props }) => {
         return item && <Cart key={key} style={props} />
       })}
-      </HeaderWrapper>  
+      </HeaderWrapper>
       <Loader />
       </>
   )
@@ -102,6 +102,9 @@ const HeaderWrapper = styled.header`
         a:active {
            ${menuLink}
         }
+        a:hover {
+          text-decoration: underline;
+        }
     }
 
     .logo {
@@ -118,6 +121,9 @@ const HeaderWrapper = styled.header`
         a:active {
           ${menuLink}
         }
+        a:hover {
+          text-decoration: underline;
+        }
     }
 
     .cart-qty-icon {
@@ -130,9 +136,9 @@ const HeaderWrapper = styled.header`
 
     }
      .cart-icon {
-     
+
     }
-  
+
 `
 
 

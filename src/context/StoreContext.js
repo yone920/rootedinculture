@@ -7,6 +7,8 @@ export const client = Client.buildClient({
     storefrontAccessToken: "56092a7ec1c498c4830dfb5b558badc9",
 })
 
+
+
 const defaultValues = {
     isCartOpen: false,
     isMobileMenuOpen: false,
@@ -65,6 +67,8 @@ export const StoreProvider = ({ children }) => {
     
     /// Initialize the checkout and set the sate with the new checkoutId
     const initializeCheckout = async () => {
+        console.log(client);
+        
         try {
             setLoading(true)
             // Check if id exists
@@ -97,6 +101,7 @@ export const StoreProvider = ({ children }) => {
         }, [])
 
         const addProductToCart = async (variantId) => {
+            
             try {
                 setLoading(true)
                 const lineItems = [{

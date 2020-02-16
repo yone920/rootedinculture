@@ -14,24 +14,27 @@ html {
 
 body {
     box-sizing: border-box;
-    font-size: 1.6rem;   
+    font-size: 1.6rem;
 
-    font-family: "Poppins";
-    font-weight: 400;
+    /* font-family: "Poppins"; */
+    font-family: 'Raleway';
+    font-weight: 300;
     line-height: 1.7;
-    color: rgba(0, 0, 0, 0.76);
+    color: #000;
 
-    
-    
+
+
     /* background-color: #000000; */
 }
 
 h2 {
+    font-family: 'Playball';
+    font-weight: 400;
     color: #404C07;
     font-size: 3rem;
-    font-weight: 200;
+    /* font-weight: 200; */
     letter-spacing: 0.4rem;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
 
 }
  h3 {
@@ -42,15 +45,15 @@ h2 {
     text-transform: uppercase;
  }
 
-/* h1, h2, h3, h4, h5 { 
-	font-family: Roadstar; 
-	font-weight: normal; 
-	font-style: normal; 
+/* h1, h2, h3, h4, h5 {
+	font-family: Roadstar;
+	font-weight: normal;
+	font-style: normal;
 } */
 
 /* mobileS */
 @media only screen and (max-width: 320px) {
-   
+
 }
 
 /* mobileM: */
@@ -61,21 +64,21 @@ h2 {
 /* mobileL */
 @media only screen and (max-width: 425px) {
     html {
-        font-size: 53.25%;  
+        font-size: 53.25%;
     }
 
 }
 
 /* tablet */
 @media  (max-width: 768px) {
-    
+
     /* 1 rem = 89px, 8/16 = 56.25%; */
 }
 
 /* laptop */
 @media (max-width: 1024px) {
     html {
-        font-size: 53.25%;  
+        font-size: 53.25%;
     }
 }
 

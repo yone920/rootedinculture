@@ -4,16 +4,16 @@ import styled from 'styled-components'
 import Heart from '../../images/svg/realheart.svg'
 
  const InstaItem = ( { post } ) => {
-     
+
     const InstaLink = "https://www.instagram.com/rootedincultureflowers/"
-        
+
     return (
         <InstaItemContainer>
                 <Img fluid={post.localFile.childImageSharp.fluid} />
-        <a href={InstaLink}> 
-            <div class="overlay">
+        <a href={InstaLink}>
+            <div className="overlay">
                 <img src={Heart} alt="Our Address Icon"></img>
-                <div class="text">{post.likes}</div>
+                <div className="text">{post.likes}</div>
             </div>
         </a>
         </InstaItemContainer>
@@ -28,7 +28,7 @@ const InstaItemContainer = styled.div`
             opacity: 1;
             /* background-color: rgba(64, 76, 7, 0.541); */
         }
-        
+
         .overlay {
             position: absolute;
             top: 0;

@@ -54,7 +54,7 @@ const data = useStaticQuery(graphql`
           title
         }
       }
-    }   
+    }
   }
 `)
 
@@ -78,15 +78,15 @@ const MapOverServices = () => (
         <HomeWrapper>
           <HomePageContentWrapper id="check">
             <div className="header-wrapper">
-              <h1>{data.homeContent.acf.phrase}</h1>
+              <h2>{data.homeContent.acf.phrase}</h2>
               <div className="line">
                   <hr />
               </div>
             </div>
-            <HomeContent 
+            <HomeContent
               dangerouslySetInnerHTML={{
                 __html: data.homeContent.content,
-              }} 
+              }}
             />
           </HomePageContentWrapper>
           <ServicesWrapper>
@@ -146,7 +146,7 @@ const HomePageContentWrapper = styled.div`
         background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
       }
     }
-    
+
   }
 `
 

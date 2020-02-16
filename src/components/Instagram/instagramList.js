@@ -9,15 +9,16 @@ import InstaItem from './instaItem'
         query InstaListingQuery {
             allInstaNode {
                 edges {
-                    node {    
-                        likes                          
+                    node {
+                        id
+                        likes
                         localFile {
                             url
                             childImageSharp {
                               fluid(maxWidth: 1500, maxHeight: 1500) {
                                 ...GatsbyImageSharpFluid
-                              } 
-                            }                        
+                              }
+                            }
                          }
                         }
                     }
@@ -26,7 +27,7 @@ import InstaItem from './instaItem'
         `)
         console.log(data.allInstaNode.edges);
 
-        
+
     return (
         <InstaContainer>
             {data.allInstaNode.edges.map(edge => (
@@ -39,7 +40,7 @@ import InstaItem from './instaItem'
 const InstaContainer = styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    
+
 `
 
 export default InstagramList;

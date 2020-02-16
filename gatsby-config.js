@@ -17,15 +17,33 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    // {
+    //   resolve: `gatsby-plugin-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       `Roboto sans serif\:300,400,400i,700`          // `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+    //     ],
+    //     display: 'swap'
+    //   }
+    // },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
-          `Poppins\:300,400,400i,700`,
-          // `source sans pro\:300,400,400i,700` // you can also specify font weights and styles
+          {
+            family: `Playball`,
+            variants: [`400`]
+          },
+          {
+            family: `Raleway`,
+            variants: [`100`,`300`,`400`, `700`]
+          },
+          {
+            family: `Roboto`,
+            subsets: [`latin`]
+          },
         ],
-        display: 'swap'
-      }
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -49,7 +67,7 @@ module.exports = {
         path: `${__dirname}/src/posts/`,
       },
     },
-    
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -69,7 +87,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         // your WordPress source
-        baseUrl: `rootedinculture.yonedesign.com`,
+        baseUrl: `rootedinculture.net`,
         protocol: `https`,
         // is it hosted on wordpress.com, or self-hosted?
         hostingWPCOM: false,
@@ -100,7 +118,7 @@ module.exports = {
         username: `rootedincultureflowers`,
       },
     },
-    
+
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

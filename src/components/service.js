@@ -13,8 +13,8 @@ const Service = (props) => {
               <Link to={props.service.node.acf.link}>
                 <div className="post-image">
                         <StyledImage fluid={props.service.node.acf.photo.localFile.childImageSharp.fluid} />
-                        <div class="overlay">
-                            <div class="text"><button>{props.service.node.title}</button></div>
+                        <div className="overlay">
+                            <div className="text"><button>{props.service.node.title}</button></div>
                         </div>
                     </div>
             </Link>

@@ -33,11 +33,11 @@ const Layout = ({ children }) => {
   `)
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
-  
+
   return (
     // <StoreContext.Provider value={{ client }}>
     <Fragment>
-        <Wrapper> 
+        <Wrapper>
           {isTabletOrMobile ? <ThemeProvider theme={theme}><MobileHeader siteTitle={data.site.siteMetadata.title}/></ThemeProvider> : <ThemeProvider theme={theme}><Header siteTitle={data.site.siteMetadata.title} /></ThemeProvider>}
           <Main>
             <ThemeProvider theme={theme}>{children}</ThemeProvider>
@@ -55,12 +55,12 @@ Layout.propTypes = {
 
 
 const Wrapper = styled.div`
-    min-height: calc(100vh - 50px);
+    /* min-height: calc(100vh - 50px);
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-    grid-template-rows: min-content  min-content;
+    grid-template-rows: min-content  min-content; */
   `
-  
+
   const Main = styled.main`
     grid-column: full-start / full-end;
   `

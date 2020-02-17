@@ -173,11 +173,8 @@ grid-column: center-start / center-end;
 display: grid;
 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 grid-column-gap: 1rem;
-
-@media ${props => props.theme.device.mobileL} {
-    grid-row-gap: 0.5rem;
-  }
 `
+
 
 const InstaWrapper = styled.div`
   grid-column: full-start / full-end;

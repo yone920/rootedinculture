@@ -1,16 +1,16 @@
 import React from "react"
-import Header from '../components/header'
-import MobileHeader from '../components/mobileHeader'
+// import Header from '../components/header'
+// import MobileHeader from '../components/mobileHeader'
 import Member from '../components/member'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 // import BackgroundImage from 'gatsby-background-image'
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 import Img from "gatsby-image"
 
-
-import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
+import Layout from "../components/Layout/layout"
+// import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
 import SEO from "../components/seo"
 
 const About = (props) => {
@@ -112,15 +112,15 @@ const About = (props) => {
     //   data.aboutContent.featured_media.localFile.childImageSharp.fluid
     // ].reverse()
 
-    const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
+    // const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
     return (
     <div>
-    <HomeAboutLayout>
+    <Layout>
       <SEO title="About Us" />
       <div className="about-menu"> </div>
-        { isTabletOrMobile ? <MobileHeader /> : <Header  /> }
+        {/* { isTabletOrMobile ? <MobileHeader /> : <Header  /> } */}
       <div className="about-header">
         <Img fluid={data.aboutContent.featured_media.localFile.childImageSharp.fluid} />
       </div>
@@ -156,7 +156,7 @@ const About = (props) => {
              </div>
           </div>
       </AboutContainer>
-    </HomeAboutLayout>
+    </Layout>
     </div>
   )
 }

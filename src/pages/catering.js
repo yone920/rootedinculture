@@ -1,22 +1,23 @@
 
 import React from "react"
-import MobileHeader from '../components/mobileHeader'
-import Header from '../components/header'
-import { useMediaQuery } from 'react-responsive'
+// import MobileHeader from '../components/mobileHeader'
+// import Header from '../components/header'
+// import { useMediaQuery } from 'react-responsive'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
-import BackgroundImage from 'gatsby-background-image'
+// import BackgroundImage from 'gatsby-background-image'
 // import Reservation from '../components/reservation'
-import CateringMenu from '../components/cateringMenu'
-import HomeAboutLayout from "../components/Layout/HomeAboutLayout"
+import HomeSlider from '../components/HomeSlider'
+// import CateringMenu from '../components/cateringMenu'
+import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 
 const Catering = (props) => {
-  
+
   const data = useStaticQuery(graphql`
   query PageCateringData {
-    
+
     catering1: file(relativePath: {
       regex: "/rooted-catering-hero-2/"
     }) {
@@ -26,7 +27,7 @@ const Catering = (props) => {
         }
       }
     }
-   
+
 
        catMenus: allWordpressWpMenu(limit: 10, sort: {
           order: DESC,
@@ -41,7 +42,7 @@ const Catering = (props) => {
                           childImageSharp {
                               fluid(maxWidth: 1500, maxHeight: 1500) {
                                   ...GatsbyImageSharpFluid
-                              } 
+                              }
                           }
                       }
                   }
@@ -62,63 +63,71 @@ const Catering = (props) => {
           }
         }
       }
+
+      slider: allWordpressWpCateringCarousel {
+        edges {
+          node {
+            id
+            acf {
+              photo {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1500, maxHeight: 600) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      mobileSlider: allWordpressWpCateringCarousel {
+        edges {
+          node {
+            id
+            acf {
+              photo {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1500, maxHeight: 1000) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+
     }`)
-
-
-  // =============== Background Image ================= ///
-    const backgroundFluidImageStack = [
-      // data.cateringContent.featured_media.localFile.childImageSharp.fluid
-      data.catering1.childImageSharp.fluid,
-      `linear-gradient(180deg, rgba(64,76,7,1) 0%, rgba(64,76,7,0.3603816526610645) 45%, rgba(64,76,7,0.09147408963585435) 100%)`
-    ].reverse()
-    
-    console.log(data)
-  // ===============  Map Over Catering Menus ================= ///
-
-    const mapOverCatMenus = () => (
-      data.catMenus.edges.map(menu => (
-        <div key={menu.node.slug}>
-          <CateringMenu menu={menu} />
-        </div>
-        
-      ))
-    )
-
-
-const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
     // --------------------- Final Render ---------------------- //
 
     return (
-    <HomeAboutLayout>
+    <Layout>
       <SEO title="About Us" />
       <CateringContainer>
-        <BackgroundImage
-                Tag="div"
-                className="hero"
-                fluid={backgroundFluidImageStack}
-                backgroundColor={`#040e18`}
-                >
-                { isTabletOrMobile ? <MobileHeader /> : <Header  /> }         
-            <div className="hero-text">
-              <h1>Catering</h1>
-            </div>
-          </BackgroundImage>
-          
-          
-          <AboutAndMenuContainer>
-            <AboutCatering 
-              dangerouslySetInnerHTML={{
-                __html: data.cateringContent.content,
-              }} 
-            />
-            <MenuContainer>
-              {mapOverCatMenus()}
-            </MenuContainer>
-          </AboutAndMenuContainer>
-          </CateringContainer>
-    </HomeAboutLayout> 
+       <div className="slider-container">
+          <HomeSlider desktop={data.slider} mobile={data.mobileSlider}/>
+       </div>
+
+      <div className="content-wrapper">
+        <div className="catering-title">
+          <h2>{data.cateringContent.title}</h2>
+        </div>
+        <div className="content"
+          dangerouslySetInnerHTML={{
+            __html: data.cateringContent.content,
+          }}
+        />
+      </div>
+     </CateringContainer>
+   </Layout>
   )
 }
 
@@ -129,78 +138,27 @@ display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
 grid-template-rows: 70vh min-content;
 
-.hero {
+.slider-container {
   grid-column: full-start / full-end;
-  position: cover !important;
-  background-position: bottom center;
-  background-size: cover;
-  img {
-  }
-  header {
-    background-color: transparent;
-    .menu-1 {
-  grid-column: col-start 1 / col-end 3;
-  a,
-  a:link,
-  a:active {
-     color: ${props => props.theme.color.fontColor};
-  }
 }
 
-.logo {
-  grid-column: col-start 4 / col-end 5;
-  img {
-      width: 100%;
+.content-wrapper {
+  grid-column: center-start / center-end;
+  justify-items: center;
+  margin: 8rem 0;
+  .catering-title {
+    text-align: center;
+    margin-bottom: 3rem;
   }
-}
 
-.menu-2 {
-  grid-column: col-start 6 / col-end 8;
-  a,
-  a:link,
-  a:active {
-    color: ${props => props.theme.color.fontColor};
+  .content {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
   }
-}
-}
-
-.hero-text {
-  display: inline-block;
-  position: relative;
-  top: 23rem;
-  left: 15rem;
-  h1 {
-    color: ${props => props.theme.color.fontColor};
-    font-size: 12rem;
-  }
-}
-}
-
-.flower-content {
-grid-column: center-start / center-end;
-
 }
 `
 
-const AboutAndMenuContainer = styled.main `
-grid-column: center-start / center-end;
-justify-items: center;
-`
-
-const MenuContainer = styled.div`
- display: grid;
- grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
- justify-content: center;
- grid-column-gap: 1rem;
- margin: 8rem 0;  
-`
-
-const AboutCatering = styled.div`
-
-margin: 8rem auto;
-width: 60%;
-text-align: center;
-`
 
 export default withTheme(Catering)
 

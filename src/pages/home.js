@@ -55,6 +55,47 @@ const data = useStaticQuery(graphql`
         }
       }
     }
+
+    slider: allWordpressWpHomeCarousel {
+      edges {
+        node {
+          id
+          acf {
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 600) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    mobileSlider: allWordpressWpHomeCarousel {
+      edges {
+        node {
+          id
+          acf {
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 1000) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+
+
   }
 `)
 
@@ -73,7 +114,7 @@ const MapOverServices = () => (
     <Layout>
       <SEO title="Home" />
         <SliderContainer>
-            <HomeSlider />
+            <HomeSlider desktop={data.slider} mobile={data.mobileSlider}/>
           </SliderContainer>
         <HomeWrapper>
           <HomePageContentWrapper id="check">
@@ -130,12 +171,17 @@ const HomePageContentWrapper = styled.div`
   justify-items: center;
   padding: 8rem 0 8rem 0;
 
+  @media ${props => props.theme.device.mobileL} {
+    padding: 4rem 0 8rem 0;
+  }
+
   .header-wrapper {
     display: flex;
     flex-direction: column;
     margin-bottom: 4rem;
 
-    h1 {
+    h2 {
+      font-size: 2.3rem;
     }
     .line {
       width: 25rem;

@@ -1,83 +1,46 @@
 import React from 'react'
 import Slider from "react-slick";
-import { useStaticQuery, graphql } from "gatsby"
+// import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 
- const HomeSlider = () => {
+ const HomeSlider = ({desktop, mobile}) => {
 
-const data = useStaticQuery(graphql`
-  query HomeSliderQuery {
+// const data = useStaticQuery(graphql`
+//   query HomeSliderQuery {
 
-    slider: allWordpressWpHomeCarousel {
-      edges {
-        node {
-          id
-          acf {
-            photo {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 600) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
 
-    mobileSlider: allWordpressWpHomeCarousel {
-      edges {
-        node {
-          id
-          acf {
-            photo {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 1000) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-
-    services: allWordpressWpServices {
-      edges {
-        node {
-          id
-          acf {
-            body
-            button
-            link
-            sub_heading
-            photo {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 500) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-            }
-          }
-          title
-        }
-      }
-    }
+//     services: allWordpressWpServices {
+//       edges {
+//         node {
+//           id
+//           acf {
+//             body
+//             button
+//             link
+//             sub_heading
+//             photo {
+//               localFile {
+//                 childImageSharp {
+//                   fluid(maxWidth: 1500, maxHeight: 500) {
+//                     ...GatsbyImageSharpFluid
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//           title
+//         }
+//       }
+//     }
 
 
 
-  }
-`)
+//   }
+// `)
 
 const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
@@ -126,13 +89,13 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
     const mapOverPhotos = () => (
         isTabletOrMobile ?
-        data.mobileSlider.edges.map(node => (
+        mobile.edges.map(node => (
             <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>
         ))
         :
-        data.slider.edges.map(node => (
+        desktop.edges.map(node => (
           <div key={node.node.id}>
                 <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
             </div>

@@ -4,10 +4,10 @@
 
 //                             {/* <Link to={`/catering/${node.slug}`}>Read More</Link> */}
 
-//                             <form 
+//                             <form
 //           onSubmit={handleSubmit}
-//           name="contact" 
-//           method="post" 
+//           name="contact"
+//           method="post"
 //           data-netlify="true"
 //           data-netlify-honeypot="bot-field"
 //           >
@@ -62,7 +62,7 @@
 //                 excerpt
 //                 date(formatString: "MMMM DD, YYYY")
 //                 title
-//                 slug 
+//                 slug
 //                 featured_media {
 //                     localFile {
 //                         childImageSharp {
@@ -80,7 +80,7 @@
 
 
 // const Listing = (props) => (
-//         <StaticQuery 
+//         <StaticQuery
 //             query={LISTING_QUERY}
 //             render = {({allWordpressPost}) => (
 //                 allWordpressPost.edges.map(({node}) => (
@@ -110,3 +110,17 @@
 //             )}
 //         />
 // )
+
+
+
+        {/* <BackgroundImage
+                Tag="div"
+                className="hero"
+                fluid={backgroundFluidImageStack}
+                backgroundColor={`#040e18`}
+                >
+                { isTabletOrMobile ? <MobileHeader /> : <Header  /> }
+            <div className="hero-text">
+              <h1>Catering</h1>
+            </div>
+          </BackgroundImage> */}

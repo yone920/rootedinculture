@@ -2,7 +2,8 @@ import React, { useContext, Fragment } from 'react'
 import { animated } from 'react-spring'
 import { StoreContext } from '../../context/StoreContext'
 import styled from 'styled-components'
-import Close from '../SVGs/close'
+import InquiryForm from '../../components/Form/InquiryForm'
+// import Close from '../SVGs/close'
 // import { Link } from "gatsby"
 import { useMediaQuery } from 'react-responsive'
 
@@ -27,37 +28,9 @@ const CateringInquiries = ({ style }) => {
                 overflow: "scroll",
                 ...style
                 }}>
-                    <MobileMenuContainer>
-                        <div onClick={toggleCateringInquiries}>
-                            <Close />
-                        </div>
-                        <div className="inquiry-wrapper">
-                            <form
-                                name="catering-inquiries"
-                                method="post"
-                                data-netlify="true"
-                                data-netlify-honeypot="bot-field"
-                            >
-                                <input type="hidden" name="form-name" value="contact2" />
-                                <div className="inquiry">
-                                    <label htmlFor="name">Name</label>
-                                    <input type="text" name="name" id="name" />
-                                    </div>
-                                <div className="inquiry">
-                                    <label htmlFor="email">Email</label>
-                                    <input type="text" name="email" id="email" />
-                                </div>
-                                <div className="inquiry">
-                                    <label htmlFor="message">Message</label>
-                                    <textarea name="message" id="message" rows="6" required />
-                                </div>
-                                <div className="inquiry">
-                                    <input type="submit" value="Drop a line" />
-                                    <input type="reset" value="Eraser" />
-                                </div>
-                            </form>
-                        </div>
-                    </MobileMenuContainer>
+                    <InquiryContainer>
+                        <InquiryForm />
+                    </InquiryContainer>
             </animated.div>
             :
             <animated.div
@@ -74,37 +47,9 @@ const CateringInquiries = ({ style }) => {
                 overflow: "scroll",
                 ...style
                 }}>
-                    <MobileMenuContainer>
-                        <div onClick={toggleCateringInquiries}>
-                            <Close />
-                        </div>
-                        <div className="inquiry-wrapper">
-                            <form
-                                name="catering-inquiries"
-                                method="post"
-                                data-netlify="true"
-                                data-netlify-honeypot="bot-field"
-                            >
-                                <input type="hidden" name="form-name" value="contact2" />
-                                <div className="inquiry">
-                                    <label htmlFor="name">Name</label>
-                                    <input type="text" name="name" id="name" />
-                                    </div>
-                                <div className="inquiry">
-                                    <label htmlFor="email">Email</label>
-                                    <input type="text" name="email" id="email" />
-                                </div>
-                                <div className="inquiry">
-                                    <label htmlFor="message">Message</label>
-                                    <textarea name="message" id="message" rows="6" required />
-                                </div>
-                                <div className="inquiry">
-                                    <input type="submit" value="Drop a line" />
-                                    <input type="reset" value="Eraser" />
-                                </div>
-                            </form>
-                        </div>
-                    </MobileMenuContainer>
+                    <InquiryContainer>
+                        <InquiryForm />
+                    </InquiryContainer>
             </animated.div>
             }
         </Fragment>

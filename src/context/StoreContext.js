@@ -12,8 +12,10 @@ export const client = Client.buildClient({
 const defaultValues = {
     isCartOpen: false,
     isMobileMenuOpen: false,
+    isCateringInquiriesOpen: false,
     toggleCartOpen: () => {},
     toggleMobileMenu: () => {},
+    toggleCateringInquiries: () => {},
     removeProductFromCart: () => {},
     cart: [],
     addProductToCart: () => {},
@@ -37,8 +39,12 @@ export const StoreProvider = ({ children }) => {
     const [isCartOpen, setCartOpen] = useState(false)
     const [isLoading, setLoading] = useState(false)
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
-    
-    
+    const [isCateringInquiriesOpen, setCateringInquiries] = useState(false)
+
+    const toggleCateringInquiries = () => {
+        setCateringInquiries(!isCateringInquiriesOpen)
+    }
+
     const toggleCartOpen = () => {
         setCartOpen(!isCartOpen)
     }
@@ -46,7 +52,7 @@ export const StoreProvider = ({ children }) => {
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen)
     }
-    
+
 
     /// Create new Checkout and Return it
     const getNewId = async () => {
@@ -64,18 +70,18 @@ export const StoreProvider = ({ children }) => {
             setLoading(false)
         }
     }
-    
+
     /// Initialize the checkout and set the sate with the new checkoutId
     const initializeCheckout = async () => {
         console.log(client);
-        
+
         try {
             setLoading(true)
             // Check if id exists
-            const currentCheckoutId = isBrowser 
+            const currentCheckoutId = isBrowser
             ? localStorage.getItem('checkout_id')
                 : null
-                
+
                 let newCheckout = null
                 if (currentCheckoutId) {
                     // If id exists, fetch checkout from Shopify
@@ -94,14 +100,14 @@ export const StoreProvider = ({ children }) => {
                 setLoading(false)
             }
         }
-        
+
         useEffect(() => {
             initializeCheckout()
             // eslint-disable-next-line react-hooks/exhaustive-deps
         }, [])
 
         const addProductToCart = async (variantId) => {
-            
+
             try {
                 setLoading(true)
                 const lineItems = [{
@@ -117,11 +123,11 @@ export const StoreProvider = ({ children }) => {
             setLoading(false)
             // console.log(addItems.webUrl)
             // window.open(addItems.webUrl)
-            
+
         } catch (e) {
             console.error(e)
             setLoading(false)
-        }        
+        }
     }
 
     const removeProductFromCart = async (lineItemId) => {
@@ -137,7 +143,7 @@ export const StoreProvider = ({ children }) => {
         } catch (e) {
             console.error(e)
             setLoading(false)
-        }    
+        }
     }
 
     const addCoupon = async (coupon)  => {
@@ -164,7 +170,7 @@ export const StoreProvider = ({ children }) => {
         }
     }
 
-  
+
 
     return (
         <StoreContext.Provider value={{
@@ -179,6 +185,8 @@ export const StoreProvider = ({ children }) => {
             isLoading,
             toggleMobileMenu,
             isMobileMenuOpen,
+            isCateringInquiriesOpen,
+            toggleCateringInquiries,
             }}>
             {children}
         </StoreContext.Provider>

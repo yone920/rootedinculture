@@ -20,7 +20,7 @@ const InquiryForm = () => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="contact2" />
+              <input type="hidden" name="form-name" value="catering-inquiries" />
               <div className="inquiry">
                   <label htmlFor="name">First Name</label>
                   <input type="text" name="name" id="name" />
@@ -134,6 +134,22 @@ const InquiryForm = () => {
                   <option value="No">No</option>
                 </select>
               </div>
+              <div className="inquiry">
+                <p>Choose your monster's features:</p>
+                <div>
+                  <input type="checkbox" id="scales" name="scales" />
+                  <label for="scales">Drop-Off Only</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="horns" name="horns" />
+                  <label for="horns">Drop-Off and Set-up</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="horns" name="horns" />
+                  <label for="horns">Full Service for the Duration of the Event</label>
+                </div>
+              </div>
+
               <div className="inquiry">
                   <label htmlFor="message">Message</label>
                   <textarea name="message" id="message" rows="6" required />

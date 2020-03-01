@@ -190,6 +190,10 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
   grid-column: center-start / center-end;
   justify-self: center;
   width: 50%;
+
+  @media ${props => props.theme.device.mobileL} {
+      width: 100%;
+    }
    button {
     display: inline-block;
     width: 100%;

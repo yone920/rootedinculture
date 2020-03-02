@@ -20,7 +20,7 @@ const InquiryForm = () => {
               data-netlify="true"
               data-netlify-honeypot="bot-field"
             >
-              <input type="hidden" name="form-name" value="catering-inquiries" />
+              <input type="hidden" name="catering-inquiries" value="catering-inquiries" />
               <div className="inquiry">
                   <label htmlFor="name">First Name</label>
                   <input type="text" name="name" id="name" />

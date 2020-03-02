@@ -2,9 +2,39 @@ import React, { useContext, Fragment } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import Close from '../SVGs/close'
 import styled from 'styled-components'
+import { navigate } from 'gatsby-link'
+
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&')
+}
 
 
 const InquiryForm = () => {
+  const [state, setState] = React.useState({})
+
+  const handleChange = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value })
+  }
+
+  console.log(state);
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then(() => navigate(form.getAttribute('action')))
+      .catch((error) => alert(error))
+  }
 
   const { toggleCateringInquiries } = useContext(StoreContext)
 
@@ -15,51 +45,58 @@ const InquiryForm = () => {
       </div>
       <div className="inquiry-wrapper">
           <form
-              name="catering-inquiries"
+              name="cateringInquiry"
               method="post"
+              action="/success/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
             >
-              <input type="hidden" name="catering-inquiries" value="catering-inquiries" />
+              <input type="hidden" name="form-name" value="cateringInquiry" />
+              <p hidden>
+                <label>
+                    Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+                </label>
+              </p>
               <div className="inquiry">
                   <label htmlFor="name">First Name</label>
-                  <input type="text" name="name" id="name" />
+                  <input type="text" name="name" id="name" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="last-name">Last Name</label>
-                  <input type="text" name="last-name" id="lsat-name" />
+                  <input type="text" name="last-name" id="lsat-name" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="company-name">Company Name</label>
-                  <input type="text" name="company-name" id="company-name" />
+                  <input type="text" name="company-name" id="company-name" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="email">Company Email</label>
-                  <input type="text" name="email" id="email" />
+                  <input type="text" name="email" id="email" onChange={handleChange}/>
               </div>
               <div className="inquiry">
                   <label htmlFor="phone">Company Phone Number</label>
-                  <input type="tel" name="phone" id="phone" />
+                  <input type="tel" name="phone" id="phone" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="date">Date of the event</label>
-                  <input type="date" name="date" id="date" />
+                  <input type="date" name="date" id="date" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="time">Time of the event</label>
-                  <input type="time" name="time" id="time" />
+                  <input type="time" name="time" id="time" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="address">Venue Address</label>
-                  <input type="address" name="address" id="address" />
+                  <input type="address" name="address" id="address" onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <label htmlFor="city">City</label>
-                  <input type="city" name="city" id="city" />
+                  <input type="city" name="city" id="city" onChange={handleChange} />
               </div>
               <div className="inquiry">
               <label htmlFor="state">State</label>
-              <select name="state" className="inquiry">
+              <select name="state" className="inquiry" onChange={handleChange}>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
                 <option value="AZ">Arizona</option>
@@ -115,21 +152,21 @@ const InquiryForm = () => {
               </div>
               <div className="inquiry">
                 <label htmlFor="service-entrance">Service Entrance?</label>
-                <select name="service-entrance" className="service-entrance">
+                <select name="service-entrance" className="service-entrance" onChange={handleChange}>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
               </div>
               <div className="inquiry">
                 <label htmlFor="service-elevator">Service elevator on the premises?</label>
-                <select name="service-elevator" className="service-elevator">
+                <select name="service-elevator" className="service-elevator" onChange={handleChange}>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
               </div>
               <div className="inquiry">
                 <label htmlFor="service-kitchen">Service Kitchen Available?</label>
-                <select name="service-kitchen" className="service-kitchen">
+                <select name="service-kitchen" className="service-kitchen" onChange={handleChange}>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
@@ -137,22 +174,22 @@ const InquiryForm = () => {
               <div className="inquiry">
                 <p>Choose your monster's features:</p>
                 <div>
-                  <input type="checkbox" id="scales" name="scales" />
-                  <label for="scales">Drop-Off Only</label>
+                  <input type="checkbox" id="scales" name="scales" onChange={handleChange} />
+                  <label htmlFor="scales">Drop-Off Only</label>
                 </div>
                 <div>
-                  <input type="checkbox" id="horns" name="horns" />
-                  <label for="horns">Drop-Off and Set-up</label>
+                  <input type="checkbox" id="horns" name="horns" onChange={handleChange} />
+                  <label htmlFor="horns">Drop-Off and Set-up</label>
                 </div>
                 <div>
-                  <input type="checkbox" id="horns" name="horns" />
-                  <label for="horns">Full Service for the Duration of the Event</label>
+                  <input type="checkbox" id="horns" name="horns" onChange={handleChange} />
+                  <label htmlFor="horns">Full Service htmlFor the Duration of the Event</label>
                 </div>
               </div>
 
               <div className="inquiry">
                   <label htmlFor="message">Message</label>
-                  <textarea name="message" id="message" rows="6" required />
+                  <textarea name="message" id="message" rows="6" required onChange={handleChange} />
               </div>
               <div className="inquiry">
                   <input type="submit" value="Drop a line" />

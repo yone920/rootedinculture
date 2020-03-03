@@ -1,4 +1,4 @@
-import React, { useContext, Fragment } from 'react'
+import React, { useContext } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import Close from '../SVGs/close'
 import styled from 'styled-components'
@@ -192,8 +192,10 @@ const InquiryForm = () => {
                   <textarea name="message" id="message" rows="6" required onChange={handleChange} />
               </div>
               <div className="inquiry">
-                  <input type="submit" value="Drop a line" />
-                  <input type="reset" value="Eraser" />
+                <button type="submit">Send</button>
+
+                  {/* <input type="submit" value="Drop a line" />
+                  <input type="reset" value="Eraser" /> */}
               </div>
           </form>
       </div>

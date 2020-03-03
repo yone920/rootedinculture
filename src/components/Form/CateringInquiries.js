@@ -1,6 +1,6 @@
-import React, { useContext, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { animated } from 'react-spring'
-import { StoreContext } from '../../context/StoreContext'
+// import { StoreContext } from '../../context/StoreContext'
 import InquiryForm from '../../components/Form/InquiryForm'
 // import Close from '../SVGs/close'
 // import { Link } from "gatsby"

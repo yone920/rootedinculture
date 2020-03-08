@@ -173,7 +173,7 @@ const InquiryForm = () => {
               </div>
               <div className="inquiry">
                 <p>Choose your monster's features:</p>
-                <div>
+                {/* <div>
                   <input type="checkbox" id="scales" name="scales" onChange={handleChange} />
                   <label htmlFor="scales">Drop-Off Only</label>
                 </div>
@@ -184,7 +184,7 @@ const InquiryForm = () => {
                 <div>
                   <input type="checkbox" id="horns" name="horns" onChange={handleChange} />
                   <label htmlFor="horns">Full Service htmlFor the Duration of the Event</label>
-                </div>
+                </div> */}
               </div>
 
               <div className="inquiry">

@@ -20,6 +20,9 @@ const ContactPage = () => {
     setState({ ...state, [e.target.name]: e.target.value })
   }
 
+  console.log(state);
+
+
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
@@ -49,7 +52,7 @@ const ContactPage = () => {
 `)
 
   console.log(state);
-  
+
 
   return (
     <Layout>
@@ -164,7 +167,7 @@ const ContactPageContainer = styled.div`
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
           }
       }
-    
+
     }
 
     .contact-form-wrapper {
@@ -184,14 +187,14 @@ const ContactPageContainer = styled.div`
         }
 
       .contact-box-wrapper {
-          
+
           margin-bottom: 4rem;
 
           .icon {
             margin-right: 2rem;
           }
           .contact-box {
-            display: flex;    
+            display: flex;
           }
           .contact-us-message {
             margin-bottom: 4rem;

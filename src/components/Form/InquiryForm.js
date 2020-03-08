@@ -45,14 +45,14 @@ const InquiryForm = () => {
       </div>
       <div className="inquiry-wrapper">
           <form
-              name="cateringInquiry"
+              name="InquiryForm"
               method="post"
               action="/success/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="cateringInquiry" />
+              <input type="hidden" name="form-name" value="InquiryForm" />
               <p hidden>
                 <label>
                     Don’t fill this out: <input name="bot-field" onChange={handleChange} />
@@ -193,9 +193,6 @@ const InquiryForm = () => {
               </div>
               <div className="inquiry">
                 <button type="submit">Send</button>
-
-                  {/* <input type="submit" value="Drop a line" />
-                  <input type="reset" value="Eraser" /> */}
               </div>
           </form>
       </div>

@@ -27,7 +27,15 @@ exports.createPages = ({ graphql, actions }) => {
                           id
                       }
                       }
-                    }
+										}
+								allShopifyCollection {
+									edges {
+										node {
+											title
+											handle
+										}
+									}
+								}
             }
         `).then(results => {
             if (results.errors)  {
@@ -58,6 +66,17 @@ exports.createPages = ({ graphql, actions }) => {
                 createPage ({
                     path: `/flower/${node.handle}`,
                     component: path.resolve('./src/template/productTemplate.js'),
+                    context: {
+                        id: node.id,
+                        handle: node.handle
+                    }
+                })
+						})
+
+            results.data.allShopifyCollection.edges.forEach(({node}) => {
+                createPage ({
+                    path: `/shop/${node.handle}`,
+                    component: path.resolve('./src/template/collectionTemplate.js'),
                     context: {
                         id: node.id,
                         handle: node.handle

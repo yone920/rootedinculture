@@ -15,6 +15,8 @@ import HomeSlider from '../components/HomeSlider'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 import CateringInquiries from "../components/Form/CateringInquiries"
+// import ProductsListing from "../components/ProductsListing/productsListing"
+
 
 const Catering = (props) => {
 
@@ -121,7 +123,7 @@ const Catering = (props) => {
 
     // --------------------- Final Render ---------------------- //
 
-    return (
+  return (
     <Layout>
       <SEO title="About Us" />
       <CateringContainer>
@@ -145,7 +147,9 @@ const Catering = (props) => {
       {transitions.map(({ item, key, props }) => {
         return item && <CateringInquiries key={key} style={props} />
       })}
+
      </CateringContainer>
+			{/* <ProductsListing /> */}
    </Layout>
   )
 }

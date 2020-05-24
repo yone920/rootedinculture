@@ -1,6 +1,8 @@
 import React, { useContext } from "react"
 import { StoreContext } from "../../context/StoreContext"
 import styled from 'styled-components'
+import { withTheme } from 'styled-components'
+
 
 
 const AddToCart = ({ variantId }) => {
@@ -23,7 +25,7 @@ const AddToCart = ({ variantId }) => {
 const Button = styled.button`
   display: inline-block;
   width: 100%;
-  background-color: #404C07;
+  background-color: ${props => props.theme.color.secondary};
   text-align: center;
   padding: 2rem 2rem;
   text-decoration: none;
@@ -32,10 +34,10 @@ const Button = styled.button`
   border-radius: .5rem;
   cursor: pointer;
   :hover {
-      background-color: rgba(64, 76, 7, 0.922);
+      background-color: ${props => props.theme.color.primary};
       /* color: #5db544; */
   }
 `
 
 
-export default AddToCart
+export default withTheme(AddToCart)

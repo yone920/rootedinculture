@@ -5,7 +5,7 @@ import { withTheme } from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 
 
- const CateringMenu = () => {
+ const CateringSidebar = () => {
 
 	const { allShopifyCollection } = useStaticQuery(
     graphql`
@@ -44,4 +44,4 @@ const  MenuContainer = styled.div`
       `
 
 
-export default withTheme(CateringMenu);
+export default withTheme(CateringSidebar);

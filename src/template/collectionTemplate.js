@@ -36,6 +36,7 @@ export const query = graphql`
 							title
 							id
 							handle
+							vendor
 							images {
 								localFile {
 									childImageSharp {

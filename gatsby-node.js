@@ -24,7 +24,8 @@ exports.createPages = ({ graphql, actions }) => {
                     edges {
                       node {
                           handle
-                          id
+													id
+													vendor
                       }
                       }
 										}
@@ -64,7 +65,7 @@ exports.createPages = ({ graphql, actions }) => {
 
             results.data.allShopifyProduct.edges.forEach(({node}) => {
                 createPage ({
-                    path: `/flower/${node.handle}`,
+                    path: `/catering-shopping/${node.vendor}/${node.handle}`,
                     component: path.resolve('./src/template/productTemplate.js'),
                     context: {
                         id: node.id,
@@ -75,7 +76,7 @@ exports.createPages = ({ graphql, actions }) => {
 
             results.data.allShopifyCollection.edges.forEach(({node}) => {
                 createPage ({
-                    path: `/shop/${node.handle}`,
+                    path: `/catering-shopping/${node.handle}`,
                     component: path.resolve('./src/template/collectionTemplate.js'),
                     context: {
                         id: node.id,

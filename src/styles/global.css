@@ -28,12 +28,11 @@ body {
 }
 
 h2 {
-    font-family: 'Playball';
-    font-weight: 400;
-    color: #404C07;
-    font-size: 3rem;
-    /* font-weight: 200; */
-    letter-spacing: 0.4rem;
+    /* font-family: 'Playball'; */
+    font-weight: bold;
+    /* color: #404C07; */
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
     /* text-transform: uppercase; */
 
 }

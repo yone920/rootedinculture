@@ -24,24 +24,41 @@ import { useStaticQuery, graphql } from "gatsby"
 
 	return (
 		<MenuContainer>
-			<nav className="catering-image">
 				{allShopifyCollection.edges.map(edge => {
 					return (
-						<div key={edge.node.handle}>
-							<Link to={`/shop/${edge.node.handle}`}>{edge.node.title}</Link>
+						<div className="menu-item" key={edge.node.handle}>
+							<Link to={`/catering-shopping/${edge.node.handle}`}>{edge.node.title}</Link>
 						</div>
 					)
 				})}
-			</nav>
 		</MenuContainer>
 )
 }
 
 
           // --------------------- Style ---------------------- //
-const  MenuContainer = styled.div`
+const  MenuContainer = styled.nav`
+	.menu-item {
+		padding-bottom: 1rem;
+		/* background-color: red; */
 
-      `
+		a,
+		a:link {
+				color: ${props => props.theme.color.black};
+				text-decoration: none;
+		}
+		a:hover, a:active {
+			font-weight: bold;
+		}
+
+
+	}
+	`
+
+// @media ${props => props.theme.device.laptop} {
+// 	grid-column: center-start / center-end;
+// 	margin: 5rem 0 0 0;
+// }
 
 
 export default withTheme(CateringSidebar);

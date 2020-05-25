@@ -1,25 +1,55 @@
 import React from "react"
 import styled from 'styled-components'
 import Layout from "../components/Layout/layout"
+import ProductsListing from "../components/ProductsListing/productsListing"
 import SEO from "../components/seo"
-import CateringSidebar from "../components/CateringSidebar/cateringSidebar"
+import { useStaticQuery, graphql } from "gatsby"
 
-// import ProductsListing from "../components/ProductsListing/productsListing"
 
 const CateringShopping = () => {
 
+	const { shopifyCollection } = useStaticQuery(
+    graphql`
+			query featuredCollection {
+				shopifyCollection(handle: {eq: "featured"}) {
+						title
+						id
+    				handle
+						products {
+							description
+							title
+							id
+							handle
+							vendor
+							images {
+								localFile {
+									childImageSharp {
+										fluid(maxWidth: 1500, maxHeight: 1500) {
+											...GatsbyImageSharpFluid
+										}
+									}
+								}
+							}
+							variants {
+								id
+								shopifyId
+								title
+								price
+								weight
+							}
+						}
+					}
+			}
+    `
+  )
 
-
-return (
+	return (
   <Layout>
     <FlowerContainer>
 			<SEO title="Flower Decoration" />
 			<div className="header-line-wrapper">
-				<div className="blog-heading">
-						<h2>Catering Shopping</h2>
-				</div>
-				<div className="line">
-					<CateringSidebar />
+				<div className="featured-products-wrapper">
+					<ProductsListing collection={shopifyCollection} />
 				</div>
 			</div>
     </FlowerContainer>

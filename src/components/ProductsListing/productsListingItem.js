@@ -13,9 +13,10 @@ const ProductsListingItem = ({ product }) => {
     // variants: [firstVariant],
   } = product
 
+		console.log(product)
   return (
     <ProductItemContainer>
-      <Link to={`/flower/${product.handle}`}>
+      <Link to={`/catering-shopping/${product.vendor}/${product.handle}`}>
         <div className="product-image">
 					{ firstImage ?
           	<Img fluid={firstImage.localFile.childImageSharp.fluid} />

@@ -20,7 +20,8 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 				}
 			}
     `
-  )
+	)
+	console.log(allShopifyCollection)
 
 	return (
 		<MenuContainer>

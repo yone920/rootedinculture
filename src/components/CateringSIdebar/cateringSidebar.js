@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 import { withTheme } from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 
  const CateringSidebar = () => {

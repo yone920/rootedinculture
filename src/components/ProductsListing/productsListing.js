@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductsListingItem from "./productsListingItem"
 import styled from 'styled-components'
-import CateringSidebar from '../CateringSidebar/cateringSidebar'
+import CateringSidebar from "../CateringSidebar/cateringSidebar"
 
 
 const ProductsListing = ( {collection} ) => {

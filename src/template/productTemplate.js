@@ -5,10 +5,10 @@ import Layout from '../components/Layout/layout'
 
 
 const ProductTemplate = ( { data } ) => {
-    
-    
+
+
     return (
-        <Layout>   
+        <Layout>
             <ProductDetail product={ data.shopifyProduct }/>
         </Layout>
     )
@@ -24,7 +24,7 @@ export const query = graphql`
                     childImageSharp {
                       fluid(maxWidth: 1000, maxHeight: 1000) {
                         ...GatsbyImageSharpFluid
-                      } 
+                      }
                     }
                   }
                 }
@@ -38,6 +38,7 @@ export const query = graphql`
                   title
                   price
                 }
+								vendor
             }
         }
         `

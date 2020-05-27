@@ -35,7 +35,7 @@ const Header = ({ siteTitle }) => {
           <img src={Logo} alt="Rooted In Culture Logo"/>
       </div>
       <div className="menu-2">
-          <Link to="/flower">Flower</Link>
+          <Link to="/catering-shopping">Shop</Link>
           <Link to="/archive">Blog</Link>
           <Link to="/contactPage">Contact Us</Link>
       </div>

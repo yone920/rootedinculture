@@ -3,6 +3,7 @@ import Img from 'gatsby-image'
 import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import AddToCart from '../Cart/addToCart'
+import { Link } from "gatsby"
 
 
 const ProductDetail = ( {product} ) => {
@@ -21,12 +22,30 @@ const ProductDetail = ( {product} ) => {
 					)
 				})
 				)
+				const vendor = product.vendor.replace(/-/g, ' ');
+				const Vendor = (str) => {
+					str = str.toLowerCase().split(' ');
 
-
+					for(var i = 0; i < str.length; i++){
+						str[i] = str[i].split('');
+						str[i][0] = str[i][0].toUpperCase();
+						str[i] = str[i].join('');
+					}
+					return str.join(' ');
+				}
 
   return (
     <ProductContainer>
+			<div className="breadcrumbs">
+				<Link to={`/catering-shopping/`}>
+					Catering Shopping
+				</Link>
+				<span>/</span>
+				<Link to={`/catering-shopping/${product.vendor}`}>
+					{Vendor(vendor)}
+				</Link>
 
+			</div>
       {mapOverImages()}
 			<div className="content-add-to-cart-wrapper">
 				<div className="content-wrapper">
@@ -63,9 +82,11 @@ const ProductDetail = ( {product} ) => {
 
 const ProductContainer = styled.main`
   grid-column: center-start / center-end;
+
   display: grid;
+	/* grid-row:  */
   grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-	margin-top: 10rem;
+	margin-top: 2rem;
 	margin-bottom: 20rem;
 
 
@@ -73,6 +94,26 @@ const ProductContainer = styled.main`
     grid-template-columns: [ full-start ] minmax(2rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(2rem, 1fr) [ full-end ];
     margin: 4rem 0 6rem 0;
   }
+
+	.breadcrumbs {
+		grid-column: center-start / center-end;
+		margin-bottom: 4rem;
+
+		a,
+		a:link,
+		a:active {
+			color: #676767;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: none;
+			color: #000;
+		}
+
+		span {
+			margin: 0 1rem;
+		}
+	}
 
   .image-wrapper {
     grid-column: center-start / col-end 4;
@@ -103,6 +144,8 @@ const ProductContainer = styled.main`
 		.content-wrapper {
 
 			.product-name {
+				margin-bottom: 1rem;
+
 				h1 {
 						color: #000;
 						font-size: 2rem;
@@ -111,10 +154,10 @@ const ProductContainer = styled.main`
 			}
 
 			.product-price {
-				margin-bottom: 3rem;
-						h3 {
-							font-weight: 300;
-						}
+				margin-bottom: 5rem;
+					h3 {
+						font-weight: 300;
+					}
 			}
 
 				option {

@@ -1,8 +1,8 @@
-import React from './node_modules/react'
-import styled from './node_modules/styled-components'
-import { Link } from './node_modules/gatsby'
-import { withTheme } from './node_modules/styled-components'
-import { useStaticQuery, graphql } from "./node_modules/gatsby"
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
+import { withTheme } from 'styled-components'
+import { useStaticQuery, graphql } from "gatsby"
 
 
  const CateringSidebar = () => {

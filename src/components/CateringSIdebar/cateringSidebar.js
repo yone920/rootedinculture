@@ -9,7 +9,7 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 
 	const { allShopifyCollection } = useStaticQuery(
     graphql`
-			query allShopifyCollection {
+			query noName {
 				allShopifyCollection {
 					edges {
 						node {

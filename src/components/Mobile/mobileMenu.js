@@ -13,7 +13,7 @@ const MobileMenu = ({ style }) => {
     return (
         <Fragment>
             <animated.div
-            style={{ 
+            style={{
                 position: "fixed",
                 top: 0,
                 right: 0,
@@ -22,7 +22,7 @@ const MobileMenu = ({ style }) => {
                 background: "#404C07",
                 zIndex: 102,
                 overflow: "scroll",
-                ...style 
+                ...style
                 }}>
                     <MobileMenuContainer>
                         <div onClick={toggleMobileMenu}>
@@ -32,7 +32,7 @@ const MobileMenu = ({ style }) => {
                             <Link onClick={toggleMobileMenu} to="/"><h4>Home</h4></Link>
                             <Link  onClick={toggleMobileMenu} to="/about"><h4>About</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
-                            <Link onClick={toggleMobileMenu} to="/flower"><h4>Flower</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/catering-shopping"><h4>Shop</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/archive"><h4>Blog</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/contactPage"><h4>Contact Us</h4></Link>
                         </MobileMenuWrapper>
@@ -50,14 +50,14 @@ const MobileMenuWrapper = styled.div`
     a {
         text-decoration: none;
         color: ${props => props.theme.color.fontColor};
-        
+
         :hover {
             color: ${props => props.theme.color.secondary};
             text-decoration: underline;
             text-decoration-color: ${props => props.theme.color.fontColor};
         }
     }
-    
+
     h4 {
         font-size: 6rem;
     }

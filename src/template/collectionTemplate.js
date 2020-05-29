@@ -9,16 +9,16 @@ import styled from 'styled-components'
 const CollectionTemplate = ( { data } ) => {
 	// debugger
 	// const [ shopifyCollection ] = data
+	// console.log(data)
 
-    return (
-        <Layout>
-					<ProductContainer>
-						<ProductsListing collection={data.shopifyCollection} />
-					</ProductContainer>
-        </Layout>
-    )
+	return (
+		<Layout>
+			<ProductContainer>
+				<ProductsListing collection={data}/>
+			</ProductContainer>
+		</Layout>
+	)
 }
-
 
 const ProductContainer = styled.div`
 		display: grid;
@@ -55,7 +55,27 @@ export const query = graphql`
 							}
 						}
 					}
+
+				allShopifyCollection {
+					edges {
+						node {
+							title
+							handle
+							id
+							image {
+								localFile {
+									childImageSharp {
+										fluid(maxWidth: 1500, maxHeight: 1500) {
+											...GatsbyImageSharpFluid
+										}
+									}
+								}
+							}
+						}
+					}
 				}
+			}
+
 
         `
 

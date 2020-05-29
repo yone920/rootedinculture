@@ -9,38 +9,6 @@ import { useMediaQuery } from 'react-responsive'
 
  const HomeSlider = ({desktop, mobile}) => {
 
-// const data = useStaticQuery(graphql`
-//   query HomeSliderQuery {
-
-
-//     services: allWordpressWpServices {
-//       edges {
-//         node {
-//           id
-//           acf {
-//             body
-//             button
-//             link
-//             sub_heading
-//             photo {
-//               localFile {
-//                 childImageSharp {
-//                   fluid(maxWidth: 1500, maxHeight: 500) {
-//                     ...GatsbyImageSharpFluid
-//                   }
-//                 }
-//               }
-//             }
-//           }
-//           title
-//         }
-//       }
-//     }
-
-
-
-//   }
-// `)
 
 const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
@@ -88,25 +56,25 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
     }
 
     const mapOverPhotos = () => (
-        isTabletOrMobile ?
-        mobile.edges.map(node => (
-            <div key={node.node.id}>
-                <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
-            </div>
-        ))
-        :
-        desktop.edges.map(node => (
-          <div key={node.node.id}>
-                <Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
-            </div>
-        ))
+			isTabletOrMobile ?
+			mobile.edges.map(node => (
+				<div key={node.node.id}>
+					<Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
+				</div>
+			))
+			:
+			desktop.edges.map(node => (
+				<div key={node.node.id}>
+					<Img fluid={node.node.acf.photo.localFile.childImageSharp.fluid} />
+				</div>
+			))
     )
 
     return (
-        <SliderWrapper>
-            <Slider {...settings}>
-                {mapOverPhotos()}
-            </Slider>
+			<SliderWrapper>
+				<Slider {...settings}>
+					{mapOverPhotos()}
+				</Slider>
       </SliderWrapper>
     )
 }

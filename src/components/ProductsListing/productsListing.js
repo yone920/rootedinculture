@@ -10,23 +10,6 @@ import { withTheme } from 'styled-components'
 
 const ProductsListing = ( {collection} ) => {
 	console.log(collection)
-	// debugger
-	// const { allShopifyCollection } = useStaticQuery(
-  //   graphql`
-	// 		query noName {
-	// 			allShopifyCollection {
-	// 				edges {
-	// 					node {
-	// 						title
-	// 						handle
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-  //   `
-	// )
-
-	// const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
   return (
@@ -46,7 +29,7 @@ const ProductsListing = ( {collection} ) => {
 			</div>
 			<div className="products-header-wrapper">
 				<div className="header-wrapper">
-					<h2>Featured</h2>
+					<h2>{collection.shopifyCollection.title}</h2>
 				</div>
 				<div className="products-wrapper">
 					{collection.shopifyCollection.products.map(product => (

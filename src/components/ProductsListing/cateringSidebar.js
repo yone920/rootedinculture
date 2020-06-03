@@ -23,7 +23,9 @@ import Img from "gatsby-image"
 							<p className="menu-title">
 								{edge.node.title}
 							</p>
-							<Img fluid={edge.node.image.localFile.childImageSharp.fluid} alt={edge.node.title}  />
+							<div className="collection-image">
+								<Img fluid={edge.node.image.localFile.childImageSharp.fluid} alt={edge.node.title}  />
+							</div>
 						</Link>
 					</div>
 				)
@@ -72,6 +74,13 @@ const  MenuContainer = styled.nav`
 
 		.menu-title {
 			margin-bottom: 1rem;
+		}
+
+		.collection-image {
+			img {
+				border-radius: 50%;
+
+			}
 		}
 	}
 	`

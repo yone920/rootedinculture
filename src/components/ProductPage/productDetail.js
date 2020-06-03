@@ -37,7 +37,7 @@ const ProductDetail = ( {product} ) => {
   return (
     <ProductContainer>
 			<div className="breadcrumbs">
-				<Link to={`/catering-shopping/`}>
+				<Link to={`/catering-shopping/featured`}>
 					Catering Shopping
 				</Link>
 				<span>/</span>
@@ -178,6 +178,10 @@ const ProductContainer = styled.main`
     .add-to-cart-button {
       /* margin-top: 4rem; */
       align-self: end;
+
+			@media ${props => props.theme.device.mobile} {
+        margin-top: 4rem;
+		}
     }
 
   }

@@ -6,22 +6,22 @@ import Coupon from './Coupon/coupon'
 
 const CartList = () => {
     const { checkout } = useContext(StoreContext)
- 
+
     return (
         <CartContainer>
-            {checkout.lineItems.map(item => (
-                <div key={item.id}>
-                    <CartItem item={item} />
-                </div>
-            ))}
-            <hr className="divider" />
-            <div className="total-price">
-                <p>Total Price: </p><p>${checkout.totalPrice}</p>
-            </div>
-            <Coupon />
-            <div>
-                <a className="check-out-button" href={checkout.webUrl}>Check Out Now</a>
-            </div>
+					{checkout.lineItems.map(item => (
+						<div key={item.id}>
+								<CartItem item={item} />
+						</div>
+					))}
+					<hr className="divider" />
+					<div className="total-price">
+							<p>Total Price: </p><p>${checkout.totalPrice}</p>
+					</div>
+					<Coupon />
+					<div>
+							<a className="check-out-button" href={checkout.webUrl}>Check Out Now</a>
+					</div>
         </CartContainer>
     )
 }
@@ -45,22 +45,23 @@ const CartContainer = styled.div`
         }
     }
     .check-out-button{
-            display: inline-block;
-            width: 100%;
-            background-color: #5db544;
-            text-align: center;
-            padding: 1rem 1rem;
-            text-decoration: none;
-            color: white;
-            text-transform: uppercase;
-            border-radius: 1rem;
-            :hover {
-                background-color: white;
-                color: #5db544;
-        }
+			display: inline-block;
+			width: 100%;
+			background-color: ${props => props.theme.color.secondary};
+			text-align: center;
+			padding: 1rem 2rem;
+			text-decoration: none;
+			color: white;
+			text-transform: uppercase;
+			border-radius: .5rem;
+			cursor: pointer;
+			:hover {
+					background-color: #fff;
+					color: ${props => props.theme.color.secondary};
+			}
     }
 
-    ` 
+    `
 
 
 export default CartList;

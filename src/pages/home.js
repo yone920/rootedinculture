@@ -97,6 +97,7 @@ const data = useStaticQuery(graphql`
       edges {
         node {
           id
+
           localFile {
             url
             childImageSharp {
@@ -104,7 +105,7 @@ const data = useStaticQuery(graphql`
                 ...GatsbyImageSharpFluid
               }
             }
-
+          }
         }
       }
     }

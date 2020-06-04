@@ -93,6 +93,22 @@ const data = useStaticQuery(graphql`
         }
       }
     }
+    instagramNodes: allInstaNode {
+      edges {
+        node {
+          id
+          likes
+          localFile {
+            url
+            childImageSharp {
+              fluid(maxWidth: 1500, maxHeight: 1500) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
 
 
 
@@ -143,7 +159,7 @@ const MapOverServices = () => (
               </div>
               <h1>Instagram</h1>
             </div>
-            <InstagramList />
+            <InstagramList data={data.instagramNodes}/>
           </InstaWrapper>
       </HomeWrapper>
     </Layout>

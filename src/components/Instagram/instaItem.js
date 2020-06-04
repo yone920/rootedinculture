@@ -12,7 +12,7 @@ import Heart from '../../images/svg/realheart.svg'
                 <Img fluid={post.localFile.childImageSharp.fluid} />
         <a href={InstaLink}>
             <div className="overlay">
-                <img src={Heart} alt="Our Address Icon"></img>
+                {/* <img src={Heart} alt="Our Address Icon"></img> */}
                 <div className="text">{post.likes}</div>
             </div>
         </a>

@@ -98,14 +98,14 @@ const data = useStaticQuery(graphql`
         node {
           id
           likes
-          localFile {
-            url
-            childImageSharp {
-              fluid(maxWidth: 1500, maxHeight: 1500) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
+          # localFile {
+          #   url
+          #   childImageSharp {
+          #     fluid(maxWidth: 1500, maxHeight: 1500) {
+          #       ...GatsbyImageSharpFluid
+          #     }
+          #   }
+          # }
         }
       }
     }

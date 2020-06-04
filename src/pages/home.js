@@ -93,7 +93,7 @@ const data = useStaticQuery(graphql`
         }
       }
     }
-    instagramNodes: allInstaNode {
+    instagramPostes: allInstaNode {
       edges {
         node {
           id
@@ -159,7 +159,7 @@ const MapOverServices = () => (
               </div>
               <h1>Instagram</h1>
             </div>
-            <InstagramList data={data.instagramNodes}/>
+            <InstagramList data={data.instagramPostes}/>
           </InstaWrapper>
       </HomeWrapper>
     </Layout>

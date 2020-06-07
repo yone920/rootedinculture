@@ -5,13 +5,6 @@ import InstaItem from './instaItem'
 
  const InstagramList = ({ data }) => {
 
-  // const data = useStaticQuery(graphql`
-  //   query InstaListingQuery {
-
-  //       }
-  //     `)
-      // console.log(data.edges);
-// debugger
 
   return (
     <InstaContainer>

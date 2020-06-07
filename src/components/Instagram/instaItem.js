@@ -13,7 +13,7 @@ import Heart from '../../images/svg/realheart.svg'
         <a href={InstaLink}>
             <div className="overlay">
                 <img src={Heart} alt="Our Address Icon"></img>
-                {/* <div className="text">{post.likes}</div> */}
+                <div className="text">{post.likes}</div>
             </div>
         </a>
         </InstaItemContainer>

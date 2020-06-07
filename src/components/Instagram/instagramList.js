@@ -11,12 +11,12 @@ import InstaItem from './instaItem'
   //       }
   //     `)
       // console.log(data.edges);
-
+// debugger
 
   return (
     <InstaContainer>
-      {data.edges.map(edge => (
-        <InstaItem key={edge.node.id} post={edge.node} />
+      {data.nodes.map(edge => (
+        <InstaItem key={edge.id} post={edge} />
       ))}
     </InstaContainer>
   )

@@ -93,11 +93,11 @@ const data = useStaticQuery(graphql`
         }
       }
     }
-    instagramPostes: allInstaNode {
-      edges {
-        node {
-          id
+    instagramNodes: allInstaNode {
 
+        nodes {
+          id
+          likes
           localFile {
             url
             childImageSharp {
@@ -107,7 +107,7 @@ const data = useStaticQuery(graphql`
             }
           }
         }
-      }
+
     }
 
 
@@ -123,6 +123,8 @@ const MapOverServices = () => (
     </Fragment>
   ))
 )
+
+// debugger
 
 
 // =============== Render ================= ///
@@ -159,7 +161,7 @@ const MapOverServices = () => (
               </div>
               <h1>Instagram</h1>
             </div>
-            <InstagramList data={data.instagramPostes}/>
+            <InstagramList data={data.instagramNodes}/>
           </InstaWrapper>
       </HomeWrapper>
     </Layout>

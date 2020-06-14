@@ -97,7 +97,7 @@ const data = useStaticQuery(graphql`
 
         nodes {
           id
-          likes
+          # likes
           localFile {
             url
             childImageSharp {

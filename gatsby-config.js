@@ -111,13 +111,23 @@ module.exports = {
         name: "MyFontsWebfontsKit",
         path: `${__dirname}/src/fonts/`
       }
-    },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `rootedincultureflowers`,
-      },
-    },
+		},
+		{
+			resolve: `gatsby-source-instagram`,
+			options: {
+				username: `yonayon`,
+				access_token: "EAAH1LIZCvTMIBAGhNSn6NM9wo0KRDIf2PkOVEaZC1TD1bavNZA92jz4g27guhJiyvgDnomW1fHZAZCU0cVvQKlqPhtfKzJHknW91bD5mRc90XZC3Xgg4NNASsHdji71Te0cSZB5mBRE1lZAyuNxgoFjf8ZAn2guOCbmnC9A7azm7yQwZDZD",
+				instagram_id: "660273534017699",
+				paginate: 100,
+				maxPosts: 1000,
+			},
+		},
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     username: `rootedincultureflowers`,
+    //   },
+    // },
 
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline

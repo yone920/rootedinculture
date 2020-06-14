@@ -125,10 +125,10 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `648368744`,
+        username: `1759947270`,
       },
     },
-
+		// rootedincultureflowers
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

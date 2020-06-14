@@ -93,8 +93,7 @@ const data = useStaticQuery(graphql`
         }
       }
     }
-    instagramNodes: allInstaNode {
-
+    instagramNodes: allInstaNode(limit: 15) {
         nodes {
           id
           # likes

@@ -24,7 +24,7 @@ const CouponForm = styled.div`
 		input {
 			display: block;
 			box-sizing: border-box;
-			width: 100%;
+			width: 50%;
 			border-radius: .4rem;
 			border: .1rem solid #ccc;
 			padding: 0.5rem 1.5rem;

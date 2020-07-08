@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {Fragment} from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
 import styled from 'styled-components'
 import { withTheme } from 'styled-components'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 import { useMediaQuery } from 'react-responsive'
+import Service from '../components/service'
 
 
  const  Flowers = () => {
-	const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
   const data = useStaticQuery(graphql`
@@ -19,18 +19,6 @@ import { useMediaQuery } from 'react-responsive'
         title
         acf {
           fp_content
-          fp_events
-          fp_flower_arrangement
-          fp_plants
-          fp_plant_image {
-            localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1700) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-          }
           fp_hero_image {
             localFile {
                 childImageSharp {
@@ -43,16 +31,7 @@ import { useMediaQuery } from 'react-responsive'
           fp_hero_image_mobile {
             localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1500) {
-                    ...GatsbyImageSharpFluid
-                  }
-                }
-              }
-          }
-          fp_events_image {
-            localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1700) {
+                  fluid(maxWidth: 1500, maxHeight: 1500) {
                     ...GatsbyImageSharpFluid
                   }
                 }
@@ -60,23 +39,54 @@ import { useMediaQuery } from 'react-responsive'
           }
         }
     }
+		flowerServices: allWordpressWpFlowerServices {
+			edges {
+				node {
+					id
+					acf {
+						photo {
+							localFile {
+								childImageSharp {
+                  fluid(maxWidth: 1000, maxHeight: 1400) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+							}
+						}
+						link
+					}
+					title
+				}
+			}
+		}
   }
 `)
-console.log(data)
+
+const MapOverFlowerServices = () => (
+  data.flowerServices.edges.map(node => (
+    <Fragment key={node.node.id} >
+      <Service service={node} />
+    </Fragment>
+  ))
+)
 
   return (
     <Layout>
       <SEO title="Flowers" />
 
-		{isTabletOrMobile ?
+    {isTabletOrMobile ?
       <div className="hero-image">
-        <Img fluid={data.flowerPage.acf.fp_hero_image_mobile.localFile.childImageSharp.fluid} />
+        <Img
+          fluid={data.flowerPage.acf.fp_hero_image_mobile.localFile.childImageSharp.fluid}
+          objectFit="cover"
+          objectPosition="50% 50%"
+          />
       </div>
-			:
+      :
       <div className="hero-image">
         <Img fluid={data.flowerPage.acf.fp_hero_image.localFile.childImageSharp.fluid} />
       </div>
-			}
+      }
 
       <FlowerContainer>
         <div className="flower_page_title_content_container">
@@ -89,6 +99,9 @@ console.log(data)
             }}
           />
         </div>
+				<div className="flower-services-wrapper">
+					{MapOverFlowerServices()}
+				</div>
 
       </FlowerContainer>
 
@@ -109,60 +122,75 @@ const FlowerContainer = styled.main`
       width: 30%;
       right: 10%;
       top: 31%;
-			/* grid-column: center-start / center-end; */
+      /* grid-column: center-start / center-end; */
 
     @media ${props => props.theme.device.desktop} {
-      top: 30%;
-			width: 40%;
-			right: 10%;
+      top: 35%;
+      width: 40%;
+      right: 10%;
       width: 30%;
       /* background-color: green; */
     }
     @media ${props => props.theme.device.laptopL} {
-      top: 25%;
-			width: 40%;
-			right: 6%;
+      top: 30%;
+      width: 40%;
+      right: 6%;
       line-height: 1;
       /* background-color: orange; */
     }
     @media ${props => props.theme.device.laptop} {
-      top: 23%;
+      top: 27%;
       /* background-color: yellow; */
     }
     @media ${props => props.theme.device.tablet} {
       /* background-color: pink; */
-			grid-column: center-start / center-end;
-			position: initial;
-			width: 70%;
-			margin: 0 auto;
-			margin-top: 12rem;
+      grid-column: center-start / center-end;
+      position: initial;
+      width: 90%;
+      margin: 0 auto;
+      margin-top: 10rem;
 
     }
     @media ${props => props.theme.device.mobileL} {
       /* background-color: purple; */
+      width: 100%;
+      margin-top: 8rem;
     }
 
     .flower_page_title {
       color: white;
       margin-bottom: 2rem;
-    @media ${props => props.theme.device.tablet} {
-      color: black;
-    }
+      @media ${props => props.theme.device.tablet} {
+        color: black;
+        text-align: center;
+      }
     }
 
     .hero-content {
       color: white;
       line-height: 2.1;
-    @media ${props => props.theme.device.tablet} {
-      color: black;
-    }
+      @media ${props => props.theme.device.tablet} {
+        color: black;
+      }
 
-    @media ${props => props.theme.device.laptopL} {
-      line-height: 1.8;
+      @media ${props => props.theme.device.laptopL} {
+        line-height: 1.8;
+      }
     }
-    }
-
   }
+		.flower-services-wrapper {
+			grid-column: center-start / center-end;
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+			grid-column-gap: 2rem;
+			grid-row-gap: 2rem;
+
+			margin-top: 20rem;
+			margin-bottom: 10rem;
+      @media ${props => props.theme.device.tablet} {
+				margin-top: 10rem;
+      }
+		}
 
 `
 

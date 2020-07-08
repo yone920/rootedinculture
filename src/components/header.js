@@ -9,11 +9,14 @@ import { useTransition } from 'react-spring'
 import CartIcon from './SVGs/cartIcon'
 import Qty from '../components/Cart/cartQty'
 import Loader from "./loader"
+import { withTheme } from 'styled-components'
+
+// import { useMediaQuery } from 'react-responsive'
 
 
 
 const Header = ({ siteTitle }) => {
-
+	// const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
   const {  isCartOpen, toggleCartOpen, checkout } = useContext(StoreContext)
 
   const  transitions = useTransition(isCartOpen, null, {
@@ -110,7 +113,8 @@ const HeaderWrapper = styled.header`
     .logo {
         grid-column: col-start 4 / col-end 5;
         img {
-            width: 100%;
+            	width: 100%;
+
         }
     }
 
@@ -142,4 +146,4 @@ const HeaderWrapper = styled.header`
 `
 
 
-export default Header
+export default withTheme(Header);

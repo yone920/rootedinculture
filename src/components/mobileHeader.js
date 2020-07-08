@@ -61,7 +61,7 @@ const MobileHeader = ({ siteTitle }) => {
 MobileHeader.propTypes = {
     siteTitle: PropTypes.string,
   }
-  
+
   MobileHeader.defaultProps = {
     siteTitle: ``,
   }
@@ -80,7 +80,10 @@ const LogoWrapper = styled.div`
     grid-column: 2 / 5;
     /* margin-left: 2rem; */
     img {
-        width: 100%;
+        width: 50%;
+				@media ${props => props.theme.device.mobileL} {
+					width: 100%;
+				}
     }
 `
 const CartIconWrapper = styled.div`

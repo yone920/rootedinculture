@@ -20,6 +20,10 @@ const Plants = (props) => {
           title
         }
 
+			shippingInfo:	wordpressPage(slug: {eq: "shipping-info"}) {
+					content
+				}
+
       shopifyCollection(handle: {eq: "plants"}) {
           title
             products {
@@ -61,6 +65,11 @@ const Plants = (props) => {
               __html: data.plantsContent.acf.plants_content,
             }}
           />
+					<div className="shipping-info"
+            dangerouslySetInnerHTML={{
+              __html: data.shippingInfo.content,
+            }}
+          />
         </div>
         <div className="products-wrapper">
           <ProductsListing collection={data} parent={"arrangement"}/>
@@ -91,7 +100,8 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     .catering-title {
       margin-bottom: 2rem;
       /* margin: 3rem auto; */
-      width: 60%;
+      /* width: 60%; */
+			text-align: center;
 
       @media ${props => props.theme.device.tablet} {
         width: 100%;
@@ -100,15 +110,22 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     }
 
     .content-wrapper {
-
-      /* margin: 0 auto; */
+			line-height: 2;
+      margin: 0 auto;
       width: 60%;
+			text-align: center;
 
       @media ${props => props.theme.device.tablet} {
         width: 100%;
         margin-bottom: 3rem;
       }
     }
+
+		.shipping-info {
+			line-height: 2;
+			margin-top: 3rem;
+			text-align: center;
+		}
   }
 
   .products-wrapper {

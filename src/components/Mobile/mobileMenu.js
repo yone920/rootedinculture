@@ -32,7 +32,9 @@ const MobileMenu = ({ style }) => {
                             <Link onClick={toggleMobileMenu} to="/"><h4>Home</h4></Link>
                             <Link  onClick={toggleMobileMenu} to="/about"><h4>About</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
-                            <Link onClick={toggleMobileMenu} to="/catering-shopping/featured"><h4>Shop</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/flowers"><h4>Flower</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/dinner"><h4>Dinner Arrangement</h4></Link>
+                            {/* <Link onClick={toggleMobileMenu} to="/catering-shopping/featured"><h4>Shop</h4></Link> */}
                             <Link onClick={toggleMobileMenu} to="/archive"><h4>Blog</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/contactPage"><h4>Contact Us</h4></Link>
                         </MobileMenuWrapper>

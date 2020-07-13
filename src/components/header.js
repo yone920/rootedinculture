@@ -38,8 +38,10 @@ const Header = ({ siteTitle }) => {
           <img src={Logo} alt="Rooted In Culture Logo"/>
       </div>
       <div className="menu-2">
-          <Link to="/catering-shopping/featured">Shop</Link>
-          <Link to="/archive">Blog</Link>
+          {/* <Link to="/catering-shopping/featured">Shop</Link> */}
+          <Link to="/flowers">Flower</Link>
+          <Link to="/dinner">Dinner</Link>
+          {/* <Link to="/archive">Blog</Link> */}
           <Link to="/contactPage">Contact Us</Link>
       </div>
       <div className="cart-qty-icon" onClick={toggleCartOpen}>

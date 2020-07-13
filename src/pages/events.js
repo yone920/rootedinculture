@@ -224,6 +224,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     text-transform: uppercase;
     border-radius: .5rem;
     cursor: pointer;
+		border: none;
     :hover {
         background-color: ${props => props.theme.color.primary};
         /* color: #5db544; */

@@ -7,7 +7,7 @@ import { useTransition } from 'react-spring'
 // import { useMediaQuery } from 'react-responsive'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 // import BackgroundImage from 'gatsby-background-image'
 // import Reservation from '../components/reservation'
 import HomeSlider from '../components/HomeSlider'
@@ -130,6 +130,9 @@ const Catering = (props) => {
        <div className="slider-container">
           <HomeSlider desktop={data.slider} mobile={data.mobileSlider}/>
        </div>
+				<div className="catering-shop">
+					<button><Link to="/catering-shopping/featured/">Discover Our Menu</Link></button>
+				</div>
 
       <div className="content-wrapper">
         <div className="catering-title">
@@ -166,13 +169,58 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
   margin-bottom: 3rem;
 }
 
+.catering-shop {
+	grid-column: center-start / center-end;
+	position: relative;
+	bottom: 15rem;
+	z-index: 99;
+	/* width: 30%; */
+
+  justify-self: center;
+  width: 50%;
+
+  @media ${props => props.theme.device.mobileL} {
+      width: 85%;
+    }
+   button {
+    display: inline-block;
+    width: 100%;
+    background-color: ${props => props.theme.color.secondary};
+    text-align: center;
+    padding: 2rem 2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    cursor: pointer;
+		border: none;
+    :hover {
+        background-color: ${props => props.theme.color.primary};
+        /* color: #5db544; */
+  }
+   }
+
+	@media ${props => props.theme.device.mobileL} {
+		bottom: 15rem;
+
+  }
+
+	button {
+
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}
+
 .content-wrapper {
   grid-column: center-start / center-end;
   justify-items: center;
   margin: 8rem 0;
 
     @media ${props => props.theme.device.mobileL} {
-      margin: 4rem 0;
+      margin: 12rem 0 6rem 0;
     }
   .catering-title {
     text-align: center;
@@ -201,7 +249,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
    button {
     display: inline-block;
     width: 100%;
-    background-color: #404C07;
+    background-color: ${props => props.theme.color.secondary};
     text-align: center;
     padding: 2rem 2rem;
     text-decoration: none;
@@ -209,8 +257,9 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     text-transform: uppercase;
     border-radius: .5rem;
     cursor: pointer;
+		border: none;
     :hover {
-        background-color: rgba(64, 76, 7, 0.922);
+        background-color: ${props => props.theme.color.primary};
         /* color: #5db544; */
   }
    }

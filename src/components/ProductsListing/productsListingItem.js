@@ -80,7 +80,7 @@ const ProductItemContainer = styled.main`
 				padding: 0.5rem 0 2rem 0;
 
 				p {
-					font-size: 1.5rem;
+					font-size: 1.8rem;
 				}
 			}
 

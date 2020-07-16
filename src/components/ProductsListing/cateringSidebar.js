@@ -18,7 +18,7 @@ import Img from "gatsby-image"
 			{isMobile ?
 			 data.allShopifyCollection.edges.map(edge => {
 				return (
-					<div className="menu-item" key={edge.node.handle}>
+					<div className="menu-item mobile-catering-menu" key={edge.node.handle}>
 						<Link to={`/catering-shopping/${edge.node.handle}`}>
 							<p className="menu-title">
 								{edge.node.title}
@@ -51,8 +51,10 @@ const  MenuContainer = styled.nav`
       display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
 			grid-gap: 1rem;
+			padding: 0 3rem;
     }
-
+		/* .mobile-catering-menu {
+		} */
 
 	.menu-item {
 		padding-bottom: 1rem;

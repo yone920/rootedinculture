@@ -14,6 +14,7 @@ const defaultValues = {
     isMobileMenuOpen: false,
     isCateringInquiriesOpen: false,
     toggleCartOpen: () => {},
+    toggleDropDownOpen: () => {},
     toggleMobileMenu: () => {},
     toggleCateringInquiries: () => {},
     removeProductFromCart: () => {},
@@ -37,6 +38,7 @@ const isBrowser = typeof window !== 'undefined'
 export const StoreProvider = ({ children }) => {
     const [checkout, setCheckout] = useState(defaultValues.checkout)
     const [isCartOpen, setCartOpen] = useState(false)
+    const [isDropDownOpen, setDropDownOpen] = useState(true)
     const [isLoading, setLoading] = useState(false)
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [isCateringInquiriesOpen, setCateringInquiries] = useState(false)
@@ -47,6 +49,10 @@ export const StoreProvider = ({ children }) => {
 
     const toggleCartOpen = () => {
         setCartOpen(!isCartOpen)
+    }
+
+		const toggleDropDownOpen = () => {
+			setDropDownOpen(!isDropDownOpen)
     }
 
     const toggleMobileMenu = () => {
@@ -178,7 +184,8 @@ export const StoreProvider = ({ children }) => {
             checkout,
             addProductToCart,
             removeProductFromCart,
-            toggleCartOpen,
+						toggleCartOpen,
+						toggleDropDownOpen,
             isCartOpen,
             addCoupon,
             removeCoupon,

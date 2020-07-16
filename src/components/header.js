@@ -10,6 +10,7 @@ import CartIcon from './SVGs/cartIcon'
 import Qty from '../components/Cart/cartQty'
 import Loader from "./loader"
 import { withTheme } from 'styled-components'
+import DropDown from '../components/Menu/dropDown'
 
 // import { useMediaQuery } from 'react-responsive'
 
@@ -25,6 +26,12 @@ const Header = ({ siteTitle }) => {
     leave: { transform: 'translate3d(100%, 0, 0)' }
   })
 
+	const  dropDown = useTransition(isCartOpen, null, {
+    from: { transform: 'translate3d(100%, 0, 0)' },
+    enter: { transform: 'translate3d(0, 0, 0)' },
+    leave: { transform: 'translate3d(100%, 0, 0)' }
+  })
+
 
   return (
     <>
@@ -33,6 +40,9 @@ const Header = ({ siteTitle }) => {
           <Link to="/home">Home</Link>
           <Link to="/about">About Us</Link>
           <Link to="/catering">Catering</Link>
+					{dropDown.map(({ item, key, props }) => {
+						return item && <DropDown key={key} style={props} />
+					})}
       </div>
       <div className="logo">
           <img src={Logo} alt="Rooted In Culture Logo"/>

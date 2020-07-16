@@ -3,6 +3,7 @@ import { StoreContext } from '../../context/StoreContext'
 import Close from '../SVGs/close'
 import styled from 'styled-components'
 import { navigate } from 'gatsby-link'
+import { withTheme } from 'styled-components'
 
 function encode(data) {
   return Object.keys(data)
@@ -37,6 +38,8 @@ const InquiryForm = () => {
   }
 
   const { toggleCateringInquiries } = useContext(StoreContext)
+
+	console.log()
 
   return (
     <InquiryContainer>
@@ -204,10 +207,10 @@ const InquiryContainer =  styled.div`
     margin: 3rem;
 
     .inquiry-wrapper {
-    form {
-        max-width: 500px;
-        margin: 0 auto;
-    }
+				form {
+						max-width: 500px;
+						margin: 0 auto;
+				}
 
     .inquiry {
 
@@ -244,33 +247,6 @@ const InquiryContainer =  styled.div`
         font-weight: 200;
         }
 
-        button[type="submit"],
-        input[type="submit"] {
-        background: #ec5990;
-        color: white;
-        text-transform: uppercase;
-        border: none;
-        margin-top: 40px;
-        padding: 20px;
-        font-size: 16px;
-        font-weight: 100;
-        letter-spacing: 10px;
-        }
-
-        button[type="submit"]:hover,
-        input[type="submit"]:hover {
-        background: #bf1650;
-        }
-
-        button[type="submit"]:active,
-        input[type="button"]:active,
-        input[type="submit"]:active {
-        transition: 0.3s all;
-        transform: translateY(3px);
-        border: 1px solid transparent;
-        opacity: 0.8;
-        }
-
         input:disabled {
         opacity: 0.4;
         }
@@ -285,34 +261,32 @@ const InquiryContainer =  styled.div`
         -webkit-appearance: none;
         }
 
-        button[type="button"] {
-        display: block;
-        appearance: none;
-        background: #333;
-        color: white;
-        border: none;
-        text-transform: uppercase;
-        padding: 10px 20px;
-        border-radius: 4px;
-        }
+        button {
+					display: inline-block;
+					width: 100%;
+					background-color: ${props => props.theme.color.secondary};
+					text-align: center;
+					padding: 2rem 2rem;
+					text-decoration: none;
+					color: white;
+					text-transform: uppercase;
+					border-radius: .5rem;
+					cursor: pointer;
+					border: none;
+        	margin: 6rem 0;
+					:hover {
+        	background-color: white;
+					color: ${props => props.theme.color.secondary};
+	        }
 
         hr {
         margin-top: 30px;
         }
+				}
 
-        button {
-        display: block;
-        appearance: none;
-        margin-top: 40px;
-        border: 1px solid #333;
-        margin-bottom: 20px;
-        text-transform: uppercase;
-        padding: 10px 20px;
-        border-radius: 4px;
-        }
     }
   }
 `
 
 
-export default InquiryForm;
+export default withTheme(InquiryForm);

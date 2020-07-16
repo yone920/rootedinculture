@@ -33,6 +33,7 @@
     "node-sass": "^4.13.0",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
+    "react-bnb-gallery": "^1.4.4",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-hook-form": "^4.3.0",
@@ -55,8 +56,8 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-		"develop": "gatsby develop",
-		"dev-m": "gatsby develop -H 0.0.0.0 -p 8000",
+    "develop": "gatsby develop",
+    "dev-m": "gatsby develop -H 0.0.0.0 -p 8000",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

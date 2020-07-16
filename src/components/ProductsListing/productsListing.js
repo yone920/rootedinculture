@@ -69,6 +69,9 @@ const ProductsListing = ( {collection, parent} ) => {
         border-bottom: 0.1rem solid black;
         margin-right: 3rem;
 
+      @media ${props => props.theme.device.mobileL} {
+        padding: 0 3rem;
+      }
         p {
           font-size: 1.4rem;
           font-weight: 100;
@@ -76,6 +79,11 @@ const ProductsListing = ( {collection, parent} ) => {
       }
     }
     .products-header-wrapper {
+
+       @media ${props => props.theme.device.mobileL} {
+					padding: 0 3rem;
+        }
+
       .header-wrapper {
         margin-bottom: 2rem;
       }

@@ -131,7 +131,7 @@ const Catering = (props) => {
           <HomeSlider desktop={data.slider} mobile={data.mobileSlider}/>
        </div>
 				<div className="catering-shop">
-					<button><Link to="/catering-shopping/featured/">Discover Our Menu</Link></button>
+					<Link to="/catering-shopping/featured/"><p>Discover Our Menu</p></Link>
 				</div>
 
       <div className="content-wrapper">
@@ -145,7 +145,7 @@ const Catering = (props) => {
         />
       </div>
       <div className="inquiry-button">
-        <button onClick={toggleCateringInquiries}>Inquire Now</button>
+        <button onClick={toggleCateringInquiries}><p>Inquire Now</p></button>
       </div>
       {transitions.map(({ item, key, props }) => {
         return item && <CateringInquiries key={key} style={props} />
@@ -180,9 +180,9 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
   width: 50%;
 
   @media ${props => props.theme.device.mobileL} {
-      width: 85%;
+      width: 100%;
     }
-   button {
+   a {
     display: inline-block;
     width: 100%;
     background-color: ${props => props.theme.color.secondary};
@@ -197,17 +197,23 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     :hover {
         background-color: ${props => props.theme.color.primary};
         /* color: #5db544; */
-  }
+  	}
+
+		p {
+			font-size: 1.3rem;
+			line-height: 1;
+		}
    }
 
 	@media ${props => props.theme.device.mobileL} {
-		bottom: 15rem;
+		bottom: 0rem;
 
   }
 
 	button {
 
 		a {
+			font-size: 1.6rem;
 			color: #fff;
 			text-decoration: none;
 		}
@@ -220,7 +226,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
   margin: 8rem 0;
 
     @media ${props => props.theme.device.mobileL} {
-      margin: 12rem 0 6rem 0;
+      margin: 10rem 0 6rem 0;
     }
   .catering-title {
     text-align: center;
@@ -261,7 +267,11 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     :hover {
         background-color: ${props => props.theme.color.primary};
         /* color: #5db544; */
-  }
+  	}
+
+		p {
+			font-size: 1.3rem;
+		}
    }
 }
 `

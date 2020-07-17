@@ -175,7 +175,6 @@ const InquiryForm = () => {
                 </select>
               </div>
               <div className="inquiry">
-                <p>Choose your monster's features:</p>
                 {/* <div>
                   <input type="checkbox" id="scales" name="scales" onChange={handleChange} />
                   <label htmlFor="scales">Drop-Off Only</label>

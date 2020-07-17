@@ -56,7 +56,7 @@ const sources = [
 
    return (
         <IntroContainer>
-            <BackgroundImage
+            <StyledBackground
                     Tag="section"
                     className="hero"
                     fluid={sources}
@@ -73,16 +73,16 @@ const sources = [
                             <span>with authentic people,</span><br />
                             <span>through unforgettable experiences,</span><br />
                             <span>rooted in culture!</span><br />
-                        </p>   
+                        </p>
                     </div>
                     <div className="hero-button">
                         <Link to="/home">Welcome</Link>
                     </div>
                 </HeroContentWrapper>
-            </BackgroundImage>
-            
+            </StyledBackground>
+
         </IntroContainer>
-    ) 
+    )
 }
 
 const IntroContainer = styled.div`
@@ -91,7 +91,11 @@ const IntroContainer = styled.div`
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 100vh;
     }
-    `
+		`
+
+const StyledBackground = styled(BackgroundImage)`
+	background-position: 50% 20%;
+`
 
 const HeroContentWrapper = styled.div`
     grid-column: 1 / 2;

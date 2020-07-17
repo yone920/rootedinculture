@@ -15,7 +15,7 @@ const Calendly = () => {
     <div
       className="calendly-inline-widget"
       data-url="https://calendly.com/rootedinculture"
-      style={{ height: "500px" }}
+      style={{ height: "700px" }}
     />
   );
 };

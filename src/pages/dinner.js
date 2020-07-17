@@ -68,7 +68,7 @@ const Dinner = (props) => {
 
   return (
     <Layout>
-      <SEO title="About Us" />
+      <SEO title="Dinner Arrangement" />
       <DinnerContainer>
        <div className="slider-container">
           <HomeSlider desktop={data.slider} mobile={data.mobileSlider}/>

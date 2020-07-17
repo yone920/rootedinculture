@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import AddressIcon from '../images/svg/address.svg'
 import PhoneIcon from '../images/svg/phone.svg'
 import EmailIcon from '../images/svg/email.svg'
+import SEO from "../components/seo"
 
 function encode(data) {
   return Object.keys(data)
@@ -56,6 +57,7 @@ const ContactPage = () => {
 
   return (
     <Layout>
+				<SEO title="Contact Us" />
         <ContactPageContainer>
             <div className="contact-line-wrapper">
               <div className="blog-heading">
@@ -245,7 +247,7 @@ const ContactPageContainer = styled.div`
 
     button[type="submit"],
     input[type="submit"] {
-      background: ${props => props.theme.color.primary};
+      background: ${props => props.theme.color.secondary};
       color: white;
       text-transform: uppercase;
       border: none;
@@ -260,7 +262,7 @@ const ContactPageContainer = styled.div`
 
     button[type="submit"]:hover,
     input[type="submit"]:hover {
-      background: ${props => props.theme.color.secondary};
+      background: ${props => props.theme.color.primary};
     }
 
     button[type="submit"]:active,

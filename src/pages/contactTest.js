@@ -1,12 +1,7 @@
 import React from 'react'
+import styled from 'styled-components'
 import { navigate } from 'gatsby-link'
-import Layout from '../components/Layout/layout'
-import styled, { withTheme } from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
-import AddressIcon from '../images/svg/address.svg'
-import PhoneIcon from '../images/svg/phone.svg'
-import EmailIcon from '../images/svg/email.svg'
-import SEO from "../components/seo"
+import { withTheme } from 'styled-components'
 
 function encode(data) {
   return Object.keys(data)
@@ -15,7 +10,7 @@ function encode(data) {
 }
 
 
-const ContactTest = () => {
+const InquiryForm = () => {
   const [state, setState] = React.useState({})
 
   const handleChange = (e) => {
@@ -40,281 +35,251 @@ const ContactTest = () => {
       .catch((error) => alert(error))
   }
 
-  const data = useStaticQuery(graphql`
-  query ContactTestDataQuery {
-    contactContent: wordpressPage(slug: {eq: "contact-us"}) {
-      content
-      acf {
-        email
-        tele
-        address
-      }
-    }
-  }
-`)
 
-  console.log(state);
-
+	console.log()
 
   return (
-    <Layout>
-				<SEO title="Contact Us" />
-        <ContactPageContainer>
-            <div className="contact-line-wrapper">
-              <div className="blog-heading">
-                  <h2>Contact Us</h2>
+    <InquiryContainer>
+      <div className="inquiry-wrapper">
+          <form
+              name="InquiryForm"
+              method="post"
+              action="/success/"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+              onSubmit={handleSubmit}
+            >
+              <input type="hidden" name="form-name" value="InquiryForm" />
+              <p hidden>
+                <label>
+                    Don’t fill this out: <input name="bot-field" onChange={handleChange} />
+                </label>
+              </p>
+              <div className="inquiry">
+                  <label htmlFor="name">First Name</label>
+                  <input type="text" name="name" id="name" onChange={handleChange} />
               </div>
-              <div className="line">
-                <hr />
+              <div className="inquiry">
+                  <label htmlFor="last-name">Last Name</label>
+                  <input type="text" name="last-name" id="lsat-name" onChange={handleChange} />
               </div>
-          </div>
-            <div className="contact-form-wrapper">
-                <form
-                    name="contactTest"
-                    method="post"
-                    action="/success/"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
-                    onSubmit={handleSubmit}
-                >
-                    {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                    <input type="hidden" name="form-name" value="contactTest" />
-                    <p hidden>
-                    <label>
-                        Don’t fill this out: <input name="bot-field" onChange={handleChange} />
-                    </label>
-                    </p>
-                    <p className="contact">
-                        <label htmlFor="name">Your name: </label>
-                        <input type="text" name="name" onChange={handleChange} />
-                    </p>
-                    <p className="contact">
-                        <label htmlFor="email">Your email: </label>
-                        <input type="email" name="email" onChange={handleChange} />
-                    </p>
-                    <p className="contact">
-                        <label>Message: </label>
-                        <textarea name="message" onChange={handleChange} />
-                    </p>
-                    <p className="contact">
-                        <button type="submit">Send</button>
-                    </p>
-                </form>
-            </div>
-            <div className="contact-detail-wrapper">
-                <div className="contact-box-wrapper">
-                  <div className="our-address contact-box">
-                      <div className="our-address-icon icon">
-                        <img src={AddressIcon} alt="Our Address Icon"></img>
-                      </div>
-                      <div>
-                        <p>{data.contactContent.acf.address}</p>
-                      </div>
-                  </div>
-                  <div className="our-tele contact-box">
-                      <div className="our-tele-icon icon">
-                        <img src={PhoneIcon} alt="Our Address Icon"></img>
-                      </div>
-                      <div>
-                        <p>{data.contactContent.acf.tele}</p>
-                      </div>
-                  </div>
-                  <div className="our-email contact-box">
-                      <div className="our-email-icon icon">
-                        <img src={EmailIcon} alt="Our Address Icon"></img>
-                      </div>
-                      <div>
-                        <p>{data.contactContent.acf.email}</p>
-                      </div>
-                  </div>
+              <div className="inquiry">
+                  <label htmlFor="company-name">Company Name</label>
+                  <input type="text" name="company-name" id="company-name" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="email">Company Email</label>
+                  <input type="text" name="email" id="email" onChange={handleChange}/>
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="phone">Company Phone Number</label>
+                  <input type="tel" name="phone" id="phone" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="date">Date of the event</label>
+                  <input type="date" name="date" id="date" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="time">Time of the event</label>
+                  <input type="time" name="time" id="time" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="address">Venue Address</label>
+                  <input type="address" name="address" id="address" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="city">City</label>
+                  <input type="city" name="city" id="city" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+              <label htmlFor="state">State</label>
+              <select name="state" className="inquiry" onChange={handleChange}>
+                <option value="AL">Alabama</option>
+                <option value="AK">Alaska</option>
+                <option value="AZ">Arizona</option>
+                <option value="AR">Arkansas</option>
+                <option value="CA">California</option>
+                <option value="CO">Colorado</option>
+                <option value="CT">Connecticut</option>
+                <option value="DE">Delaware</option>
+                <option value="DC">District Of Columbia</option>
+                <option value="FL">Florida</option>
+                <option value="GA">Georgia</option>
+                <option value="HI">Hawaii</option>
+                <option value="ID">Idaho</option>
+                <option value="IL">Illinois</option>
+                <option value="IN">Indiana</option>
+                <option value="IA">Iowa</option>
+                <option value="KS">Kansas</option>
+                <option value="KY">Kentucky</option>
+                <option value="LA">Louisiana</option>
+                <option value="ME">Maine</option>
+                <option value="MD">Maryland</option>
+                <option value="MA">Massachusetts</option>
+                <option value="MI">Michigan</option>
+                <option value="MN">Minnesota</option>
+                <option value="MS">Mississippi</option>
+                <option value="MO">Missouri</option>
+                <option value="MT">Montana</option>
+                <option value="NE">Nebraska</option>
+                <option value="NV">Nevada</option>
+                <option value="NH">New Hampshire</option>
+                <option value="NJ">New Jersey</option>
+                <option value="NM">New Mexico</option>
+                <option value="NY">New York</option>
+                <option value="NC">North Carolina</option>
+                <option value="ND">North Dakota</option>
+                <option value="OH">Ohio</option>
+                <option value="OK">Oklahoma</option>
+                <option value="OR">Oregon</option>
+                <option value="PA">Pennsylvania</option>
+                <option value="RI">Rhode Island</option>
+                <option value="SC">South Carolina</option>
+                <option value="SD">South Dakota</option>
+                <option value="TN">Tennessee</option>
+                <option value="TX">Texas</option>
+                <option value="UT">Utah</option>
+                <option value="VT">Vermont</option>
+                <option value="VA">Virginia</option>
+                <option value="WA">Washington</option>
+                <option value="WV">West Virginia</option>
+                <option value="WI">Wisconsin</option>
+                <option value="WY">Wyoming</option>
+              </select>
+              </div>
+              <div className="inquiry">
+                <label htmlFor="service-entrance">Service Entrance?</label>
+                <select name="service-entrance" className="service-entrance" onChange={handleChange}>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div className="inquiry">
+                <label htmlFor="service-elevator">Service elevator on the premises?</label>
+                <select name="service-elevator" className="service-elevator" onChange={handleChange}>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div className="inquiry">
+                <label htmlFor="service-kitchen">Service Kitchen Available?</label>
+                <select name="service-kitchen" className="service-kitchen" onChange={handleChange}>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div className="inquiry">
+                {/* <div>
+                  <input type="checkbox" id="scales" name="scales" onChange={handleChange} />
+                  <label htmlFor="scales">Drop-Off Only</label>
                 </div>
-                <div className="contact-us-message">
-                    <div dangerouslySetInnerHTML={{
-                          __html: data.contactContent.content,
-                      }} >
-                    </div>
+                <div>
+                  <input type="checkbox" id="horns" name="horns" onChange={handleChange} />
+                  <label htmlFor="horns">Drop-Off and Set-up</label>
                 </div>
-            </div>
-      </ContactPageContainer>
-    </Layout>
+                <div>
+                  <input type="checkbox" id="horns" name="horns" onChange={handleChange} />
+                  <label htmlFor="horns">Full Service htmlFor the Duration of the Event</label>
+                </div> */}
+              </div>
+
+              <div className="inquiry">
+                  <label htmlFor="message">Message</label>
+                  <textarea name="message" id="message" rows="6" required onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                <button type="submit">Send</button>
+              </div>
+          </form>
+      </div>
+    </InquiryContainer>
   )
 }
 
-const ContactPageContainer = styled.div`
-    display: grid;
-    grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-    padding: 4rem 0;
+const InquiryContainer =  styled.div`
+    margin: 3rem;
 
-    .contact-line-wrapper {
-        grid-column: center-start / center-end;
-        text-align: center;
-        margin-bottom: 2rem;
-        grid-column: center-start / center-end;
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        padding: 0 0 2rem 0;
+    .inquiry-wrapper {
+				form {
+						max-width: 500px;
+						margin: 0 auto;
+				}
 
-        .blog-heading {
-          grid-column: full-start / full-end;
-          text-align: center;
-      }
+    .inquiry {
 
-      .line {
-        width: 25rem;
-        margin: 1rem auto;
-
-          hr {
-            border: 0;
-            height: 1px;
-            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-          }
-      }
-
-    }
-
-    .contact-form-wrapper {
-        grid-column: center-start  / col-end 4;
-
-        @media ${props => props.theme.device.mobileL} {
-          grid-column: center-start  / center-end;
-        }
-    }
-
-    .contact-detail-wrapper {
-        grid-column: col-end 5 / center-end;
-        padding: 6rem 0;
-
-        @media ${props => props.theme.device.mobileL} {
-          grid-column: center-start  / center-end;
+        input {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        font-size: 14px;
         }
 
-      .contact-box-wrapper {
+        textarea {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        }
 
-          margin-bottom: 4rem;
+        label {
+        line-height: 2;
+        text-align: left;
+        display: block;
+        margin-bottom: 13px;
+        margin-top: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 200;
+        }
 
-          .icon {
-            margin-right: 2rem;
-          }
-          .contact-box {
-            display: flex;
-          }
-          .contact-us-message {
-            margin-bottom: 4rem;
-          }
-      }
+        input:disabled {
+        opacity: 0.4;
+        }
+
+        input[type="button"]:hover {
+        transition: 0.3s all;
+        }
+
+        button[type="submit"],
+        input[type="button"],
+        input[type="submit"] {
+        -webkit-appearance: none;
+        }
+
+        button {
+					display: inline-block;
+					width: 100%;
+					background-color: green;
+					text-align: center;
+					padding: 2rem 2rem;
+					text-decoration: none;
+					color: white;
+					text-transform: uppercase;
+					border-radius: .5rem;
+					cursor: pointer;
+					border: none;
+        	margin: 6rem 0;
+					:hover {
+        	background-color: white;
+					color: black;
+	        }
+
+        hr {
+        margin-top: 30px;
+        }
+				}
 
     }
-
-  form {
-  max-width: 50rem;
-  margin: 0 auto;
-}
-
-.contact {
-
-    input {
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      border-radius: .4rem;
-      border: .1rem solid #ccc;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    textarea {
-      display: block;
-      box-sizing: border-box;
-      width: 100%;
-      border-radius: .4rem;
-      border: .1rem solid #ccc;
-      padding: 1rem 1.5rem;
-      margin-bottom: 1rem;
-      font-size: 1.4rem;
-    }
-
-    label {
-      line-height: 2;
-      text-align: left;
-      display: block;
-      margin-bottom: 1.3rem;
-      margin-top: 2rem;
-      color: black;
-      font-size: 1.4rem;
-      font-weight: 200;
-    }
-
-    button[type="submit"],
-    input[type="submit"] {
-      background: ${props => props.theme.color.secondary};
-      color: white;
-      text-transform: uppercase;
-      border: none;
-      margin-top: 4rem;
-      padding: 2rem;
-      font-size: 1.6rem;
-      font-weight: 100;
-      letter-spacing: 1rem;
-      display: block;
-      width: 100%;
-    }
-
-    button[type="submit"]:hover,
-    input[type="submit"]:hover {
-      background: ${props => props.theme.color.primary};
-    }
-
-    button[type="submit"]:active,
-    input[type="button"]:active,
-    input[type="submit"]:active {
-      transition: 0.3s all;
-      transform: translateY(.3rem);
-      border: 1px solid transparent;
-      opacity: 0.8;
-    }
-
-    input:disabled {
-      opacity: 0.4;
-    }
-
-    input[type="button"]:hover {
-      transition: 0.3s all;
-    }
-
-    button[type="submit"],
-    input[type="button"],
-    input[type="submit"] {
-      -webkit-appearance: none;
-    }
-
-    button[type="button"] {
-      display: block;
-      appearance: none;
-      background: #333;
-      color: white;
-      border: none;
-      text-transform: uppercase;
-      padding: 1rem 2rem;
-      border-radius: .4rem;
-    }
-
-    hr {
-      margin-top: 3rem;
-    }
-
-    button {
-      display: block;
-      appearance: none;
-      margin-top: 4rem;
-      border: .1rem solid #333;
-      margin-bottom: 2rem;
-      text-transform: uppercase;
-      padding: 1rem 2rem;
-      border-radius: .4rem;
-    }
-}
+  }
 `
 
-export default withTheme(ContactTest);
+
+export default withTheme(InquiryForm);

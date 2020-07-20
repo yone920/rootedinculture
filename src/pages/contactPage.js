@@ -14,6 +14,7 @@ function encode(data) {
     .join('&')
 }
 
+
 const ContactPage = () => {
   const [state, setState] = React.useState({})
 

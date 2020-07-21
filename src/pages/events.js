@@ -1,14 +1,15 @@
 
-import React, { useContext } from "react"
-import { StoreContext } from '../context/StoreContext'
-import { useTransition } from 'react-spring'
+import React from "react"
+// import React, { useContext } from "react"
+// import { StoreContext } from '../context/StoreContext'
+// import { useTransition } from 'react-spring'
 import { withTheme } from 'styled-components'
 import styled from 'styled-components'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import HomeSlider from '../components/HomeSlider'
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
-import CateringInquiries from "../components/Form/CateringInquiries"
+// import CateringInquiries from "../components/Form/CateringInquiries"
 import Img from "gatsby-image"
 
 
@@ -83,13 +84,13 @@ const Events = (props) => {
     }`)
 
 
-    const {  isCateringInquiriesOpen, toggleCateringInquiries } = useContext(StoreContext)
+    // const {  isCateringInquiriesOpen, toggleCateringInquiries } = useContext(StoreContext)
 
-    const  transitions = useTransition(isCateringInquiriesOpen, null, {
-      rom: { position: 'absolute', opacity: 0 },
-      enter: { opacity: 1 },
-      leave: { opacity: 0 }
-    })
+    // const  transitions = useTransition(isCateringInquiriesOpen, null, {
+    //   rom: { position: 'absolute', opacity: 0 },
+    //   enter: { opacity: 1 },
+    //   leave: { opacity: 0 }
+    // })
 
 
 
@@ -123,12 +124,15 @@ const Events = (props) => {
           </div>
         </div>
       </div>
-      <div className="inquiry-button">
+      {/* <div className="inquiry-button">
         <button onClick={toggleCateringInquiries}>{data.eventsContent.acf.events_cta_title}</button>
       </div>
       {transitions.map(({ item, key, props }) => {
         return item && <CateringInquiries key={key} style={props} />
-      })}
+      })} */}
+			<div className="catering-inquiry">
+					<Link to="/schedulecall/"><p>{data.eventsContent.acf.events_cta_title}</p></Link>
+			</div>
 
      </CateringContainer>
       {/* <ProductsListing /> */}
@@ -229,6 +233,35 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
         background-color: ${props => props.theme.color.primary};
         /* color: #5db544; */
   }
+   }
+}
+
+.catering-inquiry {
+	grid-column: center-start / center-end;
+	width: 50%;
+	justify-self: center;
+
+	a {
+    display: inline-block;
+    width: 100%;
+    background-color: ${props => props.theme.color.secondary};
+    text-align: center;
+    padding: 2rem 2rem;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: .5rem;
+    cursor: pointer;
+		border: none;
+    :hover {
+        background-color: ${props => props.theme.color.primary};
+        /* color: #5db544; */
+  	}
+
+		p {
+			font-size: 1.3rem;
+			line-height: 1;
+		}
    }
 }
 `

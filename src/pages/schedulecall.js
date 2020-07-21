@@ -12,7 +12,7 @@ function encode(data) {
 }
 
 
-const CateringInquiryForm = () => {
+const EventsScheduleCall = () => {
   const [state, setState] = React.useState({})
 
   const handleChange = (e) => {
@@ -38,25 +38,25 @@ const CateringInquiryForm = () => {
   }
 
 
-	console.log()
+  console.log()
 
   return (
-		<Layout>
-    <SEO title="About Us" />
+    <Layout>
+    <SEO title="Schedule A Call" />
     <InquiryContainer>
       <div className="inquiry-wrapper">
-					<div className="catering-inquiry-title">
-						<h4>Catering Inquiry</h4>
-					</div>
+          <div className="catering-inquiry-title">
+            <h4>Schedule A Call</h4>
+          </div>
           <form
-              name="CateringInquiryForm"
+              name="EventsScheduleCall"
               method="post"
               action="/success/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="CateringInquiryForm" />
+              <input type="hidden" name="form-name" value="EventsScheduleCall" />
               <p hidden>
                 <label>
                     Don’t fill this out: <input name="bot-field" onChange={handleChange} />
@@ -71,16 +71,23 @@ const CateringInquiryForm = () => {
                   <input type="text" name="last-name" id="lsat-name" onChange={handleChange} />
               </div>
               <div className="inquiry">
-                  <label htmlFor="company-name">Company Name</label>
-                  <input type="text" name="company-name" id="company-name" onChange={handleChange} />
-              </div>
-              <div className="inquiry">
-                  <label htmlFor="email">Company Email</label>
+                  <label htmlFor="email">Email</label>
                   <input type="text" name="email" id="email" onChange={handleChange}/>
               </div>
               <div className="inquiry">
-                  <label htmlFor="phone">Company Phone Number</label>
+                  <label htmlFor="phone">Phone Number</label>
                   <input type="tel" name="phone" id="phone" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                <label htmlFor="event-type">Event Type</label>
+                <label className="additional-info">Please select the type of event you are planning</label>
+                <select name="event-type" className="event-type" onChange={handleChange}>
+                  <option value="">Select</option>
+                  <option value="Birthday">Birthday</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Anniversary">Anniversary</option>
+                  <option value="Other">Other</option>
+                </select>
               </div>
               <div className="inquiry">
                   <label htmlFor="date">Date of the event</label>
@@ -91,7 +98,7 @@ const CateringInquiryForm = () => {
                   <input type="time" name="time" id="time" onChange={handleChange} />
               </div>
               <div className="inquiry">
-                  <label htmlFor="address">Venue Address</label>
+                  <label htmlFor="address">Event Address</label>
                   <input type="address" name="address" id="address" onChange={handleChange} />
               </div>
               <div className="inquiry">
@@ -155,32 +162,85 @@ const CateringInquiryForm = () => {
               </select>
               </div>
               <div className="inquiry">
-                <label htmlFor="service-entrance">Service Entrance?</label>
-                <select name="service-entrance" className="service-entrance" onChange={handleChange}>
+                  <label htmlFor="about-event">Tell me about your event!</label>
+                  <textarea name="about-event" id="about-event" rows="6" required onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="guest-number">Number of Guests</label>
+                  <input type="guest-number" name="guest-number" id="guest-number" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="pallete">What is your desired palette?</label>
+                  <label className="additional-info">Please describe the color scheme.</label>
+                  <input type="pallete" name="pallete" id="pallete" onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                <label htmlFor="event-planner">Are you working with a planner?</label>
+                <select name="event-planner" className="event-planner" onChange={handleChange}>
                   <option value="">Select</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
+                  <option value="Not Yet">Not Yet</option>
                 </select>
               </div>
               <div className="inquiry">
-                <label htmlFor="service-elevator">Service elevator on the premises?</label>
-                <select name="service-elevator" className="service-elevator" onChange={handleChange}>
+                <label htmlFor="photographer">Have you hired a photographer?</label>
+                <select name="photographer" className="photographer" onChange={handleChange}>
                   <option value="">Select</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
+                  <option value="Not Yet">Not Yet</option>
                 </select>
               </div>
               <div className="inquiry">
-                <label htmlFor="service-kitchen">Service Kitchen Available?</label>
-                <select name="service-kitchen" className="service-kitchen" onChange={handleChange}>
+                <label htmlFor="budget">What is your target budget?</label>
+                <select name="budget" className="budget" onChange={handleChange}>
                   <option value="">Select</option>
-                  <option value="Yes">Yes</option>
-                  <option value="No">No</option>
+                  <option value="$2500-$5000">$2500-$5000</option>
+                  <option value="$5000-$10000">$5000-$10000</option>
+                  <option value="N$15000-$20000o">$15000-$20000</option>
+                  <option value="$20000+">$20000+</option>
                 </select>
               </div>
+              <div className="bridal-party">
+                <p>Bridal Party</p>
+                <label className="additional-info">Please describe the color scheme.</label>
+                <div>
+                    <input type="checkbox" id="bridesmaids" name="bridesmaids" onChange={handleChange} />
+                    <label htmlFor="bridesmaids">Bridesmaids</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="groomsmen" name="groomsmen" onChange={handleChange} />
+                    <label htmlFor="groomsmen">Groomsmen</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="flower-girl" name="flower-girl" onChange={handleChange} />
+                    <label htmlFor="flower-girl">Flower Girl</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="ring-bearer" name="ring-bearer" onChange={handleChange} />
+                    <label htmlFor="ring-bearer">Ring Bearer</label>
+                  </div>
+                  <div>
+                    <input type="checkbox" id="in-laws" name="in-laws" onChange={handleChange} />
+                    <label htmlFor="in-laws">In-laws</label>
+                  </div>
+              </div>
               <div className="inquiry">
-                  <label htmlFor="message">Message</label>
-                  <textarea name="message" id="message" rows="6" required onChange={handleChange} />
+                  <label htmlFor="ceremony-flower-wishes">Ceremony Flower Wishes</label>
+                  <textarea name="ceremony-flower-wishes" id="ceremony-flower-wishes" rows="6" required onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="table-flower-wishes">Table Flower Wishes</label>
+                  <textarea name="table-flower-wishes" id="table-flower-wishes" rows="6" required onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="what-to-achieve">What is the overall look you are hoping to achieve?</label>
+                  <textarea name="what-to-achieve" id="what-to-achieve" rows="6" required onChange={handleChange} />
+              </div>
+              <div className="inquiry">
+                  <label htmlFor="how-did-you-hear-about-me">How did you hear about me?</label>
+                  <textarea name="how-did-you-hear-about-me" id="how-did-you-hear-about-me" rows="6" required onChange={handleChange} />
               </div>
               <div className="inquiry">
                 <button type="submit">Send</button>
@@ -188,23 +248,23 @@ const CateringInquiryForm = () => {
           </form>
       </div>
     </InquiryContainer>
-	</Layout>
+  </Layout>
   )
 }
 
 const InquiryContainer =  styled.div`
-		margin: 3rem;
+    margin: 3rem;
 
 
     .inquiry-wrapper {
-			.catering-inquiry-title {
-						max-width: 500px;
-						margin: 2rem auto 6rem auto;
-			}
-				form {
-						max-width: 500px;
-						margin: 0 auto;
-				}
+      .catering-inquiry-title {
+            max-width: 500px;
+            margin: 2rem auto 6rem auto;
+      }
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
     .inquiry {
 
@@ -231,7 +291,7 @@ const InquiryContainer =  styled.div`
         }
 
         label {
-				color: black;
+        color: black;
         line-height: 2;
         text-align: left;
         display: block;
@@ -239,6 +299,12 @@ const InquiryContainer =  styled.div`
         margin-top: 20px;
         font-size: 14px;
         font-weight: 200;
+      }
+
+      .additional-info {
+        font-size: 12px;
+        margin-top: 10px;
+
         }
 
         input:disabled {
@@ -256,31 +322,41 @@ const InquiryContainer =  styled.div`
         }
 
         button {
-					display: inline-block;
-					width: 100%;
-					background-color: ${props => props.theme.color.secondary};
-					text-align: center;
-					padding: 2rem 2rem;
-					text-decoration: none;
-					color: white;
-					text-transform: uppercase;
-					border-radius: .5rem;
-					cursor: pointer;
-					border: none;
-        	margin: 6rem 0;
-					:hover {
-        	background-color: ${props => props.theme.color.primary};
-					color: white;
-	        }
+          display: inline-block;
+          width: 100%;
+          background-color: ${props => props.theme.color.secondary};
+          text-align: center;
+          padding: 2rem 2rem;
+          text-decoration: none;
+          color: white;
+          text-transform: uppercase;
+          border-radius: .5rem;
+          cursor: pointer;
+          border: none;
+          margin: 6rem 0;
+          :hover {
+          background-color: ${props => props.theme.color.primary};
+          color: white;
+          }
 
         hr {
         margin-top: 30px;
         }
-				}
+        }
 
+    }
+
+    .bridal-party {
+      margin-top: 2rem;
+
+      .additional-info {
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        }
     }
   }
 `
 
 
-export default withTheme(CateringInquiryForm);
+export default withTheme(EventsScheduleCall);

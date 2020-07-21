@@ -1,4 +1,6 @@
 import React from 'react'
+import Layout from "../components/Layout/layout"
+import SEO from "../components/seo"
 import styled from 'styled-components'
 import { navigate } from 'gatsby-link'
 import { withTheme } from 'styled-components'
@@ -10,7 +12,7 @@ function encode(data) {
 }
 
 
-const InquiryForm = () => {
+const CateringInquiryForm = () => {
   const [state, setState] = React.useState({})
 
   const handleChange = (e) => {
@@ -39,17 +41,22 @@ const InquiryForm = () => {
 	console.log()
 
   return (
+		<Layout>
+    <SEO title="About Us" />
     <InquiryContainer>
       <div className="inquiry-wrapper">
+					<div className="catering-inquiry-title">
+						<h4>Catering Inquiry</h4>
+					</div>
           <form
-              name="InquiryForm"
+              name="CateringInquiryForm"
               method="post"
               action="/success/"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
               onSubmit={handleSubmit}
             >
-              <input type="hidden" name="form-name" value="InquiryForm" />
+              <input type="hidden" name="form-name" value="CateringInquiryForm" />
               <p hidden>
                 <label>
                     Don’t fill this out: <input name="bot-field" onChange={handleChange} />
@@ -157,6 +164,7 @@ const InquiryForm = () => {
               <div className="inquiry">
                 <label htmlFor="service-elevator">Service elevator on the premises?</label>
                 <select name="service-elevator" className="service-elevator" onChange={handleChange}>
+                  <option value="Yes">Select</option>
                   <option value="Yes">Yes</option>
                   <option value="No">No</option>
                 </select>
@@ -193,13 +201,19 @@ const InquiryForm = () => {
           </form>
       </div>
     </InquiryContainer>
+	</Layout>
   )
 }
 
 const InquiryContainer =  styled.div`
-    margin: 3rem;
+		margin: 3rem;
+
 
     .inquiry-wrapper {
+			.catering-inquiry-title {
+						max-width: 500px;
+						margin: 2rem auto 6rem auto;
+			}
 				form {
 						max-width: 500px;
 						margin: 0 auto;
@@ -230,12 +244,12 @@ const InquiryContainer =  styled.div`
         }
 
         label {
+				color: black;
         line-height: 2;
         text-align: left;
         display: block;
         margin-bottom: 13px;
         margin-top: 20px;
-        color: white;
         font-size: 14px;
         font-weight: 200;
         }
@@ -257,7 +271,7 @@ const InquiryContainer =  styled.div`
         button {
 					display: inline-block;
 					width: 100%;
-					background-color: green;
+					background-color: ${props => props.theme.color.secondary};
 					text-align: center;
 					padding: 2rem 2rem;
 					text-decoration: none;
@@ -268,8 +282,8 @@ const InquiryContainer =  styled.div`
 					border: none;
         	margin: 6rem 0;
 					:hover {
-        	background-color: white;
-					color: black;
+        	background-color: ${props => props.theme.color.primary};
+					color: white;
 	        }
 
         hr {
@@ -282,4 +296,4 @@ const InquiryContainer =  styled.div`
 `
 
 
-export default withTheme(InquiryForm);
+export default withTheme(CateringInquiryForm);

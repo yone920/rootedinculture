@@ -34,26 +34,26 @@ const Catering = (props) => {
     }
 
 
-       catMenus: allWordpressWpMenu(limit: 10, sort: {
-          order: DESC,
-          fields: [date]
-      }) {
-          edges {
-              node {
-                  title
-                  slug
-                  featured_media {
-            localFile {
-                          childImageSharp {
-                              fluid(maxWidth: 1500, maxHeight: 1500) {
-                                  ...GatsbyImageSharpFluid
-                              }
-                          }
-                      }
-                  }
-              }
-          }
-      }
+      #  catMenus: allWordpressWpMenu(limit: 10, sort: {
+      #     order: DESC,
+      #     fields: [date]
+      # }) {
+      #     edges {
+      #         node {
+      #             title
+      #             slug
+      #             featured_media {
+      #       localFile {
+      #                     childImageSharp {
+      #                         fluid(maxWidth: 1500, maxHeight: 1500) {
+      #                             ...GatsbyImageSharpFluid
+      #                         }
+      #                     }
+      #                 }
+      #             }
+      #         }
+      #     }
+      # }
 
       cateringContent:  wordpressPage(slug: {eq: "catering-home"}) {
         title

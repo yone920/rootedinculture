@@ -38,6 +38,7 @@
     "react-helmet": "^5.2.1",
     "react-hook-form": "^4.3.0",
     "react-images": "^1.1.0-beta.0",
+    "react-onclickoutside": "^6.9.0",
     "react-photo-gallery": "^8.0.0",
     "react-responsive": "^8.0.1",
     "react-slick": "^0.25.2",

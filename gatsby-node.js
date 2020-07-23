@@ -13,13 +13,7 @@ exports.createPages = ({ graphql, actions }) => {
                       }
                     }
                   }
-                allWordpressWpMenu {
-                edges {
-                    node {
-                    slug
-                    }
-                    }
-                }
+
                 allShopifyProduct {
                     edges {
                       node {
@@ -53,15 +47,15 @@ exports.createPages = ({ graphql, actions }) => {
                 })
             })
 
-            results.data.allWordpressWpMenu.edges.forEach(({node}) => {
-                createPage ({
-                    path: `/catering/${node.slug}`,
-                    component: path.resolve('./src/template/cateringMenuTemplate.js'),
-                    context: {
-                        slug: node.slug,
-                    }
-                })
-            })
+            // results.data.allWordpressWpMenu.edges.forEach(({node}) => {
+            //     createPage ({
+            //         path: `/catering/${node.slug}`,
+            //         component: path.resolve('./src/template/cateringMenuTemplate.js'),
+            //         context: {
+            //             slug: node.slug,
+            //         }
+            //     })
+            // })
 
             results.data.allShopifyProduct.edges.forEach(({node}) => {
                 createPage ({

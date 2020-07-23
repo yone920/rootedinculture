@@ -20,7 +20,6 @@ const Events = (props) => {
 
       eventsContent: wordpressPage(slug: {eq: "events"}) {
           acf {
-            events_content
             events_cta_title
             events_photo_2 {
               id
@@ -44,6 +43,7 @@ const Events = (props) => {
             }
           }
           title
+					content
         }
 
       slider: allWordpressWpEventsSlider {
@@ -111,7 +111,7 @@ const Events = (props) => {
           </div>
           <div className="content-wrapper"
             dangerouslySetInnerHTML={{
-              __html: data.eventsContent.acf.events_content,
+              __html: data.eventsContent.content,
             }}
           />
           <div className="images-wrapper">
@@ -171,7 +171,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     .catering-title {
       grid-column: 1 / 2;
       margin: 3rem auto;
-      width: 60%;
+      width: 70%;
 
       @media ${props => props.theme.device.tablet} {
         width: 100%;
@@ -182,7 +182,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     .content-wrapper {
       grid-column: 1 / 2;
       margin: 0 auto;
-      width: 60%;
+      width: 70%;
 
       @media ${props => props.theme.device.tablet} {
         grid-column: 1 / -1;

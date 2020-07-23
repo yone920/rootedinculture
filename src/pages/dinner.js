@@ -78,6 +78,9 @@ const Dinner = (props) => {
         <div className="catering-title">
           <h2>{data.dinnerContent.title}</h2>
         </div>
+				<HeaderLine>
+						<hr />
+					</HeaderLine>
         <div className="content"
           dangerouslySetInnerHTML={{
             __html: data.dinnerContent.content,
@@ -116,7 +119,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     }
   .catering-title {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem 0;
   }
 
   .content {
@@ -135,6 +138,17 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 	}
 
 `
+
+const HeaderLine = styled.div`
+	width: 25rem;
+		margin: 1rem auto 3rem auto;
+
+		hr {
+			border: 0;
+			height: 1px;
+			background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+		}
+	`
 
 
 export default withTheme(Dinner)

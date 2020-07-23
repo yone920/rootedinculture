@@ -202,7 +202,7 @@ const HomePageContentWrapper = styled.div`
     }
     .line {
       width: 25rem;
-      margin: 0 auto;
+      margin: 1rem auto;
       hr {
         border: 0;
         height: 1px;

@@ -127,10 +127,13 @@ const About = (props) => {
       <AboutContainer>
           <div className="about-content">
             <h2>{data.aboutContent.title}</h2>
+						<HeaderLine>
+							<hr />
+						</HeaderLine>
             <div className="first-paragraph-nichole-family">
               <div className="first-paragprah-content"
                 dangerouslySetInnerHTML={{
-                  __html: data.firstParagraph.acf.first_paragraph,
+									__html: data.firstParagraph.acf.first_paragraph,
                 }}
               />
               <div className="nichole-family-photo">
@@ -143,7 +146,7 @@ const About = (props) => {
               </div>
               <div className="second-paragprah-content"
                 dangerouslySetInnerHTML={{
-                  __html: data.secondParagraph.acf.second_paragraph,
+									__html: data.secondParagraph.acf.second_paragraph,
                 }}
               />
             </div>
@@ -151,6 +154,9 @@ const About = (props) => {
 
           <div className="our-team">
              <h2>Our Team</h2>
+							<HeaderLine>
+								<hr />
+							</HeaderLine>
              <div className="member-wrapper">
              {mapOverMembers()}
              </div>
@@ -205,12 +211,10 @@ const About = (props) => {
     @media ${props => props.theme.device.mobileL} {
       width: 100%;
     }
-    /* grid-row: 1 / 2; */
-    /* display: flex; */
-    /* flex-direction: column; */
+
       h2 {
         text-align: center;
-        margin: 8rem 8rem;
+        margin-top: 8rem;
         font-size: ${props => props.theme.font.h2FontSize};
 
         @media ${props => props.theme.device.mobileL} {
@@ -219,12 +223,24 @@ const About = (props) => {
       }
       p {
         margin-bottom: ${props => props.theme.margin.pMargin};
-      }
+			}
+
+			.line {
+				width: 25rem;
+				margin: 1rem auto 3rem auto;
+
+					hr {
+						border: 0;
+						height: 1px;
+						background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+					}
+				}
 
       .first-paragraph-nichole-family {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-column-gap: 7rem;
+				grid-column-gap: 7rem;
+				margin-top: 8rem;
 
         @media ${props => props.theme.device.mobileL} {
           grid-column-gap: 3rem;
@@ -290,7 +306,7 @@ const About = (props) => {
     /* grid-row: 2 / 3; */
     h2 {
         text-align: center;
-        margin: 8rem 8rem;
+        margin-top: 8rem;
         font-size: ${props => props.theme.font.h2FontSize};
     }
 
@@ -298,7 +314,7 @@ const About = (props) => {
 			display: grid;
 			grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 			grid-gap: 2rem;
-			margin-bottom: 5rem;
+			margin: 8rem 0;
 			h2 {
 						text-align: center;
 						margin: 8rem 8rem;
@@ -306,9 +322,18 @@ const About = (props) => {
 				}
 		}
  }
+	`
 
+	const HeaderLine = styled.div`
+			width: 25rem;
+				margin: 1rem auto 3rem auto;
 
-  `
+				hr {
+					border: 0;
+					height: 1px;
+					background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+				}
+	`
 
 
 export default withTheme(About)

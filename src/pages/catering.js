@@ -138,6 +138,9 @@ const Catering = (props) => {
         <div className="catering-title">
           <h2>{data.cateringContent.title}</h2>
         </div>
+				<div className="line">
+					<hr />
+				</div>
         <div className="content"
           dangerouslySetInnerHTML={{
             __html: data.cateringContent.content,
@@ -262,8 +265,19 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     }
   .catering-title {
     text-align: center;
-    margin-bottom: 3rem;
-  }
+    /* margin-bottom: 3rem; */
+	}
+
+	.line {
+		width: 25rem;
+		margin: 1rem auto 3rem auto;
+
+			hr {
+				border: 0;
+				height: 1px;
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+			}
+	}
 
   .content {
     margin: 0 auto;

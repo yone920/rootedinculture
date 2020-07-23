@@ -17,8 +17,8 @@ import Service from '../components/service'
     query FlowerPageDataQuery {
       flowerPage: wordpressPage(slug: {eq: "flowers"}) {
         title
+				content
         acf {
-          fp_content
           fp_hero_image {
             localFile {
                 childImageSharp {
@@ -95,7 +95,7 @@ const MapOverFlowerServices = () => (
           </div>
           <div className="hero-content"
             dangerouslySetInnerHTML={{
-              __html: data.flowerPage.acf.fp_content,
+              __html: data.flowerPage.content,
             }}
           />
         </div>
@@ -113,9 +113,6 @@ const FlowerContainer = styled.main`
   display: grid;
   grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
 
-  /* .hero-image {
-    grid-column: full-start / full-end;
-  } */
   .flower_page_title_content_container {
       z-index: 1;
       position: absolute;

@@ -14,10 +14,8 @@ const Plants = (props) => {
   const data = useStaticQuery(graphql`
   query PlantsData {
       plantsContent: wordpressPage(slug: {eq: "plants"}) {
-          acf {
-            plants_content
-          }
           title
+					content
         }
 
 			shippingInfo:	wordpressPage(slug: {eq: "shipping-info"}) {
@@ -60,9 +58,12 @@ const Plants = (props) => {
           <div className="catering-title">
             <h2>{data.plantsContent.title}</h2>
           </div>
+					<HeaderLine>
+						<hr />
+					</HeaderLine>
           <div className="content-wrapper"
             dangerouslySetInnerHTML={{
-              __html: data.plantsContent.acf.plants_content,
+              __html: data.plantsContent.content,
             }}
           />
 					<div className="shipping-info"
@@ -91,16 +92,16 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
 
   .content-title-wrapper {
-    grid-column: center-start / center-end;
+		grid-column: center-start / center-end;
+		width: 70%;
+		margin: 0 auto;
       @media ${props => props.theme.device.tablet} {
         grid-column: center-start / center-end;
-        margin: 5rem 0;
+				margin: 5rem 0;
+				width: 100%;
       }
 
     .catering-title {
-      margin-bottom: 2rem;
-      /* margin: 3rem auto; */
-      /* width: 60%; */
 			text-align: center;
 
       @media ${props => props.theme.device.tablet} {
@@ -112,7 +113,6 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     .content-wrapper {
 			line-height: 2;
       margin: 0 auto;
-      width: 60%;
 			text-align: center;
 
       @media ${props => props.theme.device.tablet} {
@@ -125,6 +125,14 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 			line-height: 2;
 			margin-top: 3rem;
 			text-align: center;
+
+			hr {
+				margin: 2rem auto;
+				width: 30%;
+				border: 0;
+				height: 1px;
+				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+			}
 		}
   }
 
@@ -141,6 +149,16 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
 `
 
+const HeaderLine = styled.div`
+	width: 25rem;
+		margin: 1rem auto 3rem auto;
+
+	hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+`
 
 export default withTheme(Plants)
 

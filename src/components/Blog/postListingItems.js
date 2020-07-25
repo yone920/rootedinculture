@@ -13,7 +13,11 @@ import PlusSvg from '../../images/svg/plus.svg'
             <PostItemsContainer>
                 <Link to={`/posts/${node.slug}`}>
                     <div className="post-image">
-                        <StyledImage fluid={node.featured_media.localFile.childImageSharp.fluid} />
+											{ node.featured_media ?
+												<StyledImage fluid={node.featured_media.localFile.childImageSharp.fluid} />
+											:
+												null
+											}
                         <div class="overlay">
                             <div class="text"><img src={PlusSvg} alt="click to view post"></img></div>
                         </div>
@@ -49,7 +53,7 @@ import PlusSvg from '../../images/svg/plus.svg'
         :hover  .overlay {
             opacity: 1;
         }
-        
+
         .overlay {
             position: absolute;
             top: 0;
@@ -80,7 +84,7 @@ import PlusSvg from '../../images/svg/plus.svg'
             margin-bottom: 10px;
             border-top: 1px dotted #404C07;
         }
-        
+
         .read-more {
             margin-top: 2rem;
 
@@ -89,7 +93,7 @@ import PlusSvg from '../../images/svg/plus.svg'
             a {
                 color: #404C07;
             }
-        
+
             @media only screen and (max-width: 425px) {
                 margin: 1rem 0 3rem 0;
                 width: 50%;
@@ -124,11 +128,11 @@ import PlusSvg from '../../images/svg/plus.svg'
             }
         }
     }
-    
+
 `
 
 const StyledImage = styled(Img)`
-   
+
 `
 
 export default PostListingItems;

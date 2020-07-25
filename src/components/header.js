@@ -10,10 +10,28 @@ import CartIcon from './SVGs/cartIcon'
 import Qty from '../components/Cart/cartQty'
 import Loader from "./loader"
 import { withTheme } from 'styled-components'
+import DropDown from "./Menu/dropDown"
 // import DropDown from '../components/Menu/dropDown'
 
 // import { useMediaQuery } from 'react-responsive'
 
+const items = [
+  {
+    id: 1,
+		title: 'Catering',
+		link: 'catering'
+  },
+  {
+    id: 2,
+		title: 'Flowers',
+		link: 'flowers'
+  },
+  {
+    id: 3,
+		title: 'Dinner Reservaton',
+		link: 'dinner'
+  },
+];
 
 
 const Header = ({ siteTitle }) => {
@@ -26,32 +44,19 @@ const Header = ({ siteTitle }) => {
     leave: { transform: 'translate3d(100%, 0, 0)' }
   })
 
-	// const  dropDown = useTransition(isCartOpen, null, {
-  //   from: { transform: 'translate3d(100%, 0, 0)' },
-  //   enter: { transform: 'translate3d(0, 0, 0)' },
-  //   leave: { transform: 'translate3d(100%, 0, 0)' }
-  // })
-
-
   return (
     <>
     <HeaderWrapper>
       <div className="menu-1">
           <Link to="/home">Home</Link>
           <Link to="/about">About Us</Link>
-          <Link to="/catering">Catering</Link>
-					{/* {dropDown.map(({ item, key, props }) => {
-						return item && <DropDown key={key} style={props} />
-					})} */}
+					<DropDown title="Services" items={items} multiSelect/>
       </div>
       <div className="logo">
           <img src={Logo} alt="Rooted In Culture Logo"/>
       </div>
       <div className="menu-2">
-          {/* <Link to="/catering-shopping/featured">Shop</Link> */}
-          <Link to="/flowers">Flower</Link>
-          <Link to="/dinner">Dinner</Link>
-          {/* <Link to="/archive">Blog</Link> */}
+          <Link to="/archive">Blog</Link>
           <Link to="/contactPage">Contact Us</Link>
       </div>
       <div className="cart-qty-icon" onClick={toggleCartOpen}>

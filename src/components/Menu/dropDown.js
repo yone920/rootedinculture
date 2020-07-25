@@ -1,69 +1,82 @@
-// import React, { useContext, Fragment } from 'react'
-// import { StoreContext } from '../../context/StoreContext'
-// import { animated } from 'react-spring'
-// import Close from '../SVGs/close'
-// import styled from 'styled-components'
-// import CartList from '../Cart/cartList'
-// import EmptyCart from '../Cart/emptyCart'
-// import { useMediaQuery } from 'react-responsive'
+import React, { useState } from 'react';
+import onClickOutside from 'react-onclickoutside';
+import styled from 'styled-components'
+import { Link } from "gatsby"
+import Arrow from '../../images/svg/arrow-down.svg'
 
-
-// const DropDown = ({ style }) => {
-//     const {  isDropDownOpen, toggleDropDownOpen } = useContext(StoreContext)
-//     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 768px)' })
-
-
-//     return (
-//         <Fragment>
-//             { isTabletOrMobile ?
-//             	<p>opps</p>
-//             :
-//             <animated.div
-//                 style={{
-//                 position: "fixed",
-//                 top: 0,
-//                 right: 0,
-//                 width:  "50%",
-//                 height: "100%",
-//                 background: "#404C07",
-//                 zIndex: 102,
-//                 overflowY: "scroll",
-//                 ...style
-//                 }}>
-
-//                 <CardWrapper>
-//                     <h2>Catering</h2>
-//                     <h2>Flower</h2>
-//                     <h2>Dinner</h2>
-//                 </CardWrapper>
-//         </animated.div>
-//         }
-//         </Fragment>
-//     )
-// }
-
-// // const CartStyleDesktop = css`
-
-// // `
-// // const CartStyleMobile = css`
-// // transform: translateY(-3px);
-// // box-shadow: 0 1rem 2rem rgba(0, 0, 255,.2);
-// // `
-
-// const CardWrapper = styled.div`
-//         h3 {
-//             color: white;
-//         }
-// `
-
-// const CloseCartDiv = styled.div`
-//     display: inline-block;
-//     position: relative;
-//     left: 3rem;
-//     top: 3rem;
-//     cursor: pointer;
-// `
+function Dropdown({ title, items }) {
+  const [open, setOpen] = useState(false);
+  const toggle = () => setOpen(!open);
+  Dropdown.handleClickOutside = () => setOpen(false);
 
 
 
-// export default DropDown
+  return (
+    <DropDown>
+      <div
+        tabIndex={0}
+        className="dd-header"
+        role="button"
+        onKeyPress={() => toggle(!open)}
+        onClick={() => toggle(!open)}
+        onMouseEnter={() => toggle(!open)}
+      >
+        <div className="dd-header__title">
+          <p className="dd-header__title--bold">{title}</p>
+					{open ?
+						<img className="arrow" src={Arrow} alt="React Logo" />
+						:
+						<img src={Arrow} alt="React Logo" />
+					}
+        </div>
+      </div>
+      {open && (
+        <ul className="dd-list">
+								<Link to="/catering">Catering</Link>
+								<Link to="/flowers">Flower</Link>
+								<Link to="/dinner">Dinner Parties</Link>
+        </ul>
+      )}
+    </DropDown>
+  );
+}
+
+const DropDown = styled.div`
+		display: inline-block;
+		text-transform: uppercase;
+		letter-spacing: .2rem;
+
+			.dd-header__title {
+				display: flex;
+				align-items: start;
+
+				.arrow {
+						transform: rotate(180deg);
+					}
+				}
+
+				}
+			}
+
+		.dd-list {
+			position: absolute;
+			margin-left: -3rem;
+			background-color: white;
+			padding: 1rem 0rem 1rem 3rem;
+			z-index: 99;
+			margin-top: 1rem;
+			border-radius: .5rem;
+
+
+			border: 1px solid rgba(0,0,0,.15);
+			a {
+				display: block !important;
+			}
+		}
+`
+
+const clickOutsideConfig = {
+  handleClickOutside: () => Dropdown.handleClickOutside,
+};
+
+export default onClickOutside(Dropdown, clickOutsideConfig);

@@ -12,13 +12,17 @@ import Img from "gatsby-image"
                     <h2>{post.title}</h2>
                     <p>{post.date}</p>
                 </div>
+								{post.featured_media ?
                 <div className="post-image">
                     <Img fluid={post.featured_media.localFile.childImageSharp.fluid} />
-                </div> 
+                </div>
+									:
+									null
+								}
                 <div className="post-content" dangerouslySetInnerHTML={{
                     __html: post.content,
                 }} />
-            
+
                 <div className="sidebar">
                     <TitleMenu />
                 </div>
@@ -31,7 +35,7 @@ const PostPageContainer = styled.div`
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
     padding: 8rem 0;
     /* grid-column-gap: 6rem; */
-   
+
     @media only screen and (max-width: 425px) {
         display: grid;
         grid-template-columns: [ full-start ] minmax(2rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(2rem, 1fr) [ full-end ];
@@ -55,8 +59,8 @@ const PostPageContainer = styled.div`
         .post-image {
             grid-column: full-start / col-end 6;
             margin-bottom: 7rem;
-            
-                    
+
+
             @media only screen and (max-width: 425px) {
                 grid-column: full-start / full-end;
                 margin-bottom: 4rem;

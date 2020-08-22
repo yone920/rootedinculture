@@ -21,32 +21,31 @@ const photos2 = [
 
 const PhotoGallery = () => {
 
-
   const data = useStaticQuery(graphql`
   query GalleryCateringData {
 
     photoGallery: allWordpressWpPhotoGallery {
-              edges {
-                node {
-                  title
-                  id
-                  acf {
-                    photo {
-                      localFile {
-                        url
-                        childImageSharp {
-                          resize {
-                            aspectRatio
-                            height
-                            width
-                          }
-                      }
-                      }
-                    }
+      edges {
+        node {
+          title
+          id
+          acf {
+            photo {
+              localFile {
+                url
+                childImageSharp {
+                  resize {
+                    aspectRatio
+                    height
+                    width
                   }
                 }
               }
             }
+          }
+        }
+      }
+    }
   }`)
 
 
@@ -73,12 +72,6 @@ const PhotoGallery = () => {
       })
 
 
-
-
-
-
-  console.log(photos)
-  console.log(photos2)
 
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(false);

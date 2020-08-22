@@ -62,26 +62,26 @@ const Dinner = props => {
       <SEO title="Dinner Arrangement" />
       <DinnerContainer>
         <div className="slider-container">
-          <HomeSlider desktop={data.slider} mobile={data.mobileSlider} />{" "}
+          <HomeSlider desktop={data.slider} mobile={data.mobileSlider} />
         </div>
         <div className="content-wrapper">
           <div className="catering-title">
-            <h2> {data.dinnerContent.title} </h2>{" "}
-          </div>{" "}
+            <h2> {data.dinnerContent.title} </h2>
+          </div>
           <HeaderLine>
             <hr />
-          </HeaderLine>{" "}
+          </HeaderLine>
           <div
             className="content"
             dangerouslySetInnerHTML={{
               __html: data.dinnerContent.content,
             }}
-          />{" "}
-        </div>{" "}
-        <div className="button">
-          <Button title={"Future Dinner Parties"} />
+          />
         </div>
-      </DinnerContainer>{" "}
+        <div className="button">
+          <Button title={"Future Dinner Parties"} link={"https://calendly.com/rootedinculture"} external={true}/>
+        </div>
+      </DinnerContainer>
     </Layout>
   )
 }

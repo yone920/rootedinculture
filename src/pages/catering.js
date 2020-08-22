@@ -87,6 +87,7 @@ const Catering = props => {
               }
               title={"Download Menu"}
               external={true}
+              download={true}
             />
           </div>
           <div>

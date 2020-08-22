@@ -121,6 +121,7 @@ const Events = props => {
           <Button
             link={"https://calendly.com/rootedinculture"}
             title={data.eventsContent.acf.events_cta_title}
+            whiteBackground={true}
             external={true}
           />
         </div>

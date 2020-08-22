@@ -4,10 +4,12 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 const Button = ({ link, title, external }) => {
+
+
   return (
     <ButtonDiv>
       {external ? (
-        <a className="external" href={link}>
+        <a className="" href={link}>
           <p>{title}</p>
         </a>
       ) : (
@@ -17,6 +19,7 @@ const Button = ({ link, title, external }) => {
       )}
     </ButtonDiv>
   )
+
 }
 
 const ButtonDiv = styled.div`
@@ -33,8 +36,8 @@ const ButtonDiv = styled.div`
     cursor: pointer;
     border: none;
     :hover {
-      background-color: #fff;
-      color: ${props => props.theme.color.secondary};
+      background-color: #F66B4C;
+      color: #fff;
     }
 
     p {
@@ -56,8 +59,8 @@ const ButtonDiv = styled.div`
     cursor: pointer;
     border: none;
     :hover {
-      background-color: #fff;
-      color: ${props => props.theme.color.secondary};
+      background-color:#F7C354;
+      color: #fff;
     }
 
     p {

@@ -30,7 +30,7 @@ const ProductsListingItem = ({ product }) => {
       </Link>
 			<div className="product-name-price-wrapper">
 				<div className="product-name">
-					<p className="title is-3">{product.title}</p>
+					<h4 className="title is-3">{product.title}</h4>
 				</div>
 				{/* <div className="product-price">
 					<p>${firstVariant.price}</p>

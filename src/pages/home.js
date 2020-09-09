@@ -110,7 +110,6 @@ const IndexPage = props => {
   const MapOverServices = () =>
     data.services.edges.map(node => (
       <Fragment key={node.node.id}>
-        {console.log(node)}
         <Service service={node} />
       </Fragment>
     ))
@@ -210,8 +209,13 @@ const HomePageContentWrapper = styled.div`
 const HomeContent = styled.div`
   justify-self: center;
   p {
-    text-align: center;
+    /* text-align: center; */
   }
+
+  width: 70%;
+  margin: 0 auto;
+
+
 `
 
 /// =============== Services Section Wrapper Style ================= ///

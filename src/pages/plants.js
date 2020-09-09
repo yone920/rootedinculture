@@ -113,7 +113,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     .content-wrapper {
 			line-height: 2;
       margin: 0 auto;
-			text-align: center;
+			/* text-align: center; */
 
       @media ${props => props.theme.device.tablet} {
         width: 100%;
@@ -124,15 +124,15 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 		.shipping-info {
 			line-height: 2;
 			margin-top: 3rem;
-			text-align: center;
+			/* text-align: center; */
 
-			hr {
+			/* hr {
 				margin: 2rem auto;
 				width: 30%;
 				border: 0;
 				height: 1px;
 				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-			}
+			} */
 		}
   }
 

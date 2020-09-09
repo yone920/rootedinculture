@@ -132,7 +132,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
 .catering-inquiry {
   grid-column: center-start / center-end;
-  width: 50%;
+  width: 80%;
   justify-self: center;
 }
 
@@ -204,11 +204,15 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
   .content {
     margin: 0 auto;
-    width: 60%;
-    text-align: center;
+    width: 80%;
+    /* text-align: center; */
 
     @media ${props => props.theme.device.mobileL} {
       width: 100%;
+    }
+
+    .catering-li {
+      padding-left: 1.5rem;
     }
   }
 }

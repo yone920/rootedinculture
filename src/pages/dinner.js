@@ -96,6 +96,7 @@ const DinnerContainer = styled.main`
     )
     [center-end] minmax(4rem, 1fr) [ full-end ];
   /* grid-template-rows: 70vh min-content; */
+  margin-bottom: 8rem;
 
   .slider-container {
     grid-column: full-start / full-end;
@@ -117,8 +118,8 @@ const DinnerContainer = styled.main`
 
     .content {
       margin: 0 auto;
-      width: 60%;
-      text-align: center;
+      width: 80%;
+      /* text-align: center; */
 
       @media ${props => props.theme.device.mobileL} {
         width: 100%;
@@ -129,7 +130,7 @@ const DinnerContainer = styled.main`
     grid-column: center-start / center-end;
     margin: 0 auto;
 
-    width: 60%;
+    width: 80%;
   }
 `
 

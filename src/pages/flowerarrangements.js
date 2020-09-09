@@ -97,7 +97,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
   .content-title-wrapper {
     grid-column: center-start / center-end;
-		width: 70%;
+		width: 80%;
 		margin: 0 auto;
       @media ${props => props.theme.device.tablet} {
     		grid-column: center-start / center-end;
@@ -119,7 +119,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
     .content-wrapper {
 
-			text-align: center;
+			/* text-align: center; */
       margin: 0 auto;
 
       @media ${props => props.theme.device.tablet} {
@@ -130,7 +130,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 	.shipping-info {
 			line-height: 2;
 			margin-top: 8rem;
-			text-align: center;
+			/* text-align: center; */
 
 			hr {
 			margin: 2rem auto;

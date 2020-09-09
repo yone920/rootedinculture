@@ -37,6 +37,9 @@ const About = props => {
       aboutContent: wordpressPage(slug: { eq: "about" }) {
         title
         content
+        acf {
+          first_paragraph
+        }
         featured_media {
           localFile {
             childImageSharp {
@@ -120,7 +123,7 @@ const About = props => {
               <div
                 className="first-paragprah-content"
                 dangerouslySetInnerHTML={{
-                  __html: data.firstParagraph.acf.first_paragraph,
+                  __html: data.aboutContent.acf.first_paragraph,
                 }}
               />
               <div className="nichole-family-photo">
@@ -144,7 +147,7 @@ const About = props => {
               <div
                 className="second-paragprah-content"
                 dangerouslySetInnerHTML={{
-                  __html: data.secondParagraph.acf.second_paragraph,
+                  __html: data.aboutContent.content,
                 }}
               />
             </div>

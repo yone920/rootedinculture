@@ -93,7 +93,7 @@ export const StoreProvider = ({ children }) => {
                     // If id exists, fetch checkout from Shopify
                     newCheckout = await client.checkout.fetch(currentCheckoutId)
                     console.log('newCheckout:', newCheckout)
-                    // if (newCheckout === null) return;
+
                     if (newCheckout.completedAt) {
                         newCheckout = await getNewId()
                     }

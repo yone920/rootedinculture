@@ -84,6 +84,7 @@ export const StoreProvider = ({ children }) => {
         try {
             setLoading(true)
             // Check if id exists
+
             const currentCheckoutId = isBrowser
             ? localStorage.getItem('checkout_id')
                 : null
@@ -94,7 +95,7 @@ export const StoreProvider = ({ children }) => {
                     newCheckout = await client.checkout.fetch(currentCheckoutId)
                     console.log('newCheckout:', newCheckout)
 
-                    if (newCheckout.completedAt) {
+                    if (newCheckout.completedAt === true) {
                         newCheckout = await getNewId()
                     }
                 } else {

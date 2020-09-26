@@ -27,10 +27,8 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
             autoplaySpeed: 6000,
             fade: true,
             beforeChange: function(currentSlide, nextSlide) {
-              console.log("before change", currentSlide, nextSlide);
             },
             afterChange: function(currentSlide) {
-              console.log("after change", currentSlide);
             }
           };
     } else {
@@ -47,10 +45,8 @@ const isTabletOrMobile = useMediaQuery({ query: '(max-width: 900px)' })
             // cssEase: "linear",
             fade: true,
             beforeChange: function(currentSlide, nextSlide) {
-              console.log("before change", currentSlide, nextSlide);
             },
             afterChange: function(currentSlide) {
-              console.log("after change", currentSlide);
             }
           };
     }

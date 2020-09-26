@@ -11,8 +11,6 @@ import Img from "gatsby-image"
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
-	console.log(data)
-
 	return (
 		<MenuContainer>
 			{isMobile ?

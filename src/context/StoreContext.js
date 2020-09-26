@@ -95,7 +95,8 @@ export const StoreProvider = ({ children }) => {
                     newCheckout = await client.checkout.fetch(currentCheckoutId)
                     console.log('newCheckout:', newCheckout)
 
-                    if (newCheckout.completedAt === true) {
+                    if (newCheckout.completedAt) {
+                      console.log("from inside newCheckout.completedAt")
                         newCheckout = await getNewId()
                     }
                 } else {

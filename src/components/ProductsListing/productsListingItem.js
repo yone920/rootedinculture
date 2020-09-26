@@ -13,7 +13,6 @@ const ProductsListingItem = ({ product }) => {
     // variants: [firstVariant],
   } = product
 
-		console.log(product)
   return (
     <ProductItemContainer>
       <Link to={`/catering-shopping/${product.vendor}/${product.handle}`}>

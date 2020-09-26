@@ -9,7 +9,6 @@ import { withTheme } from 'styled-components'
 
 
 const ProductsListing = ( {collection, parent} ) => {
-  console.log(collection)
 
 
   return (

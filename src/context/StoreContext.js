@@ -87,7 +87,8 @@ export const StoreProvider = ({ children }) => {
 
             const currentCheckoutId = isBrowser
             ? localStorage.getItem('checkout_id')
-                : null
+            : null
+            console.log('currentCheckoutId:', currentCheckoutId)
 
                 let newCheckout = null
                 if (currentCheckoutId) {
@@ -96,7 +97,7 @@ export const StoreProvider = ({ children }) => {
                     console.log('newCheckout:', newCheckout)
 
                     if (newCheckout.completedAt) {
-                      console.log("from inside newCheckout.completedAt")
+                      console.log("from insidenewCheckout.completedAt")
                         newCheckout = await getNewId()
                     }
                 } else {

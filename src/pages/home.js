@@ -8,6 +8,9 @@ import SEO from "../components/seo"
 import HomeSlider from "../components/HomeSlider"
 import "../stylesheet/main.scss"
 import InstagramList from "../components/Instagram/instagramList"
+import Img from "gatsby-image"
+import Cactus from "../components/SVGs/cactus"
+
 
 const IndexPage = props => {
   // =============== Query ================= ///
@@ -26,6 +29,15 @@ const IndexPage = props => {
         content
         acf {
           phrase
+          illustration_1 {
+            localFile {
+            childImageSharp {
+                fluid(maxWidth: 2000, maxHeight: 1200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
         }
       }
 
@@ -126,6 +138,9 @@ const IndexPage = props => {
       <HomeWrapper>
         <HomePageContentWrapper id="check">
           <div className="header-wrapper">
+            <div className="illustration">
+              <Cactus />
+            </div>
             <h2>{data.homeContent.acf.phrase}</h2>
             <div className="line">
               <hr />
@@ -185,9 +200,13 @@ const HomePageContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
     margin-bottom: 4rem;
+    text-align: center;
 
+    .illustration {
+      margin-bottom: 7rem;
+    }
     h2 {
-      font-size: 2.3rem;
+      font-size: 4.3rem;
     }
     .line {
       width: 25rem;
@@ -215,6 +234,9 @@ const HomeContent = styled.div`
   width: 70%;
   margin: 0 auto;
 
+  @media ${props => props.theme.device.mobileL} {
+    width: 100%;
+  }
 
 `
 

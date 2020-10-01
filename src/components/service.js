@@ -31,6 +31,10 @@ const ServiceWrapper = styled.div`
     text-decoration: none;
   }
 
+  @media ${props => props.theme.device.mobileL} {
+    margin-bottom: 2rem;
+  }
+
   .post-image {
     align-self: center;
     position: relative;

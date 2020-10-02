@@ -203,7 +203,7 @@ const HomePageContentWrapper = styled.div`
     text-align: center;
 
     .illustration {
-      margin-bottom: 7rem;
+      margin-bottom: 4rem;
     }
     h2 {
       font-size: 4.3rem;

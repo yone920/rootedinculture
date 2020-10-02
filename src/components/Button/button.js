@@ -3,17 +3,17 @@ import { withTheme } from "styled-components"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-const Button = ({ link, title, external }) => {
+const Button = ({ link, title, external, className }) => {
 
 
   return (
     <ButtonDiv>
       {external ? (
-        <a className="" href={link}>
+        <a className={className} href={link}>
           <p>{title}</p>
         </a>
       ) : (
-        <Link to={`/${link}`}>
+        <Link className={className} to={`/${link}`}>
           <p>{title}</p>
         </Link>
       )}
@@ -43,6 +43,15 @@ const ButtonDiv = styled.div`
     p {
       font-size: 1.3rem;
       line-height: 1;
+    }
+  }
+
+  .secondary {
+    background-color: ${props => props.theme.color.primary};
+
+    :hover {
+      background-color: rgba(64, 76, 7, 0.88);
+
     }
   }
 

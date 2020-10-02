@@ -4,7 +4,7 @@ import styled from 'styled-components'
  const Cactus = () => {
     return (
         <CactusContainer>
-            <svg x="0px" y="0px" viewBox="0 0 375.05 209.23">
+            <svg className="cactus_svg" x="0px" y="0px" viewBox="0 0 375.05 209.23">
               <g>
                 <path class="st0" d="M84.08,132.97c-1.39-0.01-2.78-0.02-4.17-0.04C81.53,132.95,82.95,132.96,84.08,132.97z"/>
                 <path class="st0" d="M103.24,110.7c1.6-11.16,2.61-22.38,1.25-33.62c-0.64-5.26-1.97-10.46-3.27-15.61
@@ -266,6 +266,10 @@ import styled from 'styled-components'
     .st0{fill:none;}
     .st1{fill:#424D21;}
     .st2{fill:#FFFFFF;}
+
+    .cactus_svg {
+      width: 25rem;
+    }
   `
 
 export default Cactus;

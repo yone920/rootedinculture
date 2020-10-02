@@ -75,7 +75,7 @@ const PostPageContainer = styled.div`
             }
 
             p {
-                line-height: 28px; margin-bottom: 15px; color: #666;
+               margin-bottom: 15px;
             }
         }
 

@@ -59,7 +59,7 @@ const FlowerArrangements = (props) => {
       <SEO title="Events | Rooted in Culture" />
       <FloweArrangementsContainer>
         <div className="content-title-wrapper">
-          <div className="catering-title">
+          <div className="flower-arrangement-title">
             <h2>{data.flowerArrangementContent.title}</h2>
           </div>
 					<HeaderLine>
@@ -105,21 +105,16 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 				width: 100%;
       }
 
-    .catering-title {
-			margin-bottom: 2rem;
+    .flower-arrangement-title {
       margin: 1rem auto;
 			text-align: center;
 
-
       @media ${props => props.theme.device.tablet} {
         width: 100%;
-
       }
     }
 
     .content-wrapper {
-
-			/* text-align: center; */
       margin: 0 auto;
 
       @media ${props => props.theme.device.tablet} {
@@ -127,6 +122,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
         margin-bottom: 3rem;
       }
     }
+
 	.shipping-info {
 			line-height: 2;
 			margin-top: 8rem;
@@ -158,7 +154,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
 const HeaderLine = styled.div`
 		width: 25rem;
-		margin: 1rem auto 3rem auto;
+		margin: 1rem auto 6rem auto;
 
 		hr {
 			border: 0;

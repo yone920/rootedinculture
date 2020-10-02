@@ -46,7 +46,7 @@ const EventsScheduleCall = () => {
     <InquiryContainer>
       <div className="inquiry-wrapper">
           <div className="catering-inquiry-title">
-            <h4>Schedule A Call</h4>
+            <h4>Inquiry</h4>
           </div>
           <form
               name="EventsScheduleCall"

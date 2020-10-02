@@ -22,7 +22,7 @@ function Dropdown({ title, items }) {
         onMouseEnter={() => toggle(!open)}
       >
         <div className="dd-header__title">
-          <p className="dd-header__title--bold">{title}</p>
+          <span className="dd-header__title--bold">{title}</span>
 					{open ?
 						<img className="arrow" src={Arrow} alt="React Logo" />
 						:

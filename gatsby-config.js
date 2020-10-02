@@ -1,3 +1,7 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Rooted In Culture`,
@@ -161,6 +165,12 @@ module.exports = {
           plugins: [], // an array of plugins to load for ESLint
           customOptions: {}, // see: https://eslint.org/docs/developer-guide/nodejs-api#cliengine
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mailchimp',
+      options: {
+          endpoint: process.env.MAILCHIMP_ENDPOINT,
       },
     },
     // rootedincultureflowers

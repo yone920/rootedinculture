@@ -12,7 +12,7 @@ const Contact = () => {
   // console.log(errors);
   // onSubmit={handleSubmit(onSubmit)}
 
-  // 
+  //
 
   return (
     <Layout>
@@ -78,14 +78,14 @@ textarea {
 }
 
 label {
-  line-height: 2;
   text-align: left;
   display: block;
   margin-bottom: 13px;
   margin-top: 20px;
   color: black;
-  font-size: 14px;
   font-weight: 200;
+  line-height: 1.7;
+  font-size: 2rem;
 }
 
 button[type="submit"],

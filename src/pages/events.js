@@ -118,12 +118,18 @@ const Events = props => {
           </div>
         </div>
         <div className="catering-inquiry">
-          <Button
-            link={"https://calendly.com/rootedinculture"}
-            title={data.eventsContent.acf.events_cta_title}
-            whiteBackground={true}
-            external={true}
-          />
+          <div className="catering-inquiry__call">
+            <Button link={"eventinquiry"} title={"Inquire Now"} />
+          </div>
+          <div className="catering-inquiry__schedule">
+            <Button
+              link={"https://calendly.com/rootedinculture"}
+              title={data.eventsContent.acf.events_cta_title}
+              whiteBackground={true}
+              external={true}
+              className={"secondary"}
+            />
+          </div>
         </div>
       </CateringContainer>
     </Layout>
@@ -163,8 +169,8 @@ const CateringContainer = styled.main`
 
       .catering-title {
         grid-column: 1 / 2;
-        margin: 3rem auto;
-        width: 70%;
+        margin: 3rem 0;
+        /* width: 70%; */
 
         @media ${props => props.theme.device.tablet} {
           width: 100%;
@@ -174,8 +180,8 @@ const CateringContainer = styled.main`
 
       .content-wrapper {
         grid-column: 1 / 2;
-        margin: 0 auto;
-        width: 70%;
+        /* margin: 0 auto; */
+        width: 90%;
 
         @media ${props => props.theme.device.tablet} {
           grid-column: 1 / -1;
@@ -228,8 +234,23 @@ const CateringContainer = styled.main`
 
   .catering-inquiry {
     grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     width: 50%;
-    justify-self: center;
+
+    @media ${props => props.theme.device.tablet} {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+    /* justify-self: center; */
+
+    &__call {
+      margin-right: 2rem;
+      @media ${props => props.theme.device.tablet} {
+        margin-right: 0;
+        margin-bottom: 3rem;
+      }
+    }
   }
 `
 

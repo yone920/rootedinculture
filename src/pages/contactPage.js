@@ -182,7 +182,7 @@ const ContactPageContainer = styled.div`
   .contact-form-wrapper {
     grid-column: center-start / col-end 4;
 
-    @media ${props => props.theme.device.mobileL} {
+    @media ${props => props.theme.device.tablet} {
       grid-column: center-start / center-end;
     }
   }
@@ -191,13 +191,17 @@ const ContactPageContainer = styled.div`
     grid-column: col-end 5 / center-end;
     padding: 6rem 0;
 
-    @media ${props => props.theme.device.mobileL} {
+    @media ${props => props.theme.device.tablet} {
       grid-column: center-start / center-end;
     }
 
     .contact-box-wrapper {
       margin-bottom: 4rem;
 
+      @media ${props => props.theme.device.tablet} {
+        max-width: 50rem;
+        margin: auto;
+      }
       .icon {
         margin-right: 2rem;
       }
@@ -239,13 +243,13 @@ const ContactPageContainer = styled.div`
     }
 
     label {
-      line-height: 2;
+      /* line-height: 2; */
       text-align: left;
       display: block;
       margin-bottom: 1.3rem;
       margin-top: 2rem;
       color: black;
-      font-size: 1.4rem;
+      /* font-size: 1.4rem; */
       font-weight: 200;
     }
 

@@ -93,7 +93,8 @@ const Catering = props => {
           <div>
             <Button
               link={"catering-shopping/featured"}
-              title={"Discover Our Menu"}
+              title={"Ready to order?"}
+              className={"secondary"}
             />
           </div>
         </div>
@@ -138,10 +139,12 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
 .catering-shop {
   grid-column: center-start / center-end;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
   position: relative;
   bottom: 15rem;
   z-index: 99;
-  display: flex;
+  /* display: flex; */
   margin: 0 auto;
 
   .shopping {

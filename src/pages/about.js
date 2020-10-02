@@ -120,7 +120,7 @@ const About = props => {
               <hr />
             </HeaderLine>
             <div className="first-paragraph-nichole-family">
-              <div
+              <p
                 className="first-paragprah-content"
                 dangerouslySetInnerHTML={{
                   __html: data.aboutContent.acf.first_paragraph,

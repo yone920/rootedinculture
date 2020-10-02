@@ -66,11 +66,11 @@ const Plants = (props) => {
               __html: data.plantsContent.content,
             }}
           />
-					<div className="shipping-info"
+					{/* <div className="shipping-info"
             dangerouslySetInnerHTML={{
               __html: data.shippingInfo.content,
             }}
-          />
+          /> */}
         </div>
         <div className="products-wrapper">
           <ProductsListing collection={data} parent={"arrangement"}/>

@@ -9,8 +9,6 @@ function Dropdown({ title, items }) {
   const toggle = () => setOpen(!open);
   Dropdown.handleClickOutside = () => setOpen(false);
 
-
-
   return (
     <DropDown>
       <div
@@ -32,9 +30,9 @@ function Dropdown({ title, items }) {
       </div>
       {open && (
         <ul className="dd-list">
-								<Link to="/catering">Catering</Link>
-								<Link to="/flowers">Flower</Link>
-								<Link to="/dinner">Dinner Parties</Link>
+          <Link to="/catering">Catering</Link>
+          <Link to="/dinner">Dinner Parties</Link>
+          <Link to="/flowers">Floral Design</Link>
         </ul>
       )}
     </DropDown>
@@ -66,7 +64,6 @@ const DropDown = styled.div`
 			z-index: 99;
 			margin-top: 1rem;
 			border-radius: .5rem;
-
 
 			border: 1px solid rgba(0,0,0,.15);
 			a {

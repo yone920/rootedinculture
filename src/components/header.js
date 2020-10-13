@@ -23,7 +23,7 @@ const items = [
   },
   {
     id: 2,
-		title: 'Flowers',
+		title: 'Floral Design',
 		link: 'flowers'
   },
   {

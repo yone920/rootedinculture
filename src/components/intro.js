@@ -55,33 +55,33 @@ const sources = [
   ]
 
    return (
-        <IntroContainer>
-            <StyledBackground
-                    Tag="section"
-                    className="hero"
-                    fluid={sources}
-                    backgroundColor={`#040e18`}
-                >
-                <HeroContentWrapper>
-                    <div className="logo-wrapper">
-                        <img src={Logo} alt="Rooted In Culture Logo"/>
-                    </div>
-                    <div className="hero-phrase">
-                        <p>
-                            <span>“Everything Nostalgic”</span><br />
-                            <span>Creating authentic spaces,</span><br />
-                            <span>with authentic people,</span><br />
-                            <span>through unforgettable experiences,</span><br />
-                            <span>rooted in culture!</span><br />
-                        </p>
-                    </div>
-                    <div className="hero-button">
-                        <Link to="/home">Welcome</Link>
-                    </div>
-                </HeroContentWrapper>
-            </StyledBackground>
+      <IntroContainer>
+        <StyledBackground
+              Tag="section"
+              className="hero"
+              fluid={sources}
+              backgroundColor={`#040e18`}
+            >
+          <HeroContentWrapper>
+              <div className="logo-wrapper">
+                <img src={Logo} alt="Rooted In Culture Logo"/>
+              </div>
+              <div className="hero-phrase">
+                <p>
+                  <span>“Everything Nostalgic”</span><br />
+                  <span>Creating authentic spaces,</span><br />
+                  <span>with authentic people,</span><br />
+                  <span>through unforgettable experiences,</span><br />
+                  <span>rooted in culture!</span><br />
+                </p>
+              </div>
+              <div className="hero-button">
+                  <Link to="/home">Welcome</Link>
+              </div>
+          </HeroContentWrapper>
+        </StyledBackground>
 
-        </IntroContainer>
+      </IntroContainer>
     )
 }
 
@@ -141,16 +141,16 @@ const HeroContentWrapper = styled.div`
             font-weight: italic;
 
             @media only screen and (max-width: 425px) {
-                font-size: 1.7rem;
+                font-size: 2rem;
                 line-height: 2rem;
             }
 
             span {
-                background-color: #fff;
                 display: inline-block;
-                color: black;
+                color: #fff;
                 margin: 0.1rem;
                 padding: 0 4rem;
+
 
                 @media only screen and (max-width: 425px) {
                     background-color: transparent;

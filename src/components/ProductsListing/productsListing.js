@@ -2,10 +2,8 @@ import React from 'react'
 import ProductsListingItem from "./productsListingItem"
 import styled from 'styled-components'
 import CateringSidebar from "./cateringSidebar"
-// import CateringSidebarMobile from "./cateringSidebarMobile"
 import { withTheme } from 'styled-components'
-// import { useMediaQuery } from 'react-responsive'
-// import { useStaticQuery, graphql } from "gatsby"
+
 
 
 const ProductsListing = ( {collection, parent} ) => {

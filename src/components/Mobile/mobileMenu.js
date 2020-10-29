@@ -32,8 +32,8 @@ const MobileMenu = ({ style }) => {
                             <Link onClick={toggleMobileMenu} to="/"><h4>Home</h4></Link>
                             <Link  onClick={toggleMobileMenu} to="/about"><h4>About</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
-                            <Link onClick={toggleMobileMenu} to="/flowers"><h4>Flower</h4></Link>
-                            <Link onClick={toggleMobileMenu} to="/dinner"><h4>Dinner</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/dinner"><h4>Dinner Parties</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/flowers"><h4>Floral Design</h4></Link>
                             {/* <Link onClick={toggleMobileMenu} to="/catering-shopping/featured"><h4>Shop</h4></Link> */}
                             <Link onClick={toggleMobileMenu} to="/archive"><h4>Blog</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/contactPage"><h4>Contact Us</h4></Link>
@@ -64,7 +64,7 @@ const MobileMenuWrapper = styled.div`
     }
 
     h4 {
-        font-size: 6rem;
+        font-size: 4rem;
     }
 `
 

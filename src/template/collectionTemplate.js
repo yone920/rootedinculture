@@ -56,7 +56,7 @@ export const query = graphql`
 						}
 					}
 
-				allShopifyCollection(filter: {handle: {nin: ["plants", "flower-arrangement"]}}) {
+				allShopifyCollection(filter: {handle: {nin: [ "plants", "flower-arrangement", "accessories"]}}) {
 					edges {
 						node {
 							title

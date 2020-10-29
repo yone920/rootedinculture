@@ -42,7 +42,7 @@ const ProductsListingItem = ({ product }) => {
   )
 }
 
-const ProductItemContainer = styled.main`
+const ProductItemContainer = styled.div`
 
     /* background-color: #F5F5F5; */
     display: grid;

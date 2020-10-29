@@ -13,9 +13,9 @@ const FlowerArrangements = (props) => {
 
   const data = useStaticQuery(graphql`
   query PageFlowerArrangementsData {
-      flowerArrangementContent: wordpressPage(slug: {eq: "flowerarrangement"}) {
+        flowerArrangementContent: wordpressPage(slug: {eq: "flowerarrangement"}) {
           title
-					content
+          content
         }
 
 				shippingInfo:	wordpressPage(slug: {eq: "shipping-info"}) {
@@ -51,7 +51,6 @@ const FlowerArrangements = (props) => {
 
     }`)
 
-
     // --------------------- Final Render ---------------------- //
 
   return (
@@ -70,11 +69,6 @@ const FlowerArrangements = (props) => {
               __html: data.flowerArrangementContent.content,
             }}
           />
-					<div className="shipping-info"
-							dangerouslySetInnerHTML={{
-								__html: data.shippingInfo.content,
-							}}
-						/>
         </div>
         <div className="products-wrapper">
           <ProductsListing collection={data} parent={"arrangement"}/>
@@ -86,14 +80,12 @@ const FlowerArrangements = (props) => {
 
 
 // =============== Styled Components  ================= ///
-const FloweArrangementsContainer = styled.main`
+const FloweArrangementsContainer = styled.div`
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-/* grid-template-rows: 70vh min-content; */
   @media ${props => props.theme.device.tablet} {
     margin-bottom: 8rem;
   }
-
 
   .content-title-wrapper {
     grid-column: center-start / center-end;
@@ -126,7 +118,6 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 	.shipping-info {
 			line-height: 2;
 			margin-top: 8rem;
-			/* text-align: center; */
 
 			hr {
 			margin: 2rem auto;
@@ -138,18 +129,14 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 		}
   }
 
-
   .products-wrapper {
     grid-column: full-start / full-end;
 		display: grid;
 		grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-		/* grid-template-columns: 1fr 1fr; */
       @media ${props => props.theme.device.tablet} {
     		grid-column: center-start / center-end;
-
       }
   }
-
 `
 
 const HeaderLine = styled.div`

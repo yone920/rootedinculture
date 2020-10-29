@@ -42,11 +42,8 @@ const Plants = (props) => {
 
             }
         }
-
     }`)
 
-
-    // debugger
 
     // --------------------- Final Render ---------------------- //
 
@@ -85,7 +82,6 @@ const Plants = (props) => {
 const PlantsContainer = styled.main`
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-/* grid-template-rows: 70vh min-content; */
   @media ${props => props.theme.device.tablet} {
     margin-bottom: 8rem;
   }
@@ -124,15 +120,6 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 		.shipping-info {
 			line-height: 2;
 			margin-top: 3rem;
-			/* text-align: center; */
-
-			/* hr {
-				margin: 2rem auto;
-				width: 30%;
-				border: 0;
-				height: 1px;
-				background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
-			} */
 		}
   }
 
@@ -140,7 +127,6 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     grid-column: full-start / full-end;
     display: grid;
     grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-    /* grid-template-columns: 1fr 1fr; */
       @media ${props => props.theme.device.tablet} {
         grid-column: center-start / center-end;
 

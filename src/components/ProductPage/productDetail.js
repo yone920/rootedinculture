@@ -50,6 +50,13 @@ const ProductDetail = ( {product, parent} ) => {
           </Link>
         </div>
         :
+       product.vendor === "accessories" ?
+        <div className="breadcrumbs">
+          <Link to={`/accessories`}>
+            Accessories Page
+          </Link>
+        </div>
+        :
       <div className="breadcrumbs">
         <Link to={`/catering-shopping/featured`}>
           Catering Shopping

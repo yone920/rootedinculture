@@ -8,21 +8,11 @@ import SEO from "../components/seo"
 import HomeSlider from "../components/HomeSlider"
 import "../stylesheet/main.scss"
 import InstagramList from "../components/Instagram/instagramList"
-import Img from "gatsby-image"
-import Cactus from "../components/SVGs/cactus"
 
 
 const IndexPage = props => {
-  // =============== Query ================= ///
   const data = useStaticQuery(graphql`
     query PageDataQuery {
-      heroImage: file(relativePath: { regex: "/rooted-in-culture-hero/" }) {
-        childImageSharp {
-          fluid(maxWidth: 1000) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
 
       homeContent: wordpressPage(slug: { eq: "fun-innovative-badass" }) {
         title
@@ -30,6 +20,15 @@ const IndexPage = props => {
         acf {
           phrase
           illustration_1 {
+            localFile {
+            childImageSharp {
+                fluid(maxWidth: 2000, maxHeight: 1200) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+          illustration_2 {
             localFile {
             childImageSharp {
                 fluid(maxWidth: 2000, maxHeight: 1200) {
@@ -65,7 +64,7 @@ const IndexPage = props => {
         }
       }
 
-      slider: allWordpressWpHomeCarousel {
+      slider: allWordpressWpHomeCarousel(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id
@@ -84,7 +83,7 @@ const IndexPage = props => {
         }
       }
 
-      mobileSlider: allWordpressWpHomeCarousel {
+      mobileSlider: allWordpressWpHomeCarousel(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id
@@ -116,6 +115,7 @@ const IndexPage = props => {
           }
         }
       }
+
     }
   `)
 
@@ -126,7 +126,6 @@ const IndexPage = props => {
       </Fragment>
     ))
 
-  // debugger
 
   // =============== Render ================= ///
   return (
@@ -139,7 +138,6 @@ const IndexPage = props => {
         <HomePageContentWrapper id="check">
           <div className="header-wrapper">
             <div className="illustration">
-              <Cactus />
             </div>
             <h2>{data.homeContent.acf.phrase}</h2>
             <div className="line">
@@ -227,15 +225,56 @@ const HomePageContentWrapper = styled.div`
 
 const HomeContent = styled.div`
   justify-self: center;
-  p {
-    /* text-align: center; */
-  }
-
   width: 70%;
   margin: 0 auto;
+  position: relative;
 
   @media ${props => props.theme.device.mobileL} {
     width: 100%;
+  }
+
+  &:before {
+    background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/yellow-.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    left: -300px;
+    top: -100px;
+    width: 500px;
+    height: 600px;
+    z-index: -1;
+    opacity: 30%;
+    content:"";
+
+    @media ${props => props.theme.device.mobileL} {
+      width: 300px;
+      height: 400px;
+      left: -200px;
+    }
+  }
+
+  &:after {
+    background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/colourful.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    display: inline-block;
+    position: absolute;
+    right: -300px;
+    top: -500px;
+    width: 500px;
+    height: 600px;
+    z-index: -1;
+    opacity: 30%;
+    content:"";
+    transform: rotate(180deg);
+
+    @media ${props => props.theme.device.mobileL} {
+      width: 300px;
+      height: 400px;
+      right: -200px;
+      top: -400px;
+    }
   }
 
 `

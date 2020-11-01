@@ -28,18 +28,13 @@ const Flowers = () => {
               }
             }
           }
-          fp_hero_image_mobile {
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1500, maxHeight: 1500) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+
         }
       }
-      flowerServices: allWordpressWpFlowerServices {
+
+
+
+      flowerServices: allWordpressWpFlowerServices(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id
@@ -77,11 +72,11 @@ const Flowers = () => {
         <div className="hero-image">
           <Img
             fluid={
-              data.flowerPage.acf.fp_hero_image_mobile.localFile.childImageSharp
-                .fluid
+              data.flowerPage.acf.fp_hero_image.localFile.childImageSharp.fluid
+
             }
             objectFit="cover"
-            objectPosition="50% 50%"
+            objectPosition="100% 100%"
           />
         </div>
       ) : (
@@ -98,6 +93,9 @@ const Flowers = () => {
         <div className="flower_page_title_content_container">
           <div className="flower_page_title">
             <h2> {data.flowerPage.title} </h2>
+          </div>
+          <div className="line">
+            <hr />
           </div>
           <div
             className="hero-content"
@@ -129,19 +127,19 @@ const FlowerContainer = styled.main`
     top: 31%;
 
     @media ${props => props.theme.device.desktop} {
-      top: 35%;
+      top: 30%;
       width: 40%;
       right: 10%;
       width: 30%;
     }
     @media ${props => props.theme.device.laptopL} {
-      top: 30%;
+      top: 25%;
       width: 40%;
       right: 6%;
       line-height: 1;
     }
     @media ${props => props.theme.device.laptop} {
-      top: 27%;
+      top: 23%;
     }
     @media ${props => props.theme.device.tablet} {
       grid-column: center-start / center-end;
@@ -173,9 +171,39 @@ const FlowerContainer = styled.main`
 
       @media ${props => props.theme.device.laptopL} {
         line-height: 1.8;
+        font-size: 0.3rem;
+      }
+
+      p {
+
+        @media ${props => props.theme.device.desktop} {
+          line-height: 1.8;
+          font-size: 1.7rem;
+        }
+
+        @media ${props => props.theme.device.laptopL} {
+          font-size: 1.4rem;
+        }
+        @media ${props => props.theme.device.tablet} {
+          font-size: 1.9rem;
+        }
+      }
+
+    }
+
+    .line {
+      width: 25rem;
+      margin: 1rem auto 3rem auto;
+
+      hr {
+        border: 0;
+        height: 1px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
       }
     }
   }
+
+
   .flower-services-wrapper {
     grid-column: center-start / center-end;
     display: grid;

@@ -9,47 +9,32 @@ import { Link } from "gatsby"
 
 const Intro = () => {
 
-    const data = useStaticQuery(graphql`
-    query HeroImageQuery {
-
-        cateringHero: file(relativePath: {
-        regex: "/rooted-in-culture-hero-catering/"
-        }) {
-        childImageSharp {
-            fluid(maxWidth: 1700) {
-            ...GatsbyImageSharpFluid
-                }
-            }
+const data = useStaticQuery(graphql`
+  query IntoPageData {
+      introPageContent: wordpressPage(slug: {eq: "intro"}) {
+          title
+          content
+          acf {
+            into_photo {
+              localFile {
+                childImageSharp {
+                    fluid(maxWidth: 1700) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+              }
+          }
         }
-
-    flowerHero: file(relativePath: {
-        regex: "/rooted-in-culture-hero-flower/"
-        }) {
-        childImageSharp {
-            fluid(maxWidth: 1700) {
-            ...GatsbyImageSharpFluid
-                }
-            }
-        }
-
-    flowerHeroMobile: file(relativePath: {
-        regex: "/rooted-in-culture-hero-flower-mobile/"
-        }) {
-        childImageSharp {
-            fluid(maxWidth: 1700) {
-            ...GatsbyImageSharpFluid
-                }
-            }
-        }
+      }
     }
 `)
 
 
 
 const sources = [
-    data.cateringHero.childImageSharp.fluid,
+    data.introPageContent.acf.into_photo.localFile.childImageSharp.fluid,
     {
-      ...data.flowerHeroMobile.childImageSharp.fluid,
+      ...data.introPageContent.acf.into_photo.localFile.childImageSharp.fluid,
       media: `(max-width: 491px)`,
     },
   ]
@@ -66,17 +51,13 @@ const sources = [
               <div className="logo-wrapper">
                 <img src={Logo} alt="Rooted In Culture Logo"/>
               </div>
-              <div className="hero-phrase">
-                <p>
-                  <span>“Everything Nostalgic”</span><br />
-                  <span>Creating authentic spaces,</span><br />
-                  <span>with authentic people,</span><br />
-                  <span>through unforgettable experiences,</span><br />
-                  <span>rooted in culture!</span><br />
-                </p>
-              </div>
+              <div className="hero-phrase"
+                dangerouslySetInnerHTML={{
+                  __html: data.introPageContent.content,
+                }}
+              />
               <div className="hero-button">
-                  <Link to="/home">Welcome</Link>
+                <Link to="/home">Welcome</Link>
               </div>
           </HeroContentWrapper>
         </StyledBackground>
@@ -104,7 +85,7 @@ const HeroContentWrapper = styled.div`
     align-items: center;
     padding-left: 8rem;
 
-    @media only screen and (max-width: 425px) {
+    @media only screen and (max-width: 600px) {
         grid-column: 1 / 3;
         padding: 0 3rem;
     }
@@ -115,12 +96,12 @@ const HeroContentWrapper = styled.div`
         img {
             width: 100%;
 
-            @media only screen and (max-width: 425px) {
+            @media only screen and (max-width: 600px) {
                 width: 70%;
             }
         }
 
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 600px) {
             align-self: start;
             padding-top: 3rem;
         }
@@ -131,33 +112,21 @@ const HeroContentWrapper = styled.div`
         align-self: start;
         justify-self: center;
 
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 600px) {
             align-self: end;
         }
+
         p {
-            text-align: center;
+          color: #fff;
+          text-align: center;
+          font-size: 2rem;
+          line-height: 3rem;
+          font-weight: italic;
+
+          @media only screen and (max-width: 600px) {
             font-size: 2rem;
-            line-height: 3rem;
-            font-weight: italic;
-
-            @media only screen and (max-width: 425px) {
-                font-size: 2rem;
-                line-height: 2rem;
-            }
-
-            span {
-                display: inline-block;
-                color: #fff;
-                margin: 0.1rem;
-                padding: 0 4rem;
-
-
-                @media only screen and (max-width: 425px) {
-                    background-color: transparent;
-                    padding: 0 2rem;
-                    color: #fff;
-                }
-            }
+            line-height: 2rem;
+          }
         }
     }
 
@@ -167,25 +136,26 @@ const HeroContentWrapper = styled.div`
         align-self: start;
         justify-self: center;
 
-        @media only screen and (max-width: 425px) {
+        @media only screen and (max-width: 600px) {
             align-self: center;
         }
+
         a {
-            display: inline-block;
-            width: 100%;
-            background-color: #cf4a2c;
-            text-align: center;
-            padding: 1rem 1rem;
-            text-decoration: none;
-            color: white;
-            text-transform: uppercase;
-            border-radius: 1rem;
-            :hover {
-                background-color: white;
-                color: #cf4a2c;
+          display: inline-block;
+          width: 100%;
+          background-color: #cf4a2c;
+          text-align: center;
+          padding: 1rem 1rem;
+          text-decoration: none;
+          color: white;
+          text-transform: uppercase;
+          border-radius: 1rem;
+          :hover {
+            background-color: white;
+            color: #cf4a2c;
         }
-        }
-    }
+     }
+  }
 `
 
 export default Intro;

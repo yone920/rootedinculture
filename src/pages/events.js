@@ -39,7 +39,7 @@ const Events = props => {
         content
       }
 
-      slider: allWordpressWpEventsSlider {
+      slider: allWordpressWpEventsSlider(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             acf {
@@ -57,7 +57,7 @@ const Events = props => {
         }
       }
 
-      mobileSlider: allWordpressWpEventsSlider {
+      mobileSlider: allWordpressWpEventsSlider(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             acf {

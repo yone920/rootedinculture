@@ -43,6 +43,7 @@ const ButtonDiv = styled.div`
     p {
       font-size: 1.3rem;
       line-height: 1;
+      line-height: 1.5;
     }
   }
 

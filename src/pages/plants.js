@@ -6,6 +6,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
 import ProductsListing from '../components/ProductsListing/productsListing'
+import HomeSlider from "../components/HomeSlider"
 
 
 
@@ -42,6 +43,42 @@ const Plants = (props) => {
 
             }
         }
+
+        slider: allWordpressWpPlantsSlider(sort: {fields: acf___order, order: ASC}) {
+        edges {
+          node {
+            acf {
+              photo {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1500, maxHeight: 600) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      mobileSlider: allWordpressWpPlantsSlider(sort: {fields: acf___order, order: ASC}) {
+        edges {
+          node {
+            acf {
+              photo {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1500, maxHeight: 1000) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }`)
 
 
@@ -51,6 +88,9 @@ const Plants = (props) => {
     <Layout>
       <SEO title="Events | Rooted in Culture" />
       <PlantsContainer>
+        <div className="slider-container">
+          <HomeSlider desktop={data.slider} mobile={data.mobileSlider} />
+        </div>
         <div className="content-title-wrapper">
           <div className="catering-title">
             <h2>{data.plantsContent.title}</h2>
@@ -86,11 +126,16 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     margin-bottom: 8rem;
   }
 
+  .slider-container {
+    grid-column: full-start / full-end;
+    margin-bottom: 3rem;
+  }
+
 
   .content-title-wrapper {
 		grid-column: center-start / center-end;
 		width: 70%;
-		margin: 0 auto;
+		margin: 8rem auto;
       @media ${props => props.theme.device.tablet} {
         grid-column: center-start / center-end;
 				margin: 5rem 0;

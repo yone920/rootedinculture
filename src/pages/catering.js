@@ -32,7 +32,7 @@ const Catering = props => {
         }
       }
 
-      slider: allWordpressWpCateringCarousel {
+      slider: allWordpressWpCateringCarousel(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id
@@ -51,7 +51,7 @@ const Catering = props => {
         }
       }
 
-      mobileSlider: allWordpressWpCateringCarousel {
+      mobileSlider: allWordpressWpCateringCarousel(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id

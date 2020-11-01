@@ -16,7 +16,7 @@ const Dinner = props => {
         content
       }
 
-      slider: allWordpressWpDinnerSlider {
+      slider: allWordpressWpDinnerSlider(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id
@@ -35,7 +35,7 @@ const Dinner = props => {
         }
       }
 
-      mobileSlider: allWordpressWpDinnerSlider {
+      mobileSlider: allWordpressWpDinnerSlider(sort: {fields: acf___order, order: ASC}) {
         edges {
           node {
             id

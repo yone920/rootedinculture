@@ -89,12 +89,9 @@ const ProductDetail = ( {product, parent} ) => {
               </select>
                 }
           </div>
-          {/* <div className="desc-wrapper">
-              <p>{product.description}</p>
-          </div> */}
           <div className="desc-wrapper"
             dangerouslySetInnerHTML={{
-              __html: product.description,
+              __html: product.descriptionHtml,
             }}
           />
         </div>
@@ -144,16 +141,10 @@ const ProductContainer = styled.main`
   .image-wrapper {
     grid-column: center-start / col-end 4;
     display: grid;
-    /* grid-template-columns: repeat(3, 1fr); */
     grid-gap: .5rem;
-
     @media ${props => props.theme.device.laptop} {
      grid-column: center-start / center-end;
     }
-
-    /* :first-child {
-      grid-column: 1 / 4;
-    } */
   }
 
   .content-add-to-cart-wrapper {
@@ -197,6 +188,15 @@ const ProductContainer = styled.main`
 
       .desc-wrapper {
         margin-top: 3rem;
+
+        ul {
+          padding: 2rem 0;
+          li {
+            font-size: 1.6rem;
+          }
+          padding-left: 2rem;
+
+        }
       }
     }
 

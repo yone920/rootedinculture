@@ -14,16 +14,16 @@ const Events = props => {
       eventsContent: wordpressPage(slug: { eq: "events" }) {
         acf {
           events_cta_title
-          events_photo_2 {
-            id
-            localFile {
-              childImageSharp {
-                fluid(maxWidth: 1000, maxHeight: 1500) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
+          # events_photo_2 {
+          #   id
+          #   localFile {
+          #     childImageSharp {
+          #       fluid(maxWidth: 1000, maxHeight: 1500) {
+          #         ...GatsbyImageSharpFluid
+          #       }
+          #     }
+          #   }
+          # }
           event_photo_1 {
             id
             localFile {
@@ -106,14 +106,6 @@ const Events = props => {
                   }
                 />
               </div>
-              <div className="image-2">
-                <Img
-                  fluid={
-                    data.eventsContent.acf.events_photo_2.localFile
-                      .childImageSharp.fluid
-                  }
-                />
-              </div>
             </div>
           </div>
         </div>
@@ -191,11 +183,12 @@ const CateringContainer = styled.main`
       }
       .images-wrapper {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-column-gap: 1rem;
         @media ${props => props.theme.device.tablet} {
           grid-column: 1 / -1;
           width: 100%;
+          align-self: start;
         }
         .image-1 {
           grid-column: 1 / 2;

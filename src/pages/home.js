@@ -233,7 +233,7 @@ const HomeContent = styled.div`
     width: 100%;
   }
 
-  &:before {
+  /* &:before {
     background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/yellow-.png");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -252,9 +252,9 @@ const HomeContent = styled.div`
       height: 400px;
       left: -200px;
     }
-  }
+  } */
 
-  &:after {
+  /* &:after {
     background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/colourful.png");
     background-size: 100%;
     background-repeat: no-repeat;
@@ -275,7 +275,7 @@ const HomeContent = styled.div`
       right: -200px;
       top: -400px;
     }
-  }
+  } */
 
 `
 

@@ -21,18 +21,19 @@ const ProductDetail = ( {product, parent} ) => {
             </div>
           )
         })
-        )
-        const vendor = product.vendor.replace(/-/g, ' ');
-        const Vendor = (str) => {
-          str = str.toLowerCase().split(' ');
+    )
 
-          for(var i = 0; i < str.length; i++){
-            str[i] = str[i].split('');
-            str[i][0] = str[i][0].toUpperCase();
-            str[i] = str[i].join('');
-          }
-          return str.join(' ');
-        }
+    const vendor = product.vendor.replace(/-/g, ' ');
+    const Vendor = (str) => {
+      str = str.toLowerCase().split(' ');
+
+      for(var i = 0; i < str.length; i++){
+        str[i] = str[i].split('');
+        str[i][0] = str[i][0].toUpperCase();
+        str[i] = str[i].join('');
+      }
+      return str.join(' ');
+    }
 
   return (
     <ProductContainer>
@@ -67,36 +68,40 @@ const ProductDetail = ( {product, parent} ) => {
         </Link>
       </div>
     }
-      {mapOverImages()}
-      <div className="content-add-to-cart-wrapper">
-        <div className="content-wrapper">
-          <div className="product-name">
-            <h1>{product.title}</h1>
-          </div>
-          <div className="product-price">
-            <h3>${selectedVariant.price}</h3>
-          </div>
-          <div className="">
-            {product.variants.length > 1 &&
-              <select className="variant-select" onChange={e => {
-                const selected = product.variants.filter(variant => variant.sku ===  e.target.value)
-                setSelectedvariant(selected[0])
-                }}
-                value={selectedVariant.sku}>
-                {product.variants.map(variant => (
-                <option key={variant.id} value={variant.sku}>{variant.title}</option>
-                ))}
-              </select>
-                }
-          </div>
-          <div className="desc-wrapper"
-            dangerouslySetInnerHTML={{
-              __html: product.descriptionHtml,
-            }}
-          />
+      <div className="images-content-container">
+        <div>
+        {mapOverImages()}
         </div>
-        <div className="add-to-cart-button">
-          <AddToCart variantId={selectedVariant.shopifyId}/>
+        <div className="content-add-to-cart-wrapper">
+          <div className="content-wrapper">
+            <div className="product-name">
+              <h1>{product.title}</h1>
+            </div>
+            <div className="product-price">
+              <h3>${selectedVariant.price}</h3>
+            </div>
+            <div className="">
+              {product.variants.length > 1 &&
+                <select className="variant-select" onChange={e => {
+                  const selected = product.variants.filter(variant => variant.sku ===  e.target.value)
+                  setSelectedvariant(selected[0])
+                  }}
+                  value={selectedVariant.sku}>
+                  {product.variants.map(variant => (
+                  <option key={variant.id} value={variant.sku}>{variant.title}</option>
+                  ))}
+                </select>
+                  }
+            </div>
+            <div className="desc-wrapper"
+              dangerouslySetInnerHTML={{
+                __html: product.descriptionHtml,
+              }}
+            />
+          </div>
+          <div className="add-to-cart-button">
+            <AddToCart variantId={selectedVariant.shopifyId}/>
+          </div>
         </div>
       </div>
     </ProductContainer>
@@ -138,20 +143,25 @@ const ProductContainer = styled.main`
     }
   }
 
+  .images-content-container {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
   .image-wrapper {
-    grid-column: center-start / col-end 4;
     display: grid;
     grid-gap: .5rem;
+    align-self: start;
+    margin-bottom: 2rem;
     @media ${props => props.theme.device.laptop} {
      grid-column: center-start / center-end;
     }
   }
 
   .content-add-to-cart-wrapper {
-    grid-column: col-start 5 / center-end;
     margin-left: 5rem;
     display: grid;
-    align-items: start;
+    align-self: start;
 
     @media ${props => props.theme.device.laptop} {
         grid-column: center-start / center-end;
@@ -199,14 +209,13 @@ const ProductContainer = styled.main`
         }
       }
     }
-
-
+  }
     .add-to-cart-button {
       /* margin-top: 4rem; */
       align-self: end;
 
       @media ${props => props.theme.device.mobile} {
-        margin-top: 4rem;
+        margin-top: 12rem;
     }
     }
 

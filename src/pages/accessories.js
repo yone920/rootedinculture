@@ -1,5 +1,4 @@
 import React from "react"
-// import { withTheme } from 'styled-components'
 import styled from 'styled-components'
 import { useStaticQuery, graphql } from "gatsby"
 import HomeSlider from "../components/HomeSlider"
@@ -18,64 +17,62 @@ export const Accessories = (props) => {
     }
 
     slider: allWordpressWpCcessoriesSlider {
-        edges {
-          node {
-            id
-            acf {
-              photo {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1500, maxHeight: 600) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      mobileSlider: allWordpressWpCcessoriesSlider {
-        edges {
-          node {
-            id
-            acf {
-              photo {
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 1500, maxHeight: 1000) {
-                      ...GatsbyImageSharpFluid
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-
-      shopifyCollection(handle: {eq: "accessories"}) {
-        title
-          products {
-            description
-            title
-            id
-            handle
-            vendor
-            images {
+      edges {
+        node {
+          id
+          acf {
+            photo {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1500, maxHeight: 1500) {
+                  fluid(maxWidth: 1500, maxHeight: 600) {
                     ...GatsbyImageSharpFluid
                   }
                 }
               }
             }
-
           }
         }
+      }
+    }
 
+    mobileSlider: allWordpressWpCcessoriesSlider {
+      edges {
+        node {
+          id
+          acf {
+            photo {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1500, maxHeight: 1000) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    shopifyCollection(handle: {eq: "accessories"}) {
+      title
+        products {
+          description
+          title
+          id
+          handle
+          vendor
+          images {
+            localFile {
+              childImageSharp {
+                fluid(maxWidth: 1500, maxHeight: 1500) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        }
+      }
   }
 `)
 

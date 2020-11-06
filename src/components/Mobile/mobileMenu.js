@@ -29,7 +29,7 @@ const MobileMenu = ({ style }) => {
                             <Close />
                         </div>
                         <MobileMenuWrapper>
-                            <Link onClick={toggleMobileMenu} to="/"><h4>Home</h4></Link>
+                            <Link onClick={toggleMobileMenu} to="/home"><h4>Home</h4></Link>
                             <Link  onClick={toggleMobileMenu} to="/about"><h4>About</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/catering"><h4>Catering</h4></Link>
                             <Link onClick={toggleMobileMenu} to="/dinner"><h4>Dinner Parties</h4></Link>
@@ -51,11 +51,9 @@ const MobileMenuWrapper = styled.div`
     margin-top: 3rem;
     a {
         text-decoration: none;
-
 				h4 {
         	color: #fff;
 				}
-
         :hover {
             color: ${props => props.theme.color.secondary};
             text-decoration: underline;

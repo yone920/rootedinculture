@@ -112,29 +112,32 @@ const Catering = props => {
             }}
           />
         </div>
-        <div className="catering-inquiry">
-          <Button link={"cateringinquiry"} title={"Inquire Now"} />
+        <div className="inquiry-call-buttons">
+          <div className="catering-inquiry">
+            <Button link={"cateringinquiry"} title={"Inquire Now"} />
+          </div>
+          <div className="catering-inquiry__schedule">
+              <Button
+                link={"https://calendly.com/rootedinculture"}
+                title="Schedule a call"
+                whiteBackground={true}
+                external={true}
+                className={"secondary"}
+              />
+          </div>
         </div>
       </CateringContainer>
     </Layout>
   )
 }
 
-// =============== Styled Components  ================= ///
 const CateringContainer = styled.main`
 display: grid;
 grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8, [col-start] minmax(min-content, 13rem) [ col-end ]) [center-end] minmax(4rem, 1fr) [ full-end ];
-/* grid-template-rows: 70vh min-content; */
 
 .slider-container {
   grid-column: full-start / full-end;
   margin-bottom: 3rem;
-}
-
-.catering-inquiry {
-  grid-column: center-start / center-end;
-  width: 80%;
-  justify-self: center;
 }
 
 .catering-shop {
@@ -144,11 +147,21 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
   position: relative;
   bottom: 15rem;
   z-index: 99;
-  /* display: flex; */
   margin: 0 auto;
+
+  @media ${props => props.theme.device.mobileL} {
+    bottom: 20rem;
+    grid-template-columns: 1fr;
+    bottom: 0;
+    width: 100%;
+  }
 
   .shopping {
     margin-right: 1rem;
+    @media ${props => props.theme.device.mobileL} {
+      margin-right: 0;
+      margin-bottom: 2rem;
+    }
   }
 
   a {
@@ -191,7 +204,6 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
     }
   .catering-title {
     text-align: center;
-    /* margin-bottom: 3rem; */
   }
 
   .line {
@@ -207,8 +219,7 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
 
   .content {
     margin: 0 auto;
-    width: 80%;
-    /* text-align: center; */
+    /* width: 80%; */
 
     @media ${props => props.theme.device.mobileL} {
       width: 100%;
@@ -218,7 +229,38 @@ grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(8
       padding-left: 1.5rem;
     }
   }
+
 }
+
+  .inquiry-call-buttons {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-items: center;
+    margin: 0 auto;
+    width: 80%;
+
+    @media ${props => props.theme.device.tablet} {
+      width: 100%;
+      grid-template-columns: 1fr;
+    }
+
+    .catering-inquiry {
+      width: 100%;
+      margin-right: 2rem;
+
+      @media ${props => props.theme.device.tablet} {
+        margin-right: 0;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .catering-inquiry__schedule {
+      width: 100%;
+
+    }
+  }
+
 
 `
 

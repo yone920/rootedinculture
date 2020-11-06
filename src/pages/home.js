@@ -191,7 +191,7 @@ const HomePageContentWrapper = styled.div`
   padding: 8rem 0 8rem 0;
 
   @media ${props => props.theme.device.mobileL} {
-    padding: 4rem 0 8rem 0;
+    padding: 0rem 0 8rem 0;
   }
 
   .header-wrapper {
@@ -232,51 +232,6 @@ const HomeContent = styled.div`
   @media ${props => props.theme.device.mobileL} {
     width: 100%;
   }
-
-  /* &:before {
-    background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/yellow-.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    display: inline-block;
-    position: absolute;
-    left: -300px;
-    top: -100px;
-    width: 500px;
-    height: 600px;
-    z-index: -1;
-    opacity: 30%;
-    content:"";
-
-    @media ${props => props.theme.device.mobileL} {
-      width: 300px;
-      height: 400px;
-      left: -200px;
-    }
-  } */
-
-  /* &:after {
-    background-image: url("https://www.rootedinculture.net/wp-content/uploads/2020/11/colourful.png");
-    background-size: 100%;
-    background-repeat: no-repeat;
-    display: inline-block;
-    position: absolute;
-    right: -300px;
-    top: -500px;
-    width: 500px;
-    height: 600px;
-    z-index: -1;
-    opacity: 30%;
-    content:"";
-    transform: rotate(180deg);
-
-    @media ${props => props.theme.device.mobileL} {
-      width: 300px;
-      height: 400px;
-      right: -200px;
-      top: -400px;
-    }
-  } */
-
 `
 
 /// =============== Services Section Wrapper Style ================= ///
@@ -288,7 +243,6 @@ const ServicesWrapper = styled.div`
       [col-start] minmax(min-content, 13rem) [ col-end ]
     ) [center-end] minmax(4rem, 1fr) [ full-end ];
   justify-content: center;
-  /* padding: 5rem 0; */
   background-color: #f5f5f5;
 `
 

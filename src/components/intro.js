@@ -4,7 +4,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { useStaticQuery, graphql } from "gatsby"
 import Logo from "../images/white_logo_transparent.png"
 import { Link } from "gatsby"
-
+import SEO from "../components/seo"
 
 
 const Intro = () => {
@@ -24,6 +24,24 @@ const data = useStaticQuery(graphql`
                   }
               }
           }
+            into_photo_mobile {
+              localFile {
+                childImageSharp {
+                    fluid(maxWidth: 1700) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+              }
+          }
+            into_photo_tablet {
+              localFile {
+                childImageSharp {
+                    fluid(maxWidth: 1700) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
+              }
+          }
         }
       }
     }
@@ -31,18 +49,23 @@ const data = useStaticQuery(graphql`
 
 
 
-const sources = [
-    data.introPageContent.acf.into_photo.localFile.childImageSharp.fluid,
-    {
-      ...data.introPageContent.acf.into_photo.localFile.childImageSharp.fluid,
-      media: `(max-width: 491px)`,
-    },
-  ]
+    const sources = [
+      data.introPageContent.acf.into_photo.localFile.childImageSharp.fluid,
+      {
+        ...data.introPageContent.acf.into_photo_mobile.localFile.childImageSharp.fluid,
+        media: `(max-width: 500px)`,
+      },
+      // {
+      //   ...data.introPageContent.acf.into_photo_tablet.localFile.childImageSharp.fluid,
+      //   media: `(max-width: 1000px)`,
+      // },
+    ]
 
    return (
       <IntroContainer>
+        <SEO title="Welcome" />
         <StyledBackground
-              Tag="section"
+              Tag={`section`}
               className="hero"
               fluid={sources}
               backgroundColor={`#040e18`}
@@ -79,7 +102,7 @@ const StyledBackground = styled(BackgroundImage)`
 `
 
 const HeroContentWrapper = styled.div`
-    grid-column: 1 / 2;
+    grid-column: 1 / 3;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
@@ -93,17 +116,19 @@ const HeroContentWrapper = styled.div`
 
     .logo-wrapper {
         grid-column: 1 / 3;
+        margin: 0 auto;
+        width: 50%;
         img {
-            width: 100%;
-
-            @media only screen and (max-width: 600px) {
-                width: 70%;
-            }
+          width: 100%;
+          @media only screen and (max-width: 600px) {
+              width: 70%;
+          }
         }
 
         @media only screen and (max-width: 600px) {
-            align-self: start;
-            padding-top: 3rem;
+          width: 100%;
+          align-self: start;
+          padding-top: 3rem;
         }
     }
 
@@ -125,7 +150,7 @@ const HeroContentWrapper = styled.div`
 
           @media only screen and (max-width: 600px) {
             font-size: 2rem;
-            line-height: 2rem;
+            line-height: 3rem;
           }
         }
     }

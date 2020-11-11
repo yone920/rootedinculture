@@ -147,6 +147,9 @@ const ProductContainer = styled.main`
     grid-column: center-start / center-end;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    @media ${props => props.theme.device.laptop} {
+    display: block;
+    }
 
   .image-wrapper {
     display: grid;

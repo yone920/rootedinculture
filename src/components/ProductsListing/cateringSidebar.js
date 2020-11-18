@@ -17,7 +17,7 @@ import Img from "gatsby-image"
 			 data.allShopifyCollection.edges.map(edge => {
 				return (
 					<div className="menu-item mobile-catering-menu" key={edge.node.handle}>
-						<Link to={`/catering-shopping/${edge.node.handle}`}>
+						<Link to={`/catering-shopping/${edge.node.handle}`} className="menu-link">
 							<p className="menu-title">
 								{edge.node.title}
 							</p>
@@ -45,11 +45,12 @@ import Img from "gatsby-image"
           // --------------------- Style ---------------------- //
 const  MenuContainer = styled.nav`
 
-		@media ${props => props.theme.device.mobileL} {
+		@media ${props => props.theme.device.tablet} {
       display: grid;
-			grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+			grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 			grid-gap: 1rem;
 			padding: 0 3rem;
+      align-items: end;
     }
 		/* .mobile-catering-menu {
 		} */
@@ -76,12 +77,16 @@ const  MenuContainer = styled.nav`
 			margin-bottom: 1rem;
 		}
 
-		.collection-image {
-			img {
-				border-radius: 50%;
+    .menu-link {
+        display: grid;
+      .collection-image {
 
-			}
-		}
+        img {
+          border-radius: 50%;
+			  }
+		  }
+    }
+
 	}
 	`
 

@@ -50,7 +50,7 @@ const ProductsListing = ( {collection, parent} ) => {
     display: grid;
     grid-template-columns: 1fr 4fr;
 
-    @media ${props => props.theme.device.mobileL} {
+    @media ${props => props.theme.device.tablet} {
     	grid-column: full-start / full-end;
       grid-template-columns: none;
     }
@@ -58,7 +58,7 @@ const ProductsListing = ( {collection, parent} ) => {
     .nav-wrapper {
       padding-top: 2rem;
 
-      @media ${props => props.theme.device.mobileL} {
+      @media ${props => props.theme.device.tablet} {
         margin-bottom: 3rem;
       }
 
@@ -77,7 +77,7 @@ const ProductsListing = ( {collection, parent} ) => {
     }
     .products-header-wrapper {
 
-       @media ${props => props.theme.device.mobileL} {
+       @media ${props => props.theme.device.tablet} {
 					padding: 0 3rem;
         }
 
@@ -92,8 +92,8 @@ const ProductsListing = ( {collection, parent} ) => {
         grid-row-gap: 6rem;
 
 
-       @media ${props => props.theme.device.mobileL} {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+       @media ${props => props.theme.device.tablet} {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
         grid-row-gap: 3rem;
         }
       }

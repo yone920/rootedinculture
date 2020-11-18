@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Client from 'shopify-buy'
+console.log('Client:', Client)
 
 
 export const client = Client.buildClient({

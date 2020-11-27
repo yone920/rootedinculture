@@ -30,25 +30,25 @@ module.exports = {
     //     display: 'swap'
     //   }
     // },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          // {
-          //   family: `Raleway`,
-          //   variants: [`400`, `700`]
-          // },
-          {
-            family: `Playball`,
-            variants: [`400`]
-          },
-          {
-            family: `Roboto`,
-            subsets: [`latin`]
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       // {
+    //       //   family: `Raleway`,
+    //       //   variants: [`400`, `700`]
+    //       // },
+    //       {
+    //         family: `Playball`,
+    //         variants: [`400`]
+    //       },
+    //       {
+    //         family: `Roboto`,
+    //         subsets: [`latin`]
+    //       },
+    //     ],
+    //   },
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

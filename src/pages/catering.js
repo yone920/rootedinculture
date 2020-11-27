@@ -21,6 +21,13 @@ const Catering = props => {
       cateringContent: wordpressPage(slug: { eq: "catering-home" }) {
         title
         content
+        acf {
+          upload_file {
+            url {
+              source_url
+            }
+          }
+        }
         featured_media {
           localFile {
             childImageSharp {
@@ -82,9 +89,8 @@ const Catering = props => {
         <div className="catering-shop">
           <div className="shopping">
             <Button
-              link={
-                "https://www.rootedinculture.net/wp-content/uploads/2020/08/Rooted_In_Culture_Menu.pdf"
-              }
+              link={data.cateringContent.acf.upload_file.url.source_url}
+
               title={"Download Menu"}
               external={true}
               download={true}

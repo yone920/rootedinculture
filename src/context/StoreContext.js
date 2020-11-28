@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Client from 'shopify-buy'
-console.log('Client:', Client)
 
 
 export const client = Client.buildClient({
@@ -86,7 +85,6 @@ export const StoreProvider = ({ children }) => {
 
     /// Initialize the checkout and set the sate with the new checkoutId
     const initializeCheckout = async () => {
-        console.log(client);
 
         try {
             setLoading(true)
@@ -95,16 +93,13 @@ export const StoreProvider = ({ children }) => {
             const currentCheckoutId = isBrowser
             ? localStorage.getItem('checkout_id')
             : null
-            console.log('currentCheckoutId:', currentCheckoutId)
 
                 let newCheckout = null;
                 if (currentCheckoutId) {
                     // If id exists, fetch checkout from Shopify
                     newCheckout = await client.checkout.fetch(currentCheckoutId)
-                    console.log('newCheckout:', newCheckout)
 
                     if (newCheckout.completedAt) {
-                      console.log("from insidenewCheckout.completedAt")
                         newCheckout = await getNewId()
                     }
                 } else {

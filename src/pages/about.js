@@ -4,9 +4,9 @@ import { withTheme } from "styled-components"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
-
 import Layout from "../components/Layout/layout"
 import SEO from "../components/seo"
+import TestimonialSlider from "../components/Testimonials/TestimonialSlider"
 
 const About = props => {
   const data = useStaticQuery(graphql`
@@ -90,6 +90,17 @@ const About = props => {
           }
         }
       }
+
+      testimonials: allWordpressWpTestimonial {
+        edges {
+          node {
+            acf {
+              review
+              reviewer
+            }
+          }
+        }
+      }
     }
   `)
 
@@ -153,6 +164,11 @@ const About = props => {
             </div>
           </div>
 
+          <div className="testimonials">
+            <h2>Testimonials</h2>
+            <TestimonialSlider testimonials={data.testimonials}/>
+          </div>
+
           <div className="our-team">
             <h2>Our Team</h2>
             <HeaderLine>
@@ -208,6 +224,7 @@ const AboutContainer = styled.main`
     grid-column: center-start / center-end;
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 10rem;
 
     @media ${props => props.theme.device.mobileL} {
       width: 100%;
@@ -302,6 +319,20 @@ const AboutContainer = styled.main`
           margin-bottom: 3rem;
         }
       }
+    }
+  }
+
+  .testimonials {
+    grid-column: full-start / full-end;
+    text-align: center;
+    margin-bottom: 10rem;
+    background-color: ${props => props.theme.color.primary};
+    color: #fff;
+    padding: 6rem 0;
+
+    h2 {
+      margin-bottom: 3rem;
+      color: #fff;
     }
   }
 

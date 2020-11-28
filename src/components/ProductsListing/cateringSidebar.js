@@ -75,14 +75,18 @@ const  MenuContainer = styled.nav`
 		.menu-title {
 			margin-bottom: 1rem;
       color: #fff;
+      font-size: 1.2rem;
+      text-align: center;
 		}
 
     .menu-link {
         display: grid;
+        justify-content: center;
       .collection-image {
-
+        width: 8rem;
         img {
           border-radius: 50%;
+          margin: auto;
 			  }
 		  }
     }

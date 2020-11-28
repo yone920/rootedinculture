@@ -1,25 +1,39 @@
-import React from 'react'
+import React, { useState, useContext } from 'react'
 import ProductsListingItem from "./productsListingItem"
 import styled from 'styled-components'
 import CateringSidebar from "./cateringSidebar"
 import { withTheme } from 'styled-components'
-
-
+import { useMediaQuery } from 'react-responsive'
+import SEO from '../seo'
+import { StoreContext } from '../../context/StoreContext'
+import ArrowBold from '../SVGs/arrowBold'
 
 const ProductsListing = ( {collection, parent} ) => {
+  const { isCateringMenuOnMobileOpen, toggleCateringMobileMenu } = useContext(StoreContext)
+  const [isClicked, setClick] = useState(false)
+  const isMobile = useMediaQuery({ query: '(max-width: 900px)' })
+
 
 
   return (
     <Container>
+      <SEO title="Shop" />
+
       { parent === "arrangement" ?
         null
         :
       <div className= "nav-wrapper">
         <div className="nav-title-wrapper">
-          <p>Catering Menu</p>
+          {isMobile ?
+          <div className="nav-menu-wrapper" onClick={() => setClick(prevState => !prevState)}>
+            <button onClick={toggleCateringMobileMenu}>Catering Menu  <ArrowBold className={isClicked ? "rotate" : ""}/></button>
+          </div>
+            :
+            <p>Catering Menu</p>
+          }
         </div>
-        <div className="nav-wrapper">
-            <CateringSidebar data={collection}/>
+        <div className={`nav-wrapper ${isMobile && !isCateringMenuOnMobileOpen ? 'hidden' : null}`}>
+          <CateringSidebar data={collection}/>
         </div>
       </div>
       }
@@ -59,6 +73,7 @@ const ProductsListing = ( {collection, parent} ) => {
       padding-top: 2rem;
 
       @media ${props => props.theme.device.tablet} {
+      padding-top: 0;
         margin-bottom: 3rem;
       }
 
@@ -66,19 +81,50 @@ const ProductsListing = ( {collection, parent} ) => {
         border-bottom: 0.1rem solid black;
         margin-right: 3rem;
 
-      @media ${props => props.theme.device.mobileL} {
-        padding: 0 3rem;
-      }
+        @media ${props => props.theme.device.tablet} {
+          margin-right: 0;
+          /* padding: 0 3rem; */
+          border-bottom: 0;
+
+        }
+
         p {
           font-size: 1.4rem;
           font-weight: 100;
+        }
+
+        .nav-menu-wrapper {
+          display: flex;
+          flex-direction: column;
+
+          button {
+            width: 100%;
+            padding: 1.5rem 0;
+            border: none;
+            text-align: center;
+            vertical-align: middle;
+            display: inline-block;
+            background-color: ${props => props.theme.color.primary};
+            color: #fff;
+
+            svg {
+            vertical-align: middle;
+            display: inline-block;
+            transform: rotate(-90deg)
+            }
+
+            .rotate {
+              transform: rotate(0)
+
+            }
+          }
         }
       }
     }
     .products-header-wrapper {
 
        @media ${props => props.theme.device.tablet} {
-					padding: 0 3rem;
+          padding: 0 3rem;
         }
 
       .header-wrapper {
@@ -107,9 +153,12 @@ const ProductsListing = ( {collection, parent} ) => {
        @media ${props => props.theme.device.mobileL} {
 				grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 				margin: 0;
-
         }
 		}
+
+    .hidden {
+      display: none;
+    }
 	`
 
 export default withTheme(ProductsListing);

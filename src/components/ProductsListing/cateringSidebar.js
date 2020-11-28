@@ -1,13 +1,14 @@
-import React from 'react'
+import React,  {useContext} from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { withTheme } from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import Img from "gatsby-image"
+import { StoreContext } from '../../context/StoreContext'
 
 
  const CateringSidebar = ( {data} ) => {
-
+  const { toggleCateringMobileMenu } = useContext(StoreContext)
   const isMobile = useMediaQuery({ query: '(max-width: 900px)' })
 
 
@@ -16,7 +17,7 @@ import Img from "gatsby-image"
 			{isMobile ?
 			 data.allShopifyCollection.edges.map(edge => {
 				return (
-					<div className="menu-item mobile-catering-menu" key={edge.node.handle}>
+					<div className="menu-item mobile-catering-menu" key={edge.node.handle} onClick={toggleCateringMobileMenu}>
 						<Link to={`/catering-shopping/${edge.node.handle}`} className="menu-link">
 							<p className="menu-title">
 								{edge.node.title}
@@ -49,15 +50,13 @@ const  MenuContainer = styled.nav`
       display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
 			grid-gap: 1rem;
-			padding: 0 3rem;
+			padding: 4rem 3rem;
       align-items: end;
+      background-color: ${props => props.theme.color.primary};
     }
-		/* .mobile-catering-menu {
-		} */
 
 	.menu-item {
 		padding-bottom: 1rem;
-		/* background-color: red; */
 
 		a,
 		a:link {
@@ -75,6 +74,7 @@ const  MenuContainer = styled.nav`
 
 		.menu-title {
 			margin-bottom: 1rem;
+      color: #fff;
 		}
 
     .menu-link {
@@ -89,11 +89,5 @@ const  MenuContainer = styled.nav`
 
 	}
 	`
-
-// @media ${props => props.theme.device.laptop} {
-// 	grid-column: center-start / center-end;
-// 	margin: 5rem 0 0 0;
-// }
-
 
 export default withTheme(CateringSidebar);

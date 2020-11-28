@@ -15,12 +15,12 @@ const Cart = ({ style }) => {
     const qty = checkout.lineItems.reduce((total, item) => {
         return total + item.quantity
     }, 0)
-    
+
     return (
         <Fragment>
-            { isTabletOrMobile ? 
+            { isTabletOrMobile ?
             <animated.div
-            style={{ 
+            style={{
             position: "fixed",
             top: 0,
             right: 0,
@@ -29,7 +29,7 @@ const Cart = ({ style }) => {
             background: "#404C07",
             zIndex: 102,
             overflow: "scroll",
-            ...style 
+            ...style
             }}>
 
                 <CardWrapper>
@@ -44,9 +44,9 @@ const Cart = ({ style }) => {
                     }
                 </CardWrapper>
             </animated.div>
-            : 
+            :
             <animated.div
-                style={{ 
+                style={{
                 position: "fixed",
                 top: 0,
                 right: 0,
@@ -55,7 +55,7 @@ const Cart = ({ style }) => {
                 background: "#404C07",
                 zIndex: 102,
                 overflowY: "scroll",
-                ...style 
+                ...style
                 }}>
 
                 <CardWrapper>
@@ -75,18 +75,12 @@ const Cart = ({ style }) => {
     )
 }
 
-// const CartStyleDesktop = css`
 
-// `
-// const CartStyleMobile = css`
-// transform: translateY(-3px);
-// box-shadow: 0 1rem 2rem rgba(0, 0, 255,.2);
-// `
 
-const CardWrapper = styled.div` 
-        h3 {
-            color: white;
-        }
+const CardWrapper = styled.div`
+  h3 {
+      color: white;
+  }
 `
 
 const CloseCartDiv = styled.div`
@@ -99,4 +93,4 @@ const CloseCartDiv = styled.div`
 
 
 
-export default Cart 
+export default Cart

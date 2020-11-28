@@ -14,6 +14,7 @@ const defaultValues = {
     isCartOpen: false,
     isMobileMenuOpen: false,
     isCateringInquiriesOpen: false,
+    isMenuOnMobileOpen: false,
     toggleCartOpen: () => {},
     toggleDropDownOpen: () => {},
     toggleMobileMenu: () => {},
@@ -43,6 +44,7 @@ export const StoreProvider = ({ children }) => {
     const [isLoading, setLoading] = useState(false)
     const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [isCateringInquiriesOpen, setCateringInquiries] = useState(false)
+    const [isCateringMenuOnMobileOpen, setCateringMenuOnMobile] = useState(false)
 
     const toggleCateringInquiries = () => {
         setCateringInquiries(!isCateringInquiriesOpen)
@@ -58,6 +60,10 @@ export const StoreProvider = ({ children }) => {
 
     const toggleMobileMenu = () => {
         setMobileMenuOpen(!isMobileMenuOpen)
+    }
+
+    const toggleCateringMobileMenu = () => {
+      setCateringMenuOnMobile(!isCateringMenuOnMobileOpen)
     }
 
 
@@ -200,6 +206,8 @@ export const StoreProvider = ({ children }) => {
             isMobileMenuOpen,
             isCateringInquiriesOpen,
             toggleCateringInquiries,
+            toggleCateringMobileMenu,
+            isCateringMenuOnMobileOpen
             }}>
             {children}
         </StoreContext.Provider>

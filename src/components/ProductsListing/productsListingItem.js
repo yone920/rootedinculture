@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-// import AddToCart from "../Cart/addToCart"
 import styled from 'styled-components'
 import PlusSvg from '../../images/svg/plus.svg'
 
@@ -15,7 +14,7 @@ const ProductsListingItem = ({ product }) => {
 
   return (
     <ProductItemContainer>
-      <Link to={`/catering-shopping/${product.vendor}/${product.handle}`}>
+      <Link to={`/catering-shopping/${product.vendor}/${product.handle}`} >
         <div className="product-image">
 					{ firstImage ?
           	<Img fluid={firstImage.localFile.childImageSharp.fluid} />

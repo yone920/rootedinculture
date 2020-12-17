@@ -17,7 +17,7 @@ const Listing = (props) => {
                     excerpt
                     date(formatString: "MMMM DD, YYYY")
                     title
-                    slug 
+                    slug
                     featured_media {
                         localFile {
                             childImageSharp {
@@ -33,19 +33,19 @@ const Listing = (props) => {
         }
 `)
 
-return( 
+return(
             <ListWrapper>
                 {data.allWordpressPost.edges.map(edge => (
                     <PostListingItems key={edge.node.id} node={edge.node}/>
                 ))}
-            </ListWrapper>    
-    
+            </ListWrapper>
+
         )
 }
 
 const ListWrapper = styled.article`
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-column-gap: 1rem;
     grid-row-gap: 1rem;
 

@@ -59,7 +59,7 @@ const ProductDetail = ( {product, parent} ) => {
         </div>
         :
       <div className="breadcrumbs">
-        <Link to={`/catering-shopping/featured`}>
+        <Link to={`/catering-shopping/jerk`}>
           Catering Shopping
         </Link>
         <span>/</span>

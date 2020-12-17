@@ -98,7 +98,7 @@ const Catering = props => {
           </div>
           <div>
             <Button
-              link={"catering-shopping/featured"}
+              link={"catering-shopping/jerk"}
               title={"Ready to order?"}
               className={"secondary"}
             />

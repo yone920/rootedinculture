@@ -63,7 +63,7 @@ const ProductDetail = ( {product, parent} ) => {
           Catering Shopping
         </Link>
         <span>/</span>
-        <Link to={`/catering-shopping/${product.vendor}`}>
+        <Link to={`/catering-shopping/${product.vendor.toLowerCase().replace(/\s+/g, '-')}`}>
           {Vendor(vendor)}
         </Link>
       </div>

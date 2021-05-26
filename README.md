@@ -1,20 +1,27 @@
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.rootedinculture.com">
-    <img alt="Gatsby" src="https://www.rootedinculture.com/static/white_logo_transparent-3aed56095e0d848612f9cf9d7d4d56da.png" width="60" />
+    <img alt="Gatsby" src="https://www.rootedinculture.com/static/dark_logo_transparent-2e782eb6576d324cc28e93816f2dd62a.png" width="260" />
   </a>
 </p>
-<h1 align="center">
-  Rooted In Culture
-</h1>
 
-Rooted In Culture is a project I developed for a small business in New York. 
+Rooted In Culture is a catering and floral business based in Harlem NY. The website helps customers order products and services online.
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+Link to website [Rooted In Culture](https://www.rootedinculture.com)
 
-## 🚀 Quick start
+Link to [Figma Design](https://www.figma.com/file/cnhVzUC5M2z75GTlj9ISsz/Untitled?node-id=0%3A1) 
 
-1.  **Create a Gatsby site.**
+## Tools and Technologies Used
+
+#### Fontend Framework:- GatsbyJs
+
+#### CSS:- Styled Components
+
+#### Ecommerce:- Shopify
+
+#### CMS:- Headless WordPress
+
+#### Email subscription:- Mailchimp
 
 
 

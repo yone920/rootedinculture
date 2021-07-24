@@ -78,15 +78,15 @@ module.exports = {
         accessToken: `56092a7ec1c498c4830dfb5b558badc9`,
         verbose: true,
         paginationSize: 250,
-      }
+      },
     },
     `gatsby-plugin-netlify`,
     {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "MyFontsWebfontsKit",
-        path: `${__dirname}/src/fonts/`
-      }
+        path: `${__dirname}/src/fonts/`,
+      },
     },
     // {
     // 	resolve: `gatsby-source-instagram`,
@@ -98,12 +98,12 @@ module.exports = {
     // 		maxPosts: 1000,
     // 	},
     // },
-    {
-      resolve: `gatsby-source-instagram`,
-      options: {
-        username: `1759947270`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-instagram`,
+    //   options: {
+    //     username: `1759947270`,
+    //   },
+    // },
     {
       resolve: "gatsby-plugin-prettier-eslint",
       // this is the default configuration, override only what you need
@@ -140,9 +140,9 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-mailchimp',
+      resolve: "gatsby-plugin-mailchimp",
       options: {
-          endpoint: process.env.MAILCHIMP_ENDPOINT,
+        endpoint: process.env.MAILCHIMP_ENDPOINT,
       },
     },
     {

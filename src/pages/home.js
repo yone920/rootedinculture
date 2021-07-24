@@ -103,20 +103,20 @@ const IndexPage = props => {
           }
         }
       }
-      instagramNodes: allInstaNode(limit: 15) {
-        nodes {
-          id
-          # likes
-          localFile {
-            url
-            childImageSharp {
-              fluid(maxWidth: 1500, maxHeight: 1500) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-        }
-      }
+      # instagramNodes: allInstaNode(limit: 15) {
+      #   nodes {
+      #     id
+      #     # likes
+      #     localFile {
+      #       url
+      #       childImageSharp {
+      #         fluid(maxWidth: 1500, maxHeight: 1500) {
+      #           ...GatsbyImageSharpFluid
+      #         }
+      #       }
+      #     }
+      #   }
+      # }
     }
   `)
 

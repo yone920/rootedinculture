@@ -9,11 +9,9 @@ import HomeSlider from "../components/HomeSlider"
 import "../stylesheet/main.scss"
 import InstagramList from "../components/Instagram/instagramList"
 
-
 const IndexPage = props => {
   const data = useStaticQuery(graphql`
     query PageDataQuery {
-
       homeContent: wordpressPage(slug: { eq: "fun-innovative-badass" }) {
         title
         content
@@ -21,7 +19,7 @@ const IndexPage = props => {
           phrase
           illustration_1 {
             localFile {
-            childImageSharp {
+              childImageSharp {
                 fluid(maxWidth: 2000, maxHeight: 1200) {
                   ...GatsbyImageSharpFluid
                 }
@@ -30,7 +28,7 @@ const IndexPage = props => {
           }
           illustration_2 {
             localFile {
-            childImageSharp {
+              childImageSharp {
                 fluid(maxWidth: 2000, maxHeight: 1200) {
                   ...GatsbyImageSharpFluid
                 }
@@ -64,7 +62,9 @@ const IndexPage = props => {
         }
       }
 
-      slider: allWordpressWpHomeCarousel(sort: {fields: acf___order, order: ASC}) {
+      slider: allWordpressWpHomeCarousel(
+        sort: { fields: acf___order, order: ASC }
+      ) {
         edges {
           node {
             id
@@ -83,7 +83,9 @@ const IndexPage = props => {
         }
       }
 
-      mobileSlider: allWordpressWpHomeCarousel(sort: {fields: acf___order, order: ASC}) {
+      mobileSlider: allWordpressWpHomeCarousel(
+        sort: { fields: acf___order, order: ASC }
+      ) {
         edges {
           node {
             id
@@ -115,7 +117,6 @@ const IndexPage = props => {
           }
         }
       }
-
     }
   `)
 
@@ -125,7 +126,6 @@ const IndexPage = props => {
         <Service service={node} />
       </Fragment>
     ))
-
 
   // =============== Render ================= ///
   return (
@@ -137,8 +137,7 @@ const IndexPage = props => {
       <HomeWrapper>
         <HomePageContentWrapper id="check">
           <div className="header-wrapper">
-            <div className="illustration">
-            </div>
+            <div className="illustration"></div>
             <h2>{data.homeContent.acf.phrase}</h2>
             <div className="line">
               <hr />
@@ -153,7 +152,7 @@ const IndexPage = props => {
         <ServicesWrapper>
           <Services>{MapOverServices()}</Services>
         </ServicesWrapper>
-        <InstaWrapper>
+        {/* <InstaWrapper>
           <div className="insta-header-wrapper">
             <h2>Browse Our</h2>
             <div className="line">
@@ -162,7 +161,7 @@ const IndexPage = props => {
             <h1>Instagram</h1>
           </div>
           <InstagramList data={data.instagramNodes} />
-        </InstaWrapper>
+        </InstaWrapper> */}
       </HomeWrapper>
     </Layout>
   )
@@ -172,10 +171,12 @@ const IndexPage = props => {
 
 const HomeWrapper = styled.div`
   display: grid;
-  grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(
+  grid-template-columns:
+    [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(
       8,
       [col-start] minmax(min-content, 13rem) [ col-end ]
-    ) [center-end] minmax(4rem, 1fr) [ full-end ];
+    )
+    [center-end] minmax(4rem, 1fr) [ full-end ];
   grid-template-rows: min-content min-content;
 `
 
@@ -238,10 +239,12 @@ const HomeContent = styled.div`
 const ServicesWrapper = styled.div`
   grid-column: full-start / full-end;
   display: grid;
-  grid-template-columns: [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(
+  grid-template-columns:
+    [ full-start ] minmax(4rem, 1fr) [center-start ] repeat(
       8,
       [col-start] minmax(min-content, 13rem) [ col-end ]
-    ) [center-end] minmax(4rem, 1fr) [ full-end ];
+    )
+    [center-end] minmax(4rem, 1fr) [ full-end ];
   justify-content: center;
   background-color: #f5f5f5;
 `

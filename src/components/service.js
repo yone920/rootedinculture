@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import Button from "../components/Button/button"
 
 const Service = props => {
+  console.log("props:", props)
   return (
     <ServiceWrapper>
       <div className="post-image">

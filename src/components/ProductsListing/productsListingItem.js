@@ -12,8 +12,8 @@ const ProductsListingItem = ({ product }) => {
 
   return (
     <ProductItemContainer>
-      <Link
-        to={`https://rooted-in-culture-test.myshopify.com/products/${product.handle}`}
+      <a
+        href={`https://rooted-in-culture-test.myshopify.com/products/${product.handle}`}
       >
         <div className="product-image">
           {firstImage ? (
@@ -25,7 +25,7 @@ const ProductsListingItem = ({ product }) => {
             </div>
           </div>
         </div>
-      </Link>
+      </a>
       <div className="product-name-price-wrapper">
         <div className="product-name">
           <h4 className="title is-3">{product.title}</h4>

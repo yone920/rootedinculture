@@ -123,7 +123,7 @@ const IndexPage = props => {
   const MapOverServices = () =>
     data.services.edges.map(node => (
       <Fragment key={node.node.id}>
-        <Service service={node} />
+        <Service service={node} home={true} />
       </Fragment>
     ))
 

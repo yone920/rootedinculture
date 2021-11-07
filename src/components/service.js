@@ -15,13 +15,19 @@ const Service = props => {
         />
         <div className="overlay">
           <div className="text ButtonDiv">
-            {/* <Button
-              link={`${props.service.node.acf.link}`}
-              title={props.service.node.title}
-            /> */}
-            <Link className={"className"} to={`${props.service.node.acf.link}`}>
-              <p>{props.service.node.title}</p>
-            </Link>
+            {props.home ? (
+              <Link
+                className={"className"}
+                to={`${props.service.node.acf.link}`}
+              >
+                <p>{props.service.node.title}</p>
+              </Link>
+            ) : (
+              <Button
+                link={`/${props.service.node.acf.link}`}
+                title={props.service.node.title}
+              />
+            )}
           </div>
         </div>
       </div>

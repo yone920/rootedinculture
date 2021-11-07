@@ -24,7 +24,7 @@ const Service = props => {
               </Link>
             ) : (
               <Button
-                link={`/${props.service.node.acf.link}`}
+                link={`${props.service.node.acf.link}`}
                 title={props.service.node.title}
               />
             )}

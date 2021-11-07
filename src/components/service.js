@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { withTheme } from "styled-components"
 import Img from "gatsby-image"
 import Button from "../components/Button/button"
+import { Link } from "gatsby"
 
 const Service = props => {
   console.log("props:", props)
@@ -13,11 +14,14 @@ const Service = props => {
           fluid={props.service.node.acf.photo.localFile.childImageSharp.fluid}
         />
         <div className="overlay">
-          <div className="text">
-            <Button
-              link={props.service.node.acf.link}
+          <div className="text ButtonDiv">
+            {/* <Button
+              link={`${props.service.node.acf.link}`}
               title={props.service.node.title}
-            />
+            /> */}
+            <Link className={"className"} to={`${props.service.node.acf.link}`}>
+              <p>{props.service.node.title}</p>
+            </Link>
           </div>
         </div>
       </div>
@@ -29,7 +33,35 @@ const StyledImage = styled(Img)``
 
 const ServiceWrapper = styled.div`
   a {
+    display: inline-block;
+    width: 100%;
+    background-color: ${props => props.theme.color.secondary};
+    text-align: center;
+    padding: 2rem 2rem;
     text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    border: none;
+    :hover {
+      background-color: #f66b4c;
+      color: #fff;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1;
+      line-height: 1.5;
+    }
+  }
+
+  .secondary {
+    background-color: ${props => props.theme.color.primary};
+
+    :hover {
+      background-color: rgba(64, 76, 7, 0.88);
+    }
   }
 
   @media ${props => props.theme.device.mobileL} {

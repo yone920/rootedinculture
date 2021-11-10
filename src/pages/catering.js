@@ -39,7 +39,9 @@ const Catering = props => {
         }
       }
 
-      slider: allWordpressWpCateringCarousel(sort: {fields: acf___order, order: ASC}) {
+      slider: allWordpressWpCateringCarousel(
+        sort: { fields: acf___order, order: ASC }
+      ) {
         edges {
           node {
             id
@@ -58,7 +60,9 @@ const Catering = props => {
         }
       }
 
-      mobileSlider: allWordpressWpCateringCarousel(sort: {fields: acf___order, order: ASC}) {
+      mobileSlider: allWordpressWpCateringCarousel(
+        sort: { fields: acf___order, order: ASC }
+      ) {
         edges {
           node {
             id
@@ -90,7 +94,6 @@ const Catering = props => {
           <div className="shopping">
             <Button
               link={data.cateringContent.acf.upload_file.url.source_url}
-
               title={"Download Menu"}
               external={true}
               download={true}
@@ -98,9 +101,10 @@ const Catering = props => {
           </div>
           <div>
             <Button
-              link={"catering-shopping/jerk"}
+              link={"https://www.rootedinculture.shop/shop/3"}
               title={"Ready to order?"}
               className={"secondary"}
+              external={true}
             />
           </div>
         </div>
@@ -123,13 +127,13 @@ const Catering = props => {
             <Button link={"cateringinquiry"} title={"Inquire Now"} />
           </div>
           <div className="catering-inquiry__schedule">
-              <Button
-                link={"https://calendly.com/rootedinculture"}
-                title="Schedule a call"
-                whiteBackground={true}
-                external={true}
-                className={"secondary"}
-              />
+            <Button
+              link={"https://calendly.com/rootedinculture"}
+              title="Schedule a call"
+              whiteBackground={true}
+              external={true}
+              className={"secondary"}
+            />
           </div>
         </div>
       </CateringContainer>
